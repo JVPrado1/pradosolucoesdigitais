@@ -2,20 +2,27 @@
 // Hero Section - Impacto inicial
 ---
 
-<section id="hero" class="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black flex items-center relative overflow-hidden">
-  <!-- Background Effects -->
-  <div class="absolute inset-0 bg-[url('/grid.svg')] opacity-20"></div>
-  <div class="absolute top-20 right-10 w-72 h-72 bg-[#00bc61] rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-  <div class="absolute bottom-20 left-10 w-96 h-96 bg-[#00bc61] rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse delay-1000"></div>
-
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="grid lg:grid-cols-2 gap-20 items-center">
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black">
+  
+  <!-- Background Pattern -->
+  <div class="absolute inset-0 opacity-20">
+    <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;%3E%3Cg fill=&quot;%2300bc61&quot; fill-opacity=&quot;0.1&quot;%3E%3Ccircle cx=&quot;30&quot; cy=&quot;30&quot; r=&quot;1&quot;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')"></div>
+  </div>
+  
+  <!-- Gradient Overlays -->
+  <div class="absolute top-0 left-0 w-full h-full">
+    <div class="absolute top-20 left-20 w-72 h-72 bg-[#00bc61]/20 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-20 right-20 w-96 h-96 bg-[#00bc61]/10 rounded-full blur-3xl"></div>
+  </div>
+  
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center items-center min-h-screen">
+    <div class="grid lg:grid-cols-2 gap-32 items-center">
       
       <!-- Conteúdo Principal -->
       <div class="text-white">
-       
-        <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-          Soluções
+        
+        <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight animate-on-scroll fade-up">
+          Soluções 
           <span class="text-[#00bc61] relative">
             Digitais
             <svg class="absolute -bottom-2 left-0 w-full h-3" viewBox="0 0 200 12" fill="none">
@@ -25,25 +32,25 @@
           <br />Sob Medida
         </h1>
         
-        <p class="text-xl text-[#A7A9AC] mb-8 leading-relaxed max-w-lg">
+        <p class="text-xl text-[#A7A9AC] mb-8 leading-relaxed max-w-lg animate-on-scroll fade-up animation-delay-200">
           Ajudamos <strong class="text-white">empresas e profissionais</strong> a <strong class="text-white">crescerem online</strong>, 
           <strong class="text-white">facilitarem o dia a dia</strong> e <strong class="text-white">otimizarem processos</strong> 
           através de tecnologias modernas e <strong class="text-white">soluções inteligentes</strong>.
         </p>
         
         <!-- Principais Serviços -->
-        <div class="grid grid-cols-2 gap-4 mb-8">
-          <div class="flex items-center space-x-3">
-            <div class="w-8 h-8 bg-[#00bc61]/20 rounded-lg flex items-center justify-center">
+        <div class="grid grid-cols-2 gap-4 mb-8 animate-on-scroll fade-up animation-delay-400">
+          <div class="flex items-center space-x-3 group">
+            <div class="w-8 h-8 bg-[#00bc61]/20 rounded-lg flex items-center justify-center group-hover:bg-[#00bc61]/30 transition-colors duration-300 group-hover:scale-110">
               <svg class="w-4 h-4 text-[#00bc61]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"/>
               </svg>
             </div>
             <span class="text-white font-medium">Sites & E-commerces</span>
           </div>
           
-          <div class="flex items-center space-x-3">
-            <div class="w-8 h-8 bg-[#00bc61]/20 rounded-lg flex items-center justify-center">
+          <div class="flex items-center space-x-3 group">
+            <div class="w-8 h-8 bg-[#00bc61]/20 rounded-lg flex items-center justify-center group-hover:bg-[#00bc61]/30 transition-colors duration-300 group-hover:scale-110">
               <svg class="w-4 h-4 text-[#00bc61]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
               </svg>
@@ -51,8 +58,8 @@
             <span class="text-white font-medium">Aplicativos</span>
           </div>
           
-          <div class="flex items-center space-x-3">
-            <div class="w-8 h-8 bg-[#00bc61]/20 rounded-lg flex items-center justify-center">
+          <div class="flex items-center space-x-3 group">
+            <div class="w-8 h-8 bg-[#00bc61]/20 rounded-lg flex items-center justify-center group-hover:bg-[#00bc61]/30 transition-colors duration-300 group-hover:scale-110">
               <svg class="w-4 h-4 text-[#00bc61]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
               </svg>
@@ -60,8 +67,8 @@
             <span class="text-white font-medium">Sistemas & Plataformas</span>
           </div>
           
-          <div class="flex items-center space-x-3">
-            <div class="w-8 h-8 bg-[#00bc61]/20 rounded-lg flex items-center justify-center">
+          <div class="flex items-center space-x-3 group">
+            <div class="w-8 h-8 bg-[#00bc61]/20 rounded-lg flex items-center justify-center group-hover:bg-[#00bc61]/30 transition-colors duration-300 group-hover:scale-110">
               <svg class="w-4 h-4 text-[#00bc61]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
               </svg>
@@ -70,7 +77,7 @@
           </div>
         </div>
         
-        <div class="flex flex-col sm:flex-row gap-4 mb-8">
+        <div class="flex flex-col sm:flex-row gap-4 mb-8 animate-on-scroll fade-up animation-delay-600">
           <a href="#contact" class="bg-[#00bc61] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#00a555] hover:shadow-xl hover:shadow-[#00bc61]/25 hover:scale-105 transition-all duration-300 text-center flex items-center justify-center group">
             <span>Começar Meu Projeto</span>
             <svg class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -81,40 +88,14 @@
             Ver Portfólio
           </a>
         </div>
-        
-     
       </div>
       
       <!-- Visual/Animação -->
-      <div class="hidden lg:block relative">
-        <div class="relative w-full h-96">
-          <!-- Mockup de tela -->
-          <div class="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl shadow-2xl p-4 transform rotate-3 hover:rotate-0 transition-transform duration-500">
-            <div class="bg-black rounded-lg h-full p-4 relative overflow-hidden">
-              <!-- Simulação de código -->
-              <div class="space-y-2 opacity-80">
-                <div class="flex items-center space-x-2">
-                  <div class="w-3 h-3 bg-red-500 rounded-full"></div>
-                  <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                  <div class="w-3 h-3 bg-green-500 rounded-full"></div>
-                </div>
-                <div class="mt-4 space-y-2">
-                  <div class="h-2 bg-[#00bc61] rounded w-3/4"></div>
-                  <div class="h-2 bg-gray-600 rounded w-1/2"></div>
-                  <div class="h-2 bg-gray-700 rounded w-2/3"></div>
-                  <div class="h-2 bg-[#00bc61] rounded w-1/3"></div>
-                  <div class="h-2 bg-gray-600 rounded w-3/4"></div>
-                </div>
-              </div>
-              
-              <!-- Efeito de typing -->
-              <div class="absolute bottom-4 left-4 right-4">
-                <div class="text-[#00bc61] text-sm font-mono">
-                  <span class="opacity-100">$ transformando negócios...</span>
-                  <span class="animate-pulse">|</span>
-                </div>
-              </div>
-            </div>
+      <div class="hidden lg:block relative flex items-center justify-center animate-on-scroll fade-right animation-delay-400">
+        <div class="relative">
+          <!-- Imagem -->
+          <div class="relative rounded-2xl overflow-hidden transform rotate-3 hover:rotate-0 transition-all duration-500 flex items-center justify-center hover:scale-105 ">
+            <img src="/hero.svg" alt="Prado Soluções Digitais" class="ml-12 w-[80%] h-auto rounded-2xl" />
           </div>
           
           <!-- Elementos flutuantes -->
@@ -134,4 +115,39 @@
       </svg>
     </div>
   </div>
-</section> 
+</section>
+
+<style>
+  /* Animações baseadas em scroll - sutis e elegantes */
+  .animate-on-scroll {
+    opacity: 0;
+    transition: all 0.4s ease-out;
+  }
+  
+  .animate-on-scroll.fade-up {
+    transform: translateY(15px);
+  }
+  
+  .animate-on-scroll.fade-right {
+    transform: translateX(-15px);
+  }
+  
+  .animate-on-scroll.animate-in {
+    opacity: 1;
+    transform: translateY(0) translateX(0);
+  }
+  
+  .animation-delay-200 {
+    transition-delay: 0.1s;
+  }
+  
+  .animation-delay-400 {
+    transition-delay: 0.15s;
+  }
+  
+  .animation-delay-600 {
+    transition-delay: 0.2s;
+  }
+</style>
+
+ 
