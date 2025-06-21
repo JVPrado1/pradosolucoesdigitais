@@ -297,7 +297,7 @@
     }
   }
   
-  /* Animações baseadas em scroll - sutis e elegantes */
+  /* Animações baseadas em scroll - otimizadas para mobile */
   .animate-on-scroll {
     opacity: 0;
     transition: all 0.4s ease-out;
@@ -318,5 +318,18 @@
   .animate-on-scroll.animate-in {
     opacity: 1;
     transform: translate(0, 0);
+  }
+  
+  /* Mobile: animações mais rápidas e sem delays */
+  @media (max-width: 768px) {
+    .animate-on-scroll {
+      transition: all 0.3s ease-out;
+    }
+    
+    .animate-on-scroll.fade-up,
+    .animate-on-scroll.fade-left,
+    .animate-on-scroll.fade-right {
+      transform: translateY(10px);
+    }
   }
 </style> 

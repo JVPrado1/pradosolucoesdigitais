@@ -228,7 +228,7 @@
 </section> 
 
 <style>
-  /* Animações baseadas em scroll - sutis e elegantes */
+  /* Animações baseadas em scroll - otimizadas para mobile */
   .animate-on-scroll {
     opacity: 0;
     transition: all 0.4s ease-out;
@@ -261,5 +261,24 @@
   
   .animation-delay-1000 {
     transition-delay: 0.25s;
+  }
+  
+  /* Mobile: animações mais rápidas e sem delays */
+  @media (max-width: 768px) {
+    .animate-on-scroll {
+      transition: all 0.3s ease-out;
+    }
+    
+    .animation-delay-200,
+    .animation-delay-400,
+    .animation-delay-600,
+    .animation-delay-800,
+    .animation-delay-1000 {
+      transition-delay: 0s !important;
+    }
+    
+    .animate-on-scroll.fade-up {
+      transform: translateY(10px);
+    }
   }
 </style> 
