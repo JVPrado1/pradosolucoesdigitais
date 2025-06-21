@@ -224,6 +224,12 @@
       padding: 0 1rem;
       scrollbar-width: none; /* Firefox */
       -ms-overflow-style: none; /* IE/Edge */
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .portfolio-carousel::-webkit-scrollbar {
@@ -235,6 +241,13 @@
       scroll-snap-align: start;
       margin-right: 1rem;
       margin-bottom: 2rem;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+      -webkit-tap-highlight-color: transparent;
+      pointer-events: none;
     }
 
     .portfolio-card:last-child {
@@ -246,6 +259,21 @@
   .portfolio-dot.active {
     background-color: #00bc61 !important;
     transform: scale(1.2);
+  }
+
+  /* Desabilitar hover effects em dispositivos touch */
+  @media (hover: none) and (pointer: coarse) {
+    .portfolio-card:hover,
+    .group:hover,
+    .hover\\:shadow-2xl,
+    .hover\\:-translate-y-2,
+    .hover\\:bg-black\\/20,
+    .group-hover\\:scale-105,
+    .group-hover\\:translate-x-1 {
+      transform: none !important;
+      background-color: inherit !important;
+      box-shadow: inherit !important;
+    }
   }
 </style>
 
@@ -370,6 +398,26 @@
       }
     });
     
+    // Desabilitar cliques nos cards
+    const portfolioCards = carousel.querySelectorAll('.portfolio-card');
+    portfolioCards.forEach(function(card) {
+      card.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      });
+      
+      card.addEventListener('touchstart', function(e) {
+        e.stopPropagation();
+      });
+      
+      card.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      });
+    });
+
     // Inicializar
     updateIndicators(0);
     goToSlide(0);

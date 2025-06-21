@@ -301,6 +301,18 @@
     .animate-on-scroll {
       transition: all 0.3s ease-out;
     }
+
+    /* Desabilitar hover effects no mobile */
+    .group:hover .group-hover\\:bg-\\[\\#00bc61\\]\\/20,
+    .group:hover .group-hover\\:scale-110,
+    .hover\\:shadow-xl,
+    .hover\\:border-\\[\\#00bc61\\]\\/30,
+    .hover\\:-translate-y-1 {
+      transform: none !important;
+      background-color: inherit !important;
+      box-shadow: inherit !important;
+      border-color: inherit !important;
+    }
     
     .animation-delay-400 {
       transition-delay: 0s !important;

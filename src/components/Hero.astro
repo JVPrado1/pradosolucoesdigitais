@@ -197,6 +197,36 @@
     .animate-on-scroll {
       transition: all 0.3s ease-out;
     }
+
+    /* Prevenir realces e seleção indesejada no mobile */
+    * {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Permitir seleção apenas em inputs e textareas */
+    input, textarea, [contenteditable] {
+      -webkit-user-select: text;
+      -moz-user-select: text;
+      -ms-user-select: text;
+      user-select: text;
+    }
+
+    /* Desabilitar hover effects em dispositivos touch */
+    @media (hover: none) and (pointer: coarse) {
+      *:hover {
+        transform: none !important;
+        background-color: inherit !important;
+        box-shadow: inherit !important;
+        border-color: inherit !important;
+        color: inherit !important;
+        scale: none !important;
+      }
+    }
     
     .animation-delay-200,
     .animation-delay-400,
