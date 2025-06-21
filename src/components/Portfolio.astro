@@ -2,13 +2,13 @@
 // Portfolio Section - Projetos em destaque
 ---
 
-<section id="portfolio" class="py-20 bg-white">
+<section id="portfolio" class="py-12 lg:py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Header da Seção -->
-    <div class="text-center mb-16 animate-on-scroll fade-up">
+    <div class="text-center mb-8 lg:mb-16 animate-on-scroll fade-up">
      
-      <h2 class="text-4xl md:text-5xl font-bold text-black mb-6">
+      <h2 class="text-3xl md:text-5xl font-bold text-black mb-4 lg:mb-6">
         Projetos em 
         <span class="text-[#00bc61] relative">
           Destaque
@@ -127,10 +127,10 @@
 
       <!-- Indicadores de carrossel (bolinhas) - apenas mobile -->
       <div class="flex justify-center mt-6 space-x-2 md:hidden" id="portfolio-indicators">
-        <button class="portfolio-dot w-2 h-2 rounded-full bg-[#00bc61] transition-all duration-300" data-slide="0"></button>
-        <button class="portfolio-dot w-2 h-2 rounded-full bg-gray-300 transition-all duration-300" data-slide="1"></button>
-        <button class="portfolio-dot w-2 h-2 rounded-full bg-gray-300 transition-all duration-300" data-slide="2"></button>
-        <button class="portfolio-dot w-2 h-2 rounded-full bg-gray-300 transition-all duration-300" data-slide="3"></button>
+        <button class="portfolio-dot w-2 h-2 rounded-full bg-[#00bc61] transition-all duration-150" data-slide="0"></button>
+        <button class="portfolio-dot w-2 h-2 rounded-full bg-gray-300 transition-all duration-150" data-slide="1"></button>
+        <button class="portfolio-dot w-2 h-2 rounded-full bg-gray-300 transition-all duration-150" data-slide="2"></button>
+        <button class="portfolio-dot w-2 h-2 rounded-full bg-gray-300 transition-all duration-150" data-slide="3"></button>
       </div>
 
       <!-- Texto de instrução para mobile -->
@@ -148,7 +148,7 @@
     </div>
     
     <!-- CTA -->
-    <div class="text-center animate-on-scroll fade-up animation-delay-1000">
+    <div class="text-center animate-on-scroll fade-up animation-delay-1000  hidden">
       <a href="#contact" class="inline-flex items-center px-8 py-4 bg-[#00bc61] text-white font-semibold rounded-lg hover:bg-[#00a555] hover:shadow-xl hover:shadow-[#00bc61]/25 hover:scale-105 transition-all duration-300 group">
         <span>Quero Meu Projeto</span>
         <svg class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -220,7 +220,6 @@
       display: flex;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
       gap: 1rem;
       padding: 0 1rem;
       scrollbar-width: none; /* Firefox */
@@ -267,7 +266,7 @@
     let scrollStart = 0;
     
     // Função para atualizar indicadores
-    function updateIndicators(activeIndex) {
+    function updateIndicators(activeIndex: number) {
       indicators.forEach(function(dot, index) {
         dot.classList.remove('active', 'bg-[#00bc61]');
         dot.classList.add('bg-gray-300');
@@ -280,7 +279,7 @@
     }
     
     // Função para ir para um slide específico
-    function goToSlide(slideIndex) {
+    function goToSlide(slideIndex: number) {
       if (!carousel || isAnimating) return;
       if (slideIndex < 0 || slideIndex >= totalSlides) return;
       
@@ -295,7 +294,7 @@
       
       carousel.scrollTo({
         left: scrollLeft,
-        behavior: 'smooth'
+        behavior: 'auto'
       });
       
       currentSlide = slideIndex;
@@ -303,7 +302,7 @@
       
       setTimeout(function() {
         isAnimating = false;
-      }, 300);
+      }, 50);
     }
     
     // Event listeners para os indicadores
@@ -322,7 +321,7 @@
     
     carousel.addEventListener('touchmove', function(e) {
       if (isAnimating) return;
-      e.preventDefault();
+      // Permitir scroll natural para melhor responsividade
     });
     
     carousel.addEventListener('touchend', function(e) {
@@ -330,7 +329,7 @@
       
       const endX = e.changedTouches[0].clientX;
       const diffX = startX - endX;
-      const threshold = 50; // Minimum swipe distance
+      const threshold = 30; // Minimum swipe distance - mais sensível
       
       if (Math.abs(diffX) > threshold) {
         if (diffX > 0 && currentSlide < totalSlides - 1) {
@@ -349,21 +348,25 @@
       }
     });
     
-    // Prevenir scroll padrão
+    // Otimizar scroll para melhor performance
+    let scrollTimeout: ReturnType<typeof setTimeout>;
     carousel.addEventListener('scroll', function() {
       if (!isAnimating) {
-        // Force snap to current slide if not animating
-        const firstCard = carousel.querySelector('.portfolio-card');
-        if (firstCard) {
-          const rect = firstCard.getBoundingClientRect();
-          const cardWidth = rect.width;
-          const gap = 16;
-          const targetScroll = currentSlide * (cardWidth + gap);
-          
-          if (Math.abs(carousel.scrollLeft - targetScroll) > 10) {
-            carousel.scrollLeft = targetScroll;
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(function() {
+          // Force snap to current slide após scroll parar
+          const firstCard = carousel.querySelector('.portfolio-card');
+          if (firstCard) {
+            const rect = firstCard.getBoundingClientRect();
+            const cardWidth = rect.width;
+            const gap = 16;
+            const targetScroll = currentSlide * (cardWidth + gap);
+            
+            if (Math.abs(carousel.scrollLeft - targetScroll) > 20) {
+              carousel.scrollLeft = targetScroll;
+            }
           }
-        }
+        }, 100);
       }
     });
     
