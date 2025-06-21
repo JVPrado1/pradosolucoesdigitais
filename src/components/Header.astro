@@ -44,14 +44,12 @@
   </div>
   
   <!-- Menu Mobile -->
-  <div id="mobile-menu" class="hidden md:hidden bg-black/95 backdrop-blur-sm border-t border-white/10">
-    <div class="px-4 py-4 space-y-3">
-      <a href="#hero" class="block text-white hover:text-[#00bc61] transition-colors duration-200 font-medium py-2">Início</a>
-      <a href="#about" class="block text-white hover:text-[#00bc61] transition-colors duration-200 font-medium py-2">Sobre</a>
-      <a href="#services" class="block text-white hover:text-[#00bc61] transition-colors duration-200 font-medium py-2">Serviços</a>
-      <a href="#portfolio" class="block text-white hover:text-[#00bc61] transition-colors duration-200 font-medium py-2">Portfólio</a>
-      <a href="#contact" class="block bg-[#00bc61] text-white px-4 py-2 rounded-lg hover:bg-[#00a555] transition-colors duration-200 font-medium text-center">Contato</a>
-    </div>
+  <div id="mobile-menu" class="md:hidden fixed inset-0 bg-black/95 backdrop-blur-xl z-40 opacity-0 transition-all duration-300 flex flex-col items-center justify-center text-center space-y-8 min-h-screen" style="display: none;">
+    <a href="#hero" class="text-white hover:text-[#00bc61] transition-colors duration-200 font-medium text-2xl py-4">Início</a>
+    <a href="#about" class="text-white hover:text-[#00bc61] transition-colors duration-200 font-medium text-2xl py-4">Sobre</a>
+    <a href="#services" class="text-white hover:text-[#00bc61] transition-colors duration-200 font-medium text-2xl py-4">Serviços</a>
+    <a href="#portfolio" class="text-white hover:text-[#00bc61] transition-colors duration-200 font-medium text-2xl py-4">Portfólio</a>
+    <a href="#contact" class="bg-[#00bc61] text-white px-8 py-4 rounded-lg hover:bg-[#00a555] transition-colors duration-200 font-bold text-xl mt-6">Contato</a>
   </div>
 </header>
 
@@ -78,10 +76,26 @@
     // Mobile menu toggle
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
+    let isMenuOpen = false;
     
     if (mobileMenuButton && mobileMenu) {
+      
       mobileMenuButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
+        if (!isMenuOpen) {
+          // Abrir menu
+          mobileMenu.style.display = 'flex';
+          setTimeout(() => {
+            mobileMenu.classList.remove('opacity-0');
+          }, 10);
+          isMenuOpen = true;
+        } else {
+          // Fechar menu
+          mobileMenu.classList.add('opacity-0');
+          setTimeout(() => {
+            mobileMenu.style.display = 'none';
+          }, 300);
+          isMenuOpen = false;
+        }
       });
     }
     
@@ -100,8 +114,12 @@
           });
           
           // Fechar menu mobile se estiver aberto
-          if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-            mobileMenu.classList.add('hidden');
+          if (mobileMenu && mobileMenu.style.display === 'flex') {
+            mobileMenu.classList.add('opacity-0');
+            setTimeout(() => {
+              mobileMenu.style.display = 'none';
+            }, 300);
+            isMenuOpen = false;
           }
         }
       });
@@ -123,6 +141,12 @@
   
   .animate-slide-down {
     animation: slide-down 0.6s ease-out forwards;
+  }
+  
+  /* Garantir que o backdrop-blur funcione */
+  .backdrop-blur-xl {
+    backdrop-filter: blur(24px) !important;
+    -webkit-backdrop-filter: blur(24px) !important;
   }
 </style>
 
