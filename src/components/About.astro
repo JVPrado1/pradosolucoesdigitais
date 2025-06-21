@@ -77,8 +77,8 @@
       <!-- Visual -->
       <div class="relative animate-on-scroll fade-right">
      
-        <!-- Grid de Cards -->
-        <div class="grid grid-cols-2 gap-6">
+        <!-- Grid de Cards - Desktop: 2x2, Mobile: Lista vertical -->
+        <div class="hidden md:grid md:grid-cols-2 gap-6">
           <!-- Card Qualidade -->
           <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-lg hover:shadow-xl hover:border-[#00bc61]/30 transition-all duration-500 hover:-translate-y-1 group">
             <div class="w-14 h-14 bg-gradient-to-br from-[#00bc61] to-[#00a555] rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
@@ -87,7 +87,7 @@
               </svg>
             </div>
             <h5 class="font-bold text-black mb-2 text-lg">Qualidade</h5>
-            <p class="text-sm text-[#A7A9AC] leading-relaxed">Código limpo e bem estruturado</p>
+            <p class="text-sm text-[#A7A9AC] leading-relaxed">Código limpo, eficiente e performático</p>
           </div>
           
           <!-- Card Agilidade -->
@@ -121,6 +121,61 @@
             </div>
             <h5 class="font-bold text-black mb-2 text-lg">Tecnologia</h5>
             <p class="text-sm text-[#A7A9AC] leading-relaxed">Stack moderno e atualizado</p>
+          </div>
+        </div>
+
+        <!-- Layout Mobile - Cards horizontais em lista -->
+        <div class="md:hidden space-y-4">
+          <!-- Card Qualidade -->
+          <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl hover:border-[#00bc61]/30 transition-all duration-500 hover:-translate-y-1 group flex items-center space-x-4">
+            <div class="w-12 h-12 bg-gradient-to-br from-[#00bc61] to-[#00a555] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+              </svg>
+            </div>
+            <div class="flex-grow">
+              <h5 class="font-bold text-black mb-1 text-base">Qualidade</h5>
+              <p class="text-sm text-[#A7A9AC] leading-relaxed">Código limpo e performático</p>
+            </div>
+          </div>
+          
+          <!-- Card Agilidade -->
+          <div class="bg-gray-50 p-5 rounded-2xl border border-gray-200 shadow-lg hover:shadow-xl hover:border-[#00bc61]/30 transition-all duration-500 hover:-translate-y-1 group flex items-center space-x-4">
+            <div class="w-12 h-12 bg-gradient-to-br from-[#00bc61] to-[#00a555] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <div class="flex-grow">
+              <h5 class="font-bold text-black mb-1 text-base">Agilidade</h5>
+              <p class="text-sm text-[#A7A9AC] leading-relaxed">Desenvolvimento rápido e eficiente</p>
+            </div>
+          </div>
+          
+          <!-- Card Suporte -->
+          <div class="bg-gray-50 p-5 rounded-2xl border border-gray-200 shadow-lg hover:shadow-xl hover:border-[#00bc61]/30 transition-all duration-500 hover:-translate-y-1 group flex items-center space-x-4">
+            <div class="w-12 h-12 bg-gradient-to-br from-[#00bc61] to-[#00a555] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
+              </svg>
+            </div>
+            <div class="flex-grow">
+              <h5 class="font-bold text-black mb-1 text-base">Suporte</h5>
+              <p class="text-sm text-[#A7A9AC] leading-relaxed">Sempre disponível quando precisar</p>
+            </div>
+          </div>
+          
+          <!-- Card Tecnologia -->
+          <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl hover:border-[#00bc61]/30 transition-all duration-500 hover:-translate-y-1 group flex items-center space-x-4">
+            <div class="w-12 h-12 bg-gradient-to-br from-[#00bc61] to-[#00a555] rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+              </svg>
+            </div>
+            <div class="flex-grow">
+              <h5 class="font-bold text-black mb-1 text-base">Tecnologia</h5>
+              <p class="text-sm text-[#A7A9AC] leading-relaxed">Stack moderna e atualizada</p>
+            </div>
           </div>
         </div>
       </div>
