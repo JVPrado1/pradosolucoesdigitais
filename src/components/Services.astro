@@ -327,7 +327,7 @@
 
     .service-card {
       flex: 0 0 85%;
-      scroll-snap-align: center;
+      scroll-snap-align: start;
       margin-right: 1rem;
     }
 
@@ -355,6 +355,8 @@
     
     let currentSlide = 0;
     const totalSlides = 4;
+    let isScrolling = false;
+    let scrollTimeout;
     
     // Função para atualizar indicadores
     function updateIndicators(activeIndex) {
@@ -371,6 +373,8 @@
     
     // Função para ir para um slide específico
     function goToSlide(slideIndex) {
+      if (!carousel) return;
+      
       const firstCard = carousel.querySelector('.service-card');
       if (!firstCard) return;
       
@@ -388,6 +392,21 @@
       updateIndicators(currentSlide);
     }
     
+    // Função para encontrar o slide mais próximo
+    function findNearestSlide() {
+      if (!carousel) return currentSlide;
+      
+      const firstCard = carousel.querySelector('.service-card');
+      if (!firstCard) return currentSlide;
+      
+      const rect = firstCard.getBoundingClientRect();
+      const cardWidth = rect.width;
+      const gap = 16;
+      const scrollLeft = carousel.scrollLeft;
+      
+      return Math.round(scrollLeft / (cardWidth + gap));
+    }
+    
     // Event listeners para os indicadores
     indicators.forEach(function(dot, index) {
       dot.addEventListener('click', function() {
@@ -395,28 +414,28 @@
       });
     });
     
-    // Detectar scroll manual e atualizar indicadores
-    let isScrolling = false;
+    // Detectar scroll manual e forçar snap para 1 item
     carousel.addEventListener('scroll', function() {
       if (isScrolling) return;
-      isScrolling = true;
       
-      setTimeout(function() {
-        const firstCard = carousel.querySelector('.service-card');
-        if (firstCard) {
-          const rect = firstCard.getBoundingClientRect();
-          const cardWidth = rect.width;
-          const gap = 16;
-          const scrollLeft = carousel.scrollLeft;
-          const newSlide = Math.round(scrollLeft / (cardWidth + gap));
+      // Limpar timeout anterior
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+      }
+      
+      // Aguardar o fim do scroll para fazer o snap
+      scrollTimeout = setTimeout(function() {
+        const nearestSlide = findNearestSlide();
+        
+        if (nearestSlide !== currentSlide && nearestSlide >= 0 && nearestSlide < totalSlides) {
+          isScrolling = true;
+          goToSlide(nearestSlide);
           
-          if (newSlide !== currentSlide && newSlide >= 0 && newSlide < totalSlides) {
-            currentSlide = newSlide;
-            updateIndicators(currentSlide);
-          }
+          setTimeout(function() {
+            isScrolling = false;
+          }, 300);
         }
-        isScrolling = false;
-      }, 100);
+      }, 150);
     });
     
     // Inicializar

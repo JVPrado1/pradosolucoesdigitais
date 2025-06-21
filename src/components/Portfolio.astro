@@ -23,105 +23,128 @@
       </p>
     </div>
 
-    <!-- Grid de Projetos -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
-      
-      <!-- Projeto 1: Track by Track -->
-      <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col h-full animate-on-scroll fade-up animation-delay-200">
-        <div class="h-48 relative overflow-hidden">
-          <img src="/trackbytrack.webp" alt="Track by Track" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105">
-          <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
-          <div class="absolute top-4 right-4">
-            <span class="px-3 py-1 bg-[#00bc61] text-white text-xs font-semibold rounded-full">
-              Web e Mobile App
-            </span>
+    <!-- Grid de Projetos / Carrossel Mobile -->
+    <div class="relative">
+      <!-- Container do carrossel -->
+      <div class="portfolio-carousel md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 lg:gap-8 mb-12" id="portfolio-carousel">
+        
+        <!-- Projeto 1: Track by Track -->
+        <div class="portfolio-card group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col h-full animate-on-scroll fade-up animation-delay-200">
+          <div class="h-48 relative overflow-hidden">
+            <img src="/trackbytrack.webp" alt="Track by Track" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105">
+            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
+            <div class="absolute top-4 right-4">
+              <span class="px-3 py-1 bg-[#00bc61] text-white text-xs font-semibold rounded-full">
+                Web e Mobile App
+              </span>
+            </div>
+          </div>
+          <div class="p-5 lg:p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-black mb-3 flex items-center">Track by Track</h3>
+            <p class="text-[#A7A9AC] mb-4 text-sm leading-relaxed flex-grow">
+              A plataforma permite que os usuários avaliem músicas individualmente, calculem uma média para o álbum, registrem o histórico de escutas e compartilhem opiniões com a comunidade.
+            </p>
+            <div class="mt-auto">
+              <a href="https://www.trackbytrackapp.com/" target="_blank" rel="noopener noreferrer" class="text-[#00bc61] font-semibold text-sm hover:text-[#00a555] transition-colors duration-200 group-hover:translate-x-1">
+                Ver Projeto →
+              </a>
+            </div>
           </div>
         </div>
-        <div class="p-5 lg:p-6 flex flex-col flex-grow">
-          <h3 class="text-xl font-bold text-black mb-3 flex items-center">Track by Track</h3>
-          <p class="text-[#A7A9AC] mb-4 text-sm leading-relaxed flex-grow">
-            A plataforma permite que os usuários avaliem músicas individualmente, calculem uma média para o álbum, registrem o histórico de escutas e compartilhem opiniões com a comunidade.
-          </p>
-          <div class="mt-auto">
-            <a href="https://www.trackbytrackapp.com/" target="_blank" rel="noopener noreferrer" class="text-[#00bc61] font-semibold text-sm hover:text-[#00a555] transition-colors duration-200 group-hover:translate-x-1">
-              Ver Projeto →
-            </a>
+        
+        <!-- Projeto 2: Banda Plano Marshall -->
+        <div class="portfolio-card group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col h-full animate-on-scroll fade-up animation-delay-400">
+          <div class="h-48 relative overflow-hidden">
+            <img src="/plano-marshall.webp" alt="Banda Plano Marshall" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105">
+            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
+            <div class="absolute top-4 right-4">
+              <span class="px-3 py-1 bg-[#00bc61] text-white text-xs font-semibold rounded-full">
+                Landing Page
+              </span>
+            </div>
+          </div>
+          <div class="p-5 lg:p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-black mb-3 flex items-center">Banda Plano Marshall</h3>
+            <p class="text-[#A7A9AC] mb-4 text-sm leading-relaxed flex-grow">
+              Landing page desenvolvida para a banda Plano Marshall com foco em SEO com foco em ajudar a banda a ter mais visibilidade online e alcançar novos fãs e contratantes.
+            </p>
+            <div class="mt-auto">
+              <a href="https://bandaplanomarshall.com.br" target="_blank" rel="noopener noreferrer" class="text-[#00bc61] font-semibold text-sm hover:text-[#00a555] transition-colors duration-200 group-hover:translate-x-1">
+                Ver Projeto →
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Projeto 3: Conservatório Jauense -->
+        <div class="portfolio-card group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col h-full animate-on-scroll fade-up animation-delay-600">
+          <div class="h-48 relative overflow-hidden">
+            <img src="/conservatorio.webp" alt="Conservatório Jauense de Música" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105">
+            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
+            <div class="absolute top-4 right-4">
+              <span class="px-3 py-1 bg-[#00bc61] text-white text-xs font-semibold rounded-full">
+                Site Institucional
+              </span>
+            </div>
+          </div>
+          <div class="p-5 lg:p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-black mb-3 flex items-center">Conservatório Jauense de Música</h3>
+            <p class="text-[#A7A9AC] mb-4 text-sm leading-relaxed flex-grow">
+              Site institucional desenvolvido para o Conservatório Jauense de Música, apresentando informações sobre cursos, professores e eventos musicais.
+            </p>
+            <div class="mt-auto">
+              <button class="text-[#00bc61] font-semibold text-sm hover:text-[#00a555] transition-colors duration-200 group-hover:translate-x-1">
+                Ver Detalhes →
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Projeto 4: Portfólio Profissional -->
+        <div class="portfolio-card group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col h-full animate-on-scroll fade-up animation-delay-800">
+          <div class="h-48 relative overflow-hidden">
+            <img src="/portfolio-joao.webp" alt="Portfólio Profissional" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105">
+            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
+            <div class="absolute top-4 right-4">
+              <span class="px-3 py-1 bg-[#00bc61] text-white text-xs font-semibold rounded-full">
+                Portfólio
+              </span>
+            </div>
+          </div>
+          <div class="p-5 lg:p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-black mb-3 flex items-center">Portfólio Profissional</h3>
+            <p class="text-[#A7A9AC] mb-4 text-sm leading-relaxed flex-grow">
+              Site portfólio moderno desenvolvido para profissional destacar seus trabalhos, habilidades e experiências para recrutadores.
+            </p>
+            <div class="mt-auto">
+                <a href="https://portfoliodev-bkde.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-[#00bc61] font-semibold text-sm hover:text-[#00a555] transition-colors duration-200 group-hover:translate-x-1">
+                   Ver Projeto →
+               </a>
+            </div>
           </div>
         </div>
       </div>
-      
-      <!-- Projeto 2: Banda Plano Marshall -->
-      <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col h-full animate-on-scroll fade-up animation-delay-400">
-        <div class="h-48 relative overflow-hidden">
-          <img src="/plano-marshall.webp" alt="Banda Plano Marshall" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105">
-          <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
-          <div class="absolute top-4 right-4">
-            <span class="px-3 py-1 bg-[#00bc61] text-white text-xs font-semibold rounded-full">
-              Landing Page
-            </span>
-          </div>
-        </div>
-        <div class="p-5 lg:p-6 flex flex-col flex-grow">
-          <h3 class="text-xl font-bold text-black mb-3 flex items-center">Banda Plano Marshall</h3>
-          <p class="text-[#A7A9AC] mb-4 text-sm leading-relaxed flex-grow">
-            Landing page desenvolvida para a banda Plano Marshall com foco em SEO com foco em ajudar a banda a ter mais visibilidade online e alcançar novos fãs e contratantes.
-          </p>
-          <div class="mt-auto">
-            <a href="https://bandaplanomarshall.com.br" target="_blank" rel="noopener noreferrer" class="text-[#00bc61] font-semibold text-sm hover:text-[#00a555] transition-colors duration-200 group-hover:translate-x-1">
-              Ver Projeto →
-            </a>
-          </div>
-        </div>
+
+      <!-- Indicadores de carrossel (bolinhas) - apenas mobile -->
+      <div class="flex justify-center mt-6 space-x-2 md:hidden" id="portfolio-indicators">
+        <button class="portfolio-dot w-2 h-2 rounded-full bg-[#00bc61] transition-all duration-300" data-slide="0"></button>
+        <button class="portfolio-dot w-2 h-2 rounded-full bg-gray-300 transition-all duration-300" data-slide="1"></button>
+        <button class="portfolio-dot w-2 h-2 rounded-full bg-gray-300 transition-all duration-300" data-slide="2"></button>
+        <button class="portfolio-dot w-2 h-2 rounded-full bg-gray-300 transition-all duration-300" data-slide="3"></button>
       </div>
-      
-      <!-- Projeto 3: Conservatório Jauense -->
-      <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col h-full animate-on-scroll fade-up animation-delay-600">
-        <div class="h-48 relative overflow-hidden">
-          <img src="/conservatorio.webp" alt="Conservatório Jauense de Música" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105">
-          <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
-          <div class="absolute top-4 right-4">
-            <span class="px-3 py-1 bg-[#00bc61] text-white text-xs font-semibold rounded-full">
-              Site Institucional
-            </span>
-          </div>
-        </div>
-        <div class="p-5 lg:p-6 flex flex-col flex-grow">
-          <h3 class="text-xl font-bold text-black mb-3 flex items-center">Conservatório Jauense de Música</h3>
-          <p class="text-[#A7A9AC] mb-4 text-sm leading-relaxed flex-grow">
-            Site institucional desenvolvido para o Conservatório Jauense de Música, apresentando informações sobre cursos, professores e eventos musicais.
-          </p>
-          <div class="mt-auto">
-            <button class="text-[#00bc61] font-semibold text-sm hover:text-[#00a555] transition-colors duration-200 group-hover:translate-x-1">
-              Ver Detalhes →
-            </button>
-          </div>
-        </div>
+
+      <!-- Texto de instrução para mobile -->
+      <div class="text-center mb-6 md:hidden mt-6">
+        <p class="text-sm text-[#A7A9AC] flex items-center justify-center">
+          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"/>
+          </svg>
+          Arraste para ver os projetos
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </p>
       </div>
-      
-      <!-- Projeto 4: Portfólio Profissional -->
-      <div class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col h-full animate-on-scroll fade-up animation-delay-800">
-        <div class="h-48 relative overflow-hidden">
-          <img src="/portfolio-joao.webp" alt="Portfólio Profissional" class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105">
-          <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
-          <div class="absolute top-4 right-4">
-            <span class="px-3 py-1 bg-[#00bc61] text-white text-xs font-semibold rounded-full">
-              Portfólio
-            </span>
-          </div>
-        </div>
-        <div class="p-5 lg:p-6 flex flex-col flex-grow">
-          <h3 class="text-xl font-bold text-black mb-3 flex items-center">Portfólio Profissional</h3>
-          <p class="text-[#A7A9AC] mb-4 text-sm leading-relaxed flex-grow">
-            Site portfólio moderno desenvolvido para profissional destacar seus trabalhos, habilidades e experiências para recrutadores.
-          </p>
-          <div class="mt-auto">
-              <a href="https://portfoliodev-bkde.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-[#00bc61] font-semibold text-sm hover:text-[#00a555] transition-colors duration-200 group-hover:translate-x-1">
-                 Ver Projeto →
-             </a>
-          </div>
-        </div>
-      </div>
- 
     </div>
     
     <!-- CTA -->
@@ -168,6 +191,10 @@
     transition-delay: 0.2s;
   }
   
+  .animation-delay-1000 {
+    transition-delay: 0.25s;
+  }
+  
   /* Mobile: animações mais rápidas e sem delays */
   @media (max-width: 768px) {
     .animate-on-scroll {
@@ -177,7 +204,8 @@
     .animation-delay-200,
     .animation-delay-400,
     .animation-delay-600,
-    .animation-delay-800 {
+    .animation-delay-800,
+    .animation-delay-1000 {
       transition-delay: 0s !important;
     }
     
@@ -185,4 +213,138 @@
       transform: translateY(10px);
     }
   }
-</style> 
+
+  /* Carrossel Mobile */
+  @media (max-width: 767px) {
+    .portfolio-carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      gap: 1rem;
+      padding: 0 1rem;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE/Edge */
+    }
+
+    .portfolio-carousel::-webkit-scrollbar {
+      display: none; /* Chrome/Safari */
+    }
+
+    .portfolio-card {
+      flex: 0 0 85%;
+      scroll-snap-align: start;
+      margin-right: 1rem;
+    }
+
+    .portfolio-card:last-child {
+      margin-right: 1rem;
+    }
+  }
+
+  /* Indicadores ativos */
+  .portfolio-dot.active {
+    background-color: #00bc61 !important;
+    transform: scale(1.2);
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Só executa no mobile
+    if (window.innerWidth >= 768) return;
+    
+    const carousel = document.getElementById('portfolio-carousel');
+    const indicators = document.querySelectorAll('.portfolio-dot');
+    
+    if (!carousel) return;
+    
+    let currentSlide = 0;
+    const totalSlides = 4;
+    let isScrolling = false;
+    let scrollTimeout;
+    
+    // Função para atualizar indicadores
+    function updateIndicators(activeIndex) {
+      indicators.forEach(function(dot, index) {
+        dot.classList.remove('active', 'bg-[#00bc61]');
+        dot.classList.add('bg-gray-300');
+        
+        if (index === activeIndex) {
+          dot.classList.add('active', 'bg-[#00bc61]');
+          dot.classList.remove('bg-gray-300');
+        }
+      });
+    }
+    
+    // Função para ir para um slide específico
+    function goToSlide(slideIndex) {
+      if (!carousel) return;
+      
+      const firstCard = carousel.querySelector('.portfolio-card');
+      if (!firstCard) return;
+      
+      const rect = firstCard.getBoundingClientRect();
+      const cardWidth = rect.width;
+      const gap = 16;
+      const scrollLeft = slideIndex * (cardWidth + gap);
+      
+      carousel.scrollTo({
+        left: scrollLeft,
+        behavior: 'smooth'
+      });
+      
+      currentSlide = slideIndex;
+      updateIndicators(currentSlide);
+    }
+    
+    // Função para encontrar o slide mais próximo
+    function findNearestSlide() {
+      if (!carousel) return currentSlide;
+      
+      const firstCard = carousel.querySelector('.portfolio-card');
+      if (!firstCard) return currentSlide;
+      
+      const rect = firstCard.getBoundingClientRect();
+      const cardWidth = rect.width;
+      const gap = 16;
+      const scrollLeft = carousel.scrollLeft;
+      
+      return Math.round(scrollLeft / (cardWidth + gap));
+    }
+    
+    // Event listeners para os indicadores
+    indicators.forEach(function(dot, index) {
+      dot.addEventListener('click', function() {
+        goToSlide(index);
+      });
+    });
+    
+    // Detectar scroll manual e forçar snap para 1 item
+    carousel.addEventListener('scroll', function() {
+      if (isScrolling) return;
+      
+      // Limpar timeout anterior
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+      }
+      
+      // Aguardar o fim do scroll para fazer o snap
+      scrollTimeout = setTimeout(function() {
+        const nearestSlide = findNearestSlide();
+        
+        if (nearestSlide !== currentSlide && nearestSlide >= 0 && nearestSlide < totalSlides) {
+          isScrolling = true;
+          goToSlide(nearestSlide);
+          
+          setTimeout(function() {
+            isScrolling = false;
+          }, 300);
+        }
+      }, 150);
+    });
+    
+    // Inicializar
+    updateIndicators(0);
+  });
+</script> 
