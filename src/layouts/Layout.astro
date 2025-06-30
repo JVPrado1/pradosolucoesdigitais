@@ -12,14 +12,90 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+		
+		<!-- Script de inicialização do tema -->
+		<script is:inline>
+			// Theme management - executa imediatamente antes do HTML renderizar
+			function initTheme() {
+				const savedTheme = localStorage.getItem('theme');
+				const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+				const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+				
+				// Limpa todas as classes de tema primeiro
+				document.documentElement.classList.remove('light', 'dark');
+				
+				// Aplica apenas a classe necessária para dark
+				if (theme === 'dark') {
+					document.documentElement.classList.add('dark');
+				}
+				// Para light, não adiciona classe (Tailwind funciona sem classe para light)
+				
+				// Aplica atributo (útil para CSS customizado)
+				document.documentElement.setAttribute('data-theme', theme);
+				
+				// Debug
+				console.log('Tema inicializado:', theme);
+				console.log('Classes no HTML:', document.documentElement.classList.toString());
+				console.log('Tema salvo:', localStorage.getItem('theme'));
+				console.log('Prefere dark:', prefersDark);
+			}
+			
+			// Execute imediatamente
+			initTheme();
+			
+			// Função para atualizar logos quando o DOM estiver pronto
+			document.addEventListener('DOMContentLoaded', function() {
+				updateLogos();
+				
+				// Observer para mudanças no atributo data-theme
+				const observer = new MutationObserver(function(mutations) {
+					mutations.forEach(function(mutation) {
+						if (mutation.attributeName === 'data-theme') {
+							updateLogos();
+						}
+					});
+				});
+				
+				observer.observe(document.documentElement, { attributes: true });
+			});
+			
+			// Função para atualizar todas as logos baseado no tema atual
+			function updateLogos() {
+				const currentTheme = document.documentElement.getAttribute('data-theme');
+				const logoSrc = currentTheme === 'light' ? '/logo-preto.png' : '/logo.png';
+				
+				// Atualiza todas as logos
+				document.querySelectorAll('[id$="-logo"]').forEach(function(logo) {
+					logo.src = logoSrc;
+				});
+				
+				console.log('Logos atualizadas para tema:', currentTheme);
+			}
+		</script>
 	</head>
-	<body class="font-inter antialiased bg-[#121212] text-white">
+	<body class="font-inter antialiased bg-background text-foreground transition-colors duration-300">
 		<!-- Main Content -->
 		<div class="relative">
 			<slot />
 		</div>
 
 		<script>
+			// Ouve mudanças no sistema
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+				if (!localStorage.getItem('theme')) {
+					const newTheme = e.matches ? 'dark' : 'light';
+					document.documentElement.setAttribute('data-theme', newTheme);
+					document.documentElement.classList.remove('light', 'dark');
+					
+					// Adiciona classe dark apenas se o tema for dark
+					if (newTheme === 'dark') {
+						document.documentElement.classList.add('dark');
+					}
+					
+					console.log('Tema do sistema alterado para:', newTheme);
+				}
+			});
+
 			// Smooth scrolling and animations
 			document.addEventListener('DOMContentLoaded', function() {
 				// Intersection Observer for animations
@@ -66,18 +142,53 @@
 		box-sizing: border-box;
 	}
 	
+	:root {
+		/* Tema Escuro (padrão) */
+		--background: #121212;
+		--foreground: #ffffff;
+		--muted: rgba(255, 255, 255, 0.1);
+		--muted-foreground: rgba(255, 255, 255, 0.6);
+		--border: rgba(255, 255, 255, 0.1);
+		--accent: #00B050;
+		--accent-hover: rgba(0, 176, 80, 0.9);
+		--card: rgba(255, 255, 255, 0.05);
+		--card-hover: rgba(255, 255, 255, 0.1);
+		--card-shadow: 0 0 0 transparent;
+		--gradient-from: #00B050;
+		--gradient-to: #60A5FA;
+	}
+
+	[data-theme="light"] {
+		/* Tema Claro */
+		--linkmenu: black;
+		--background: #ffffff;
+		--foreground: #121212;
+		--muted: rgba(0, 0, 0, 0.05);
+		--muted-foreground: rgba(0, 0, 0, 0.7);
+		--border: rgba(0, 0, 0, 0.08);
+		--accent: #00B050;
+		--accent-hover: rgba(0, 176, 80, 0.9);
+		--card: rgba(0, 0, 0, 0);
+		--card-hover: rgba(0, 0, 0, 0.04);
+		--card-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+		--gradient-from: #00B050;
+		--gradient-to: #60A5FA;
+	}
+
 	html {
 		font-family: 'Inter', system-ui, sans-serif;
 		scroll-behavior: smooth;
-		background-color: #121212;
+		background-color: var(--background);
+		transition: background-color 0.3s ease;
 	}
 	
 	body {
 		margin: 0;
 		min-height: 100vh;
-		color: #FFFFFF;
-		background-color: #121212;
+		color: var(--foreground);
+		background-color: var(--background);
 		overflow-x: hidden;
+		transition: all 0.3s ease;
 	}
 
 	/* Scroll animations */
@@ -98,23 +209,36 @@
 	}
 
 	::-webkit-scrollbar-track {
-		background: #121212;
+		background: var(--background);
 	}
 
 	::-webkit-scrollbar-thumb {
-		background: #00B050;
+		background: var(--accent);
 		border-radius: 4px;
 	}
 
 	::-webkit-scrollbar-thumb:hover {
-		background: #00B050;
-		opacity: 0.8;
+		background: var(--accent-hover);
 	}
 
 	/* Firefox */
 	* {
 		scrollbar-width: thin;
-		scrollbar-color: #00B050 #121212;
+		scrollbar-color: var(--accent) var(--background);
 	}
+
+	/* Utility classes for theme support */
+	.bg-background { background-color: var(--background); }
+	.text-foreground { color: var(--foreground); }
+	.text-muted-foreground { color: var(--muted-foreground); }
+	.bg-card { 
+		background-color: var(--card); 
+		box-shadow: var(--card-shadow);
+	}
+	.bg-card-hover { background-color: var(--card-hover); }
+	.border-border { border-color: var(--border); }
+	.bg-muted { background-color: var(--muted); }
+
+
 </style>
 

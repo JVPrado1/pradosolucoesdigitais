@@ -2,7 +2,7 @@
 // Seção de Contato com glassmorphism
 ---
 
-<section id="contact" class="py-16 relative overflow-hidden bg-[#121212]">
+<section id="contact" class="py-16 relative overflow-hidden bg-background transition-colors duration-300">
   <!-- Background Pattern -->
   <div class="absolute inset-0 opacity-20">
     <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0); background-size: 50px 50px;"></div>
@@ -11,16 +11,16 @@
   <!-- Floating Elements -->
   <div class="absolute inset-0 overflow-hidden">
     <div class="floating-element absolute top-20 left-10 w-2 h-2 bg-[#00B050] rounded-full opacity-40"></div>
-    <div class="floating-element absolute top-40 right-20 w-1 h-1 bg-white rounded-full opacity-30"></div>
+    <div class="floating-element absolute top-40 right-20 w-1 h-1 bg-foreground rounded-full opacity-30"></div>
     <div class="floating-element absolute bottom-40 left-20 w-1.5 h-1.5 bg-[#00B050] rounded-full opacity-35"></div>
-    <div class="floating-element absolute bottom-20 right-40 w-1 h-1 bg-white rounded-full opacity-25"></div>
+    <div class="floating-element absolute bottom-20 right-40 w-1 h-1 bg-foreground rounded-full opacity-25"></div>
   </div>
 
   <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
     <!-- Header -->
     <div class="text-center mb-16">
       <h2 class="text-2xl md:text-5xl font-bold mb-6 leading-tight">
-        <span class="text-white">
+        <span class="text-foreground">
           Pronto para começar
         </span>
         <br />
@@ -29,7 +29,7 @@
         </span>
       </h2>
       
-      <p class="text-base md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
+      <p class="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
         Entre em contato conosco e receba uma proposta personalizada conforme as suas necessidades.
       </p>
     </div>
@@ -37,61 +37,61 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
       
       <!-- Formulário de Contato -->
-      <div class="lg:col-span-2 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 shadow-2xl p-8">
-        <h3 class="text-lg md:text-2xl font-bold text-white mb-6">Solicite seu orçamento</h3>
+      <div class="lg:col-span-2 bg-card backdrop-blur-sm rounded-2xl border border-border shadow-2xl p-8">
+        <h3 class="text-lg md:text-2xl font-bold text-foreground mb-6">Solicite seu orçamento</h3>
         
         <form id="whatsapp-form" class="space-y-6">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label for="name" class="block text-white/70 font-medium mb-3">Nome <span class="text-red-400">*</span></label>
-              <input type="text" id="name" name="name" required class="w-full px-6 py-4 bg-white/5 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-white/40 focus:border-[#00B050]/50 focus:outline-none focus:ring-2 focus:ring-[#00B050]/20 transition-all duration-300" placeholder="Seu nome completo">
+              <label for="name" class="block text-muted-foreground font-medium mb-3">Nome <span class="text-red-400">*</span></label>
+              <input type="text" id="name" name="name" required class="w-full px-6 py-4 bg-card backdrop-blur-sm border border-border rounded-xl text-foreground placeholder-muted-foreground/60 focus:border-[#00B050]/50 focus:outline-none focus:ring-2 focus:ring-[#00B050]/20 transition-all duration-300" placeholder="Seu nome completo">
             </div>
             <div>
-              <label for="email" class="block text-white/70 font-medium mb-3">E-mail <span class="text-red-400">*</span></label>
-              <input type="email" id="email" name="email" required class="w-full px-6 py-4 bg-white/5 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-white/40 focus:border-[#00B050]/50 focus:outline-none focus:ring-2 focus:ring-[#00B050]/20 transition-all duration-300" placeholder="seu@email.com">
+              <label for="email" class="block text-muted-foreground font-medium mb-3">E-mail <span class="text-red-400">*</span></label>
+              <input type="email" id="email" name="email" required class="w-full px-6 py-4 bg-card backdrop-blur-sm border border-border rounded-xl text-foreground placeholder-muted-foreground/60 focus:border-[#00B050]/50 focus:outline-none focus:ring-2 focus:ring-[#00B050]/20 transition-all duration-300" placeholder="seu@email.com">
             </div>
           </div>
           
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label for="phone" class="block text-white/70 font-medium mb-3">Telefone</label>
-              <input type="tel" id="phone" name="phone" class="w-full px-6 py-4 bg-white/5 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-white/40 focus:border-[#00B050]/50 focus:outline-none focus:ring-2 focus:ring-[#00B050]/20 transition-all duration-300" placeholder="(11) 99999-9999">
+              <label for="phone" class="block text-muted-foreground font-medium mb-3">Telefone</label>
+              <input type="tel" id="phone" name="phone" class="w-full px-6 py-4 bg-card backdrop-blur-sm border border-border rounded-xl text-foreground placeholder-muted-foreground/60 focus:border-[#00B050]/50 focus:outline-none focus:ring-2 focus:ring-[#00B050]/20 transition-all duration-300" placeholder="(11) 99999-9999">
             </div>
             <div>
-              <label for="empresa" class="block text-white/70 font-medium mb-3">Empresa</label>
-              <input type="text" id="empresa" name="empresa" class="w-full px-6 py-4 bg-white/5 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-white/40 focus:border-[#00B050]/50 focus:outline-none focus:ring-2 focus:ring-[#00B050]/20 transition-all duration-300" placeholder="Nome da sua empresa">
+              <label for="empresa" class="block text-muted-foreground font-medium mb-3">Empresa</label>
+              <input type="text" id="empresa" name="empresa" class="w-full px-6 py-4 bg-card backdrop-blur-sm border border-border rounded-xl text-foreground placeholder-muted-foreground/60 focus:border-[#00B050]/50 focus:outline-none focus:ring-2 focus:ring-[#00B050]/20 transition-all duration-300" placeholder="Nome da sua empresa">
             </div>
           </div>
           
           <div>
-            <label for="tipo-projeto" class="block text-white/70 font-medium mb-3">Tipo de Projeto <span class="text-red-400">*</span></label>
-            <select id="tipo-projeto" name="tipo-projeto" required class="w-full px-6 py-4 bg-white/5 backdrop-blur-sm border border-white/20 rounded-xl text-white focus:border-[#00B050]/50 focus:outline-none focus:ring-2 focus:ring-[#00B050]/20 transition-all duration-300">
-              <option value="" class="bg-[#121212]">Selecione um serviço</option>
-              <option value="Site Institucional" class="bg-[#121212]">Site Institucional</option>
-              <option value="E-commerce" class="bg-[#121212]">E-commerce</option>
-              <option value="Aplicativo Mobile" class="bg-[#121212]">Aplicativo Mobile</option>
-              <option value="Sistema Web" class="bg-[#121212]">Sistema Web</option>
-              <option value="Landing Page" class="bg-[#121212]">Landing Page</option>
-              <option value="Automação de Processos" class="bg-[#121212]">Automação de Processos</option>
-              <option value="Consultoria" class="bg-[#121212]">Consultoria</option>
-              <option value="Outro" class="bg-[#121212]">Outro</option>
+            <label for="tipo-projeto" class="block text-muted-foreground font-medium mb-3">Tipo de Projeto <span class="text-red-400">*</span></label>
+            <select id="tipo-projeto" name="tipo-projeto" required class="w-full px-6 py-4 bg-card backdrop-blur-sm border border-border rounded-xl text-foreground focus:border-[#00B050]/50 focus:outline-none focus:ring-2 focus:ring-[#00B050]/20 transition-all duration-300">
+              <option value="" class="bg-background">Selecione um serviço</option>
+              <option value="Site Institucional" class="bg-background">Site Institucional</option>
+              <option value="E-commerce" class="bg-background">E-commerce</option>
+              <option value="Aplicativo Mobile" class="bg-background">Aplicativo Mobile</option>
+              <option value="Sistema Web" class="bg-background">Sistema Web</option>
+              <option value="Landing Page" class="bg-background">Landing Page</option>
+              <option value="Automação de Processos" class="bg-background">Automação de Processos</option>
+              <option value="Consultoria" class="bg-background">Consultoria</option>
+              <option value="Outro" class="bg-background">Outro</option>
             </select>
           </div>
           
           <div>
-            <label for="orcamento" class="block text-white/70 font-medium mb-3">Orçamento Estimado</label>
-            <select id="orcamento" name="orcamento" class="w-full px-6 py-4 bg-white/5 backdrop-blur-sm border border-white/20 rounded-xl text-white focus:border-[#00B050]/50 focus:outline-none focus:ring-2 focus:ring-[#00B050]/20 transition-all duration-300">
-              <option value="" class="bg-[#121212]">Selecione uma faixa</option>
-              <option value="R$ 500 - R$ 1.500" class="bg-[#121212]">R$ 500 - R$ 1.500</option>
-              <option value="R$ 1.500 - R$ 3.000" class="bg-[#121212]">R$ 1.500 - R$ 3.000</option>
-              <option value="R$ 3.000 - R$ 5.000" class="bg-[#121212]">R$ 3.000 - R$ 5.000</option>
-              <option value="Acima de R$ 5.000" class="bg-[#121212]">Acima de R$ 5.000</option>
+            <label for="orcamento" class="block text-muted-foreground font-medium mb-3">Orçamento Estimado</label>
+            <select id="orcamento" name="orcamento" class="w-full px-6 py-4 bg-card backdrop-blur-sm border border-border rounded-xl text-foreground focus:border-[#00B050]/50 focus:outline-none focus:ring-2 focus:ring-[#00B050]/20 transition-all duration-300">
+              <option value="" class="bg-background">Selecione uma faixa</option>
+              <option value="R$ 500 - R$ 1.500" class="bg-background">R$ 500 - R$ 1.500</option>
+              <option value="R$ 1.500 - R$ 3.000" class="bg-background">R$ 1.500 - R$ 3.000</option>
+              <option value="R$ 3.000 - R$ 5.000" class="bg-background">R$ 3.000 - R$ 5.000</option>
+              <option value="Acima de R$ 5.000" class="bg-background">Acima de R$ 5.000</option>
             </select>
           </div>
           
           <div>
-            <label for="message" class="block text-white/70 font-medium mb-3">Mensagem <span class="text-red-400">*</span></label>
-            <textarea id="message" name="message" rows="5" required class="w-full px-6 py-4 bg-white/5 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-white/40 focus:border-[#00B050]/50 focus:outline-none focus:ring-2 focus:ring-[#00B050]/20 transition-all duration-300 resize-none" placeholder="Conte-nos mais sobre seu projeto..."></textarea>
+            <label for="message" class="block text-muted-foreground font-medium mb-3">Mensagem <span class="text-red-400">*</span></label>
+            <textarea id="message" name="message" rows="5" required class="w-full px-6 py-4 bg-card backdrop-blur-sm border border-border rounded-xl text-foreground placeholder-muted-foreground/60 focus:border-[#00B050]/50 focus:outline-none focus:ring-2 focus:ring-[#00B050]/20 transition-all duration-300 resize-none" placeholder="Conte-nos mais sobre seu projeto..."></textarea>
           </div>
           
           <button type="submit" class="w-full bg-[#25D366] hover:bg-[#25D366]/90 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-[#25D366]/20 border border-[#25D366]/20 cursor-pointer hover:translate-y-[-2px]">
@@ -109,7 +109,7 @@
       <div class="lg:col-span-1 space-y-6">
         
         <!-- WhatsApp -->
-        <div class="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 shadow-2xl hover:shadow-[#25D366]/10 transition-all duration-300 hover:border-[#25D366]/30 p-6">
+        <div class="bg-card backdrop-blur-sm rounded-2xl border border-border shadow-2xl hover:shadow-[#25D366]/10 transition-all duration-300 hover:border-[#25D366]/30 p-6">
           <div class="flex items-center space-x-4">
             <div class="flex-shrink-0">
               <div class="w-12 h-12 bg-[#25D366]/20 rounded-xl flex items-center justify-center">
@@ -119,8 +119,8 @@
               </div>
             </div>
             <div>
-              <h4 class="text-base md:text-lg font-semibold text-white mb-1">WhatsApp</h4>
-              <p class="text-white/60 text-sm mb-2">Resposta rápida e personalizada</p>
+              <h4 class="text-base md:text-lg font-semibold text-foreground mb-1">WhatsApp</h4>
+              <p class="text-muted-foreground text-sm mb-2">Resposta rápida e personalizada</p>
               <a href="https://wa.me/5514997295849" target="_blank" rel="noopener noreferrer" class="text-[#25D366] hover:text-[#25D366]/80 transition-colors font-medium text-sm">
                 (14) 99729-5849
               </a>
@@ -129,7 +129,7 @@
         </div>
 
         <!-- E-mail -->
-        <div class="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 hover:border-blue-500/30 p-6">
+        <div class="bg-card backdrop-blur-sm rounded-2xl border border-border shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 hover:border-blue-500/30 p-6">
           <div class="flex items-center space-x-4">
             <div class="flex-shrink-0">
               <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center">
@@ -139,8 +139,8 @@
               </div>
             </div>
             <div>
-              <h4 class="text-base md:text-lg font-semibold text-white mb-1">E-mail</h4>
-              <p class="text-white/60 text-sm mb-2">Proposta personalizada</p>
+              <h4 class="text-base md:text-lg font-semibold text-foreground mb-1">E-mail</h4>
+              <p class="text-muted-foreground text-sm mb-2">Proposta personalizada</p>
               <a href="mailto:contato@pradosolucoes.com" class="text-blue-400 hover:text-blue-300 transition-colors font-medium text-sm">
                 contato@pradosolucoes.com
               </a>
@@ -149,7 +149,7 @@
         </div>
 
         <!-- Localização -->
-        <div class="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 shadow-2xl hover:shadow-purple-500/10 transition-all duration-300 hover:border-purple-500/30 p-6">
+        <div class="bg-card backdrop-blur-sm rounded-2xl border border-border shadow-2xl hover:shadow-purple-500/10 transition-all duration-300 hover:border-purple-500/30 p-6">
           <div class="flex items-center space-x-4">
             <div class="flex-shrink-0">
               <div class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center">
@@ -160,8 +160,8 @@
               </div>
             </div>
             <div>
-              <h4 class="text-base md:text-lg font-semibold text-white mb-1">Localização</h4>
-              <p class="text-white/60 text-sm mb-2">Atendemos remotamente em todo o Brasil e presencialmente em São Paulo</p>
+              <h4 class="text-base md:text-lg font-semibold text-foreground mb-1">Localização</h4>
+              <p class="text-muted-foreground text-sm mb-2">Atendemos remotamente em todo o Brasil e presencialmente em São Paulo</p>
               <div class="text-purple-400 font-medium text-sm">
                 Jaú, SP
               </div>
@@ -170,7 +170,7 @@
         </div>
 
         <!-- Horário de Atendimento -->
-        <div class="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 shadow-2xl hover:shadow-orange-500/10 transition-all duration-300 hover:border-orange-500/30 p-6">
+        <div class="bg-card backdrop-blur-sm rounded-2xl border border-border shadow-2xl hover:shadow-orange-500/10 transition-all duration-300 hover:border-orange-500/30 p-6">
           <div class="flex items-center space-x-4">
             <div class="flex-shrink-0">
               <div class="w-12 h-12 bg-orange-500/20 rounded-xl flex items-center justify-center">
@@ -180,8 +180,8 @@
               </div>
             </div>
             <div>
-              <h4 class="text-base md:text-lg font-semibold text-white mb-1">Horário</h4>
-              <p class="text-white/60 text-sm mb-2">Segunda a Sexta: 8h às 18h</p>
+              <h4 class="text-base md:text-lg font-semibold text-foreground mb-1">Horário</h4>
+              <p class="text-muted-foreground text-sm mb-2">Segunda a Sexta: 8h às 18h</p>
               <div class="text-orange-400 font-medium text-sm">
                 Emergências via WhatsApp
               </div>

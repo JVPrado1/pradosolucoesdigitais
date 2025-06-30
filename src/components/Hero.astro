@@ -3,7 +3,7 @@
 ---
 
     
-<section class="mx-auto relative min-h-[90vh] md:min-h-screen bg-[#121212] z-1 flex items-center overflow-visible pt-[80px] md:pt-[60px] pb-16">
+<section id="hero" class="mx-auto relative min-h-[90vh] md:min-h-screen bg-background z-1 flex items-center overflow-visible pt-[60px] md:pt-[60px] pb-16 transition-colors duration-300">
   <!-- Background Pattern -->
 
  
@@ -28,26 +28,23 @@
     <div class="absolute top-1/3 right-[20%] text-[#00B050]/10 text-xl">&#123; &#125;</div>
     <div class="absolute bottom-1/4 left-[25%] text-blue-500/10 text-xl">&lt;/&gt;</div>
     
-    <!-- Floating Tech Words -->
-    <div class="absolute top-20 right-[30%] text-white/5 text-sm font-mono">React</div>
-    <div class="absolute bottom-32 left-[40%] text-white/5 text-sm font-mono">Node.js</div>
-    <div class="absolute top-1/2 right-[15%] text-white/5 text-sm font-mono">API</div>
+    <!-- Floating Tech Words - Removidas as palavras React, Node.js e API -->
   </div>
 
   <!-- Floating Elements - Reduzidos em mobile -->
   <div class="absolute inset-0 overflow-visible">
     <div class="floating-element absolute top-20 left-10 w-1.5 md:w-2 h-1.5 md:h-2 bg-[#00B050] rounded-full opacity-60"></div>
-    <div class="floating-element absolute top-40 right-20 w-0.5 md:w-1 h-0.5 md:h-1 bg-white rounded-full opacity-40"></div>
+    <div class="floating-element absolute top-40 right-20 w-0.5 md:w-1 h-0.5 md:h-1 bg-foreground rounded-full opacity-40"></div>
     <div class="floating-element absolute bottom-40 left-20 w-1 md:w-1.5 h-1 md:h-1.5 bg-[#00B050] rounded-full opacity-50"></div>
-    <div class="floating-element absolute bottom-20 right-40 w-0.5 md:w-1 h-0.5 md:h-1 bg-white rounded-full opacity-30"></div>
+    <div class="floating-element absolute bottom-20 right-40 w-0.5 md:w-1 h-0.5 md:h-1 bg-foreground rounded-full opacity-30"></div>
   </div>
 
-  <div class="relative z-10 max-w-6xl mx-auto px-4 md:px-6 lg:px-8 w-full">
+  <div class="relative z-10 max-w-6xl mx-auto px-4 md:px-6 lg:px-8 w-full min-h-[calc(100vh-60px)] flex flex-col justify-center">
   
     <!-- Main Content -->
     <div class="text-center mb-8 md:mb-12">
       <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight font-manrope">
-        <span class="text-white">
+        <span class="text-foreground">
           Soluções Digitais
         </span>
         <br />
@@ -56,52 +53,52 @@
         </span>
       </h1>
     
-      <p class="text-base sm:text-lg md:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed mb-8 md:mb-12 px-2">
+      <p class="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed  md:mb-12 px-2">
         Ajudamos empresas e profissionais a crescerem online, facilitarem o dia a dia e otimizarem processos através de tecnologias modernas e soluções inteligentes.
       </p>
     </div>
 
-    <!-- Services Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mb-8 md:mb-12 max-w-3xl mx-auto">
+    <!-- Services Grid (para desktop) / Carrossel (para mobile) -->
+    <div class="hidden sm:grid sm:grid-cols-2 gap-3 md:gap-4 mb-8 md:mb-12 max-w-3xl mx-auto">
       
       <!-- Site & E-commerce -->
-      <a href="#services" class="group bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10 p-3 md:p-4 hover:border-[#00B050]/30 transition-all duration-300 hover:scale-[1.02] cursor-pointer">
+      <a href="#services" class="group bg-card backdrop-blur-sm rounded-lg md:rounded-xl border border-border p-3 md:p-4 hover:border-[#00B050]/30 transition-all duration-300 hover:scale-[1.02] cursor-pointer">
         <div class="flex items-center gap-2 md:gap-3">
           <div class="w-8 h-8 md:w-10 md:h-10 bg-[#00B050]/20 rounded-md md:rounded-lg flex items-center justify-center shrink-0 group-hover:bg-[#00B050]/30 transition-colors duration-300">
             <svg class="w-4 h-4 md:w-5 md:h-5 text-[#00B050]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
             </svg>
           </div>
-          <h3 class="text-base md:text-lg font-bold text-white group-hover:text-[#00B050] transition-colors duration-300">Sites & E-commerces</h3>
+          <h3 class="text-base md:text-lg font-bold text-foreground group-hover:text-[#00B050] transition-colors duration-300">Sites & E-commerces</h3>
         </div>
       </a>
 
       <!-- Aplicativos -->
-      <a href="#services" class="group bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10 p-3 md:p-4 hover:border-blue-500/30 transition-all duration-300 hover:scale-[1.02] cursor-pointer">
+      <a href="#services" class="group bg-card backdrop-blur-sm rounded-lg md:rounded-xl border border-border p-3 md:p-4 hover:border-blue-500/30 transition-all duration-300 hover:scale-[1.02] cursor-pointer">
         <div class="flex items-center gap-2 md:gap-3">
           <div class="w-8 h-8 md:w-10 md:h-10 bg-blue-500/20 rounded-md md:rounded-lg flex items-center justify-center shrink-0 group-hover:bg-blue-500/30 transition-colors duration-300">
             <svg class="w-4 h-4 md:w-5 md:h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
             </svg>
           </div>
-          <h3 class="text-base md:text-lg font-bold text-white group-hover:text-blue-400 transition-colors duration-300">Aplicativos</h3>
+          <h3 class="text-base md:text-lg font-bold text-foreground group-hover:text-blue-400 transition-colors duration-300">Aplicativos</h3>
         </div>
       </a>
 
       <!-- Sistemas & Plataformas -->
-      <a href="#services" class="group bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10 p-3 md:p-4 hover:border-purple-500/30 transition-all duration-300 hover:scale-[1.02] cursor-pointer">
+      <a href="#services" class="group bg-card backdrop-blur-sm rounded-lg md:rounded-xl border border-border p-3 md:p-4 hover:border-purple-500/30 transition-all duration-300 hover:scale-[1.02] cursor-pointer">
         <div class="flex items-center gap-2 md:gap-3">
           <div class="w-8 h-8 md:w-10 md:h-10 bg-purple-500/20 rounded-md md:rounded-lg flex items-center justify-center shrink-0 group-hover:bg-purple-500/30 transition-colors duration-300">
             <svg class="w-4 h-4 md:w-5 md:h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
             </svg>
           </div>
-          <h3 class="text-base md:text-lg font-bold text-white group-hover:text-purple-400 transition-colors duration-300">Sistemas & Plataformas</h3>
+          <h3 class="text-base md:text-lg font-bold text-foreground group-hover:text-purple-400 transition-colors duration-300">Sistemas & Plataformas</h3>
         </div>
       </a>
 
       <!-- Automação -->
-      <a href="#services" class="group bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10 p-3 md:p-4 hover:border-orange-500/30 transition-all duration-300 hover:scale-[1.02] cursor-pointer">
+      <a href="#services" class="group bg-card backdrop-blur-sm rounded-lg md:rounded-xl border border-border p-3 md:p-4 hover:border-orange-500/30 transition-all duration-300 hover:scale-[1.02] cursor-pointer">
         <div class="flex items-center gap-2 md:gap-3">
           <div class="w-8 h-8 md:w-10 md:h-10 bg-orange-500/20 rounded-md md:rounded-lg flex items-center justify-center shrink-0 group-hover:bg-orange-500/30 transition-colors duration-300">
             <svg class="w-4 h-4 md:w-5 md:h-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -109,9 +106,102 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
             </svg>
           </div>
-          <h3 class="text-base md:text-lg font-bold text-white group-hover:text-orange-400 transition-colors duration-300">Automação</h3>
+          <h3 class="text-base md:text-lg font-bold text-foreground group-hover:text-orange-400 transition-colors duration-300">Automação</h3>
         </div>
       </a>
+    </div>
+
+    <!-- Slider infinito para Mobile -->
+    <div class="sm:hidden mb-8 relative max-w-xs mx-auto">
+      <div class="slider-container overflow-hidden">
+        <div class="slider-track flex">
+          <!-- Site & E-commerce -->
+          <div class="slider-item min-w-full px-2">
+            <a href="#services" class="group bg-card backdrop-blur-sm rounded-lg border border-border p-4 hover:border-[#00B050]/30 transition-all duration-300 hover:scale-[1.02] cursor-pointer block">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-[#00B050]/20 rounded-md flex items-center justify-center shrink-0 group-hover:bg-[#00B050]/30 transition-colors duration-300">
+                  <svg class="w-5 h-5 text-[#00B050]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+                  </svg>
+                </div>
+                <h3 class="text-lg font-bold text-foreground group-hover:text-[#00B050] transition-colors duration-300">Sites & E-commerces</h3>
+              </div>
+            </a>
+          </div>
+
+          <!-- Aplicativos -->
+          <div class="slider-item min-w-full px-2">
+            <a href="#services" class="group bg-card backdrop-blur-sm rounded-lg border border-border p-4 hover:border-blue-500/30 transition-all duration-300 hover:scale-[1.02] cursor-pointer block">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-blue-500/20 rounded-md flex items-center justify-center shrink-0 group-hover:bg-blue-500/30 transition-colors duration-300">
+                  <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                  </svg>
+                </div>
+                <h3 class="text-lg font-bold text-foreground group-hover:text-blue-400 transition-colors duration-300">Aplicativos</h3>
+              </div>
+            </a>
+          </div>
+
+          <!-- Sistemas & Plataformas -->
+          <div class="slider-item min-w-full px-2">
+            <a href="#services" class="group bg-card backdrop-blur-sm rounded-lg border border-border p-4 hover:border-purple-500/30 transition-all duration-300 hover:scale-[1.02] cursor-pointer block">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-purple-500/20 rounded-md flex items-center justify-center shrink-0 group-hover:bg-purple-500/30 transition-colors duration-300">
+                  <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                  </svg>
+                </div>
+                <h3 class="text-lg font-bold text-foreground group-hover:text-purple-400 transition-colors duration-300">Sistemas & Plataformas</h3>
+              </div>
+            </a>
+          </div>
+
+          <!-- Automação -->
+          <div class="slider-item min-w-full px-2">
+            <a href="#services" class="group bg-card backdrop-blur-sm rounded-lg border border-border p-4 hover:border-orange-500/30 transition-all duration-300 hover:scale-[1.02] cursor-pointer block">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-orange-500/20 rounded-md flex items-center justify-center shrink-0 group-hover:bg-orange-500/30 transition-colors duration-300">
+                  <svg class="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  </svg>
+                </div>
+                <h3 class="text-lg font-bold text-foreground group-hover:text-orange-400 transition-colors duration-300">Automação</h3>
+              </div>
+            </a>
+          </div>
+          
+          <!-- Duplicados para o efeito infinito -->
+          <!-- Site & E-commerce (duplicado) -->
+          <div class="slider-item min-w-full px-2">
+            <a href="#services" class="group bg-card backdrop-blur-sm rounded-lg border border-border p-4 hover:border-[#00B050]/30 transition-all duration-300 hover:scale-[1.02] cursor-pointer block">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-[#00B050]/20 rounded-md flex items-center justify-center shrink-0 group-hover:bg-[#00B050]/30 transition-colors duration-300">
+                  <svg class="w-5 h-5 text-[#00B050]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+                  </svg>
+                </div>
+                <h3 class="text-lg font-bold text-foreground group-hover:text-[#00B050] transition-colors duration-300">Sites & E-commerces</h3>
+              </div>
+            </a>
+          </div>
+
+          <!-- Aplicativos (duplicado) -->
+          <div class="slider-item min-w-full px-2">
+            <a href="#services" class="group bg-card backdrop-blur-sm rounded-lg border border-border p-4 hover:border-blue-500/30 transition-all duration-300 hover:scale-[1.02] cursor-pointer block">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-blue-500/20 rounded-md flex items-center justify-center shrink-0 group-hover:bg-blue-500/30 transition-colors duration-300">
+                  <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                  </svg>
+                </div>
+                <h3 class="text-lg font-bold text-foreground group-hover:text-blue-400 transition-colors duration-300">Aplicativos</h3>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- CTA Buttons -->
@@ -123,7 +213,7 @@
         </svg>
       </a>
       
-      <a href="#portfolio" class="w-full sm:w-auto inline-flex items-center justify-center bg-white/5 backdrop-blur-sm border border-white/20 hover:border-[#00B050]/50 hover:bg-white/10 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg md:rounded-xl font-semibold transition-all duration-300 hover:scale-[1.02]">
+      <a href="#portfolio" class="w-full sm:w-auto inline-flex items-center justify-center bg-card backdrop-blur-sm border border-border hover:border-[#00B050]/50 hover:bg-card-hover text-foreground px-6 md:px-8 py-3 md:py-4 rounded-lg md:rounded-xl font-semibold transition-all duration-300 hover:scale-[1.02]">
         <svg class="mr-2 w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
         </svg>
@@ -132,6 +222,57 @@
     </div>
   </div>
 </section>
+
+<script is:inline>
+  // Slider infinito para mobile
+  document.addEventListener('DOMContentLoaded', () => {
+    const sliderTrack = document.querySelector('.slider-track');
+    const sliderItems = document.querySelectorAll('.slider-item');
+    
+    if (!sliderTrack || sliderItems.length === 0) return;
+    
+    // Configuração do slider
+    const slideWidth = 100; // 100% da largura do container
+    const totalOriginalSlides = 4; // Número de slides originais (sem duplicados)
+    let currentPosition = 0;
+    let slideInterval;
+    
+    // Função para mover o slider
+    function moveSlider() {
+      currentPosition = (currentPosition + 1) % totalOriginalSlides;
+      
+      // Animação suave para o próximo slide
+      sliderTrack.style.transition = 'transform 0.5s ease-in-out';
+      sliderTrack.style.transform = `translateX(-${currentPosition * slideWidth}%)`;
+      
+      // Quando chegamos ao final dos slides originais, resetamos para o início sem animação
+      if (currentPosition === totalOriginalSlides - 1) {
+        setTimeout(() => {
+          sliderTrack.style.transition = 'none';
+          currentPosition = -1; // Próximo incremento será 0
+        }, 500);
+      }
+    }
+    
+    // Iniciar o slider automático
+    function startSlider() {
+      slideInterval = setInterval(moveSlider, 2000);
+    }
+    
+    // Pausar o slider quando o usuário interagir
+    sliderTrack.addEventListener('touchstart', () => {
+      clearInterval(slideInterval);
+    });
+    
+    // Reiniciar o slider quando o usuário parar de interagir
+    sliderTrack.addEventListener('touchend', () => {
+      startSlider();
+    });
+    
+    // Iniciar o slider
+    startSlider();
+  });
+</script>
 
 <style>
   .floating-element {
@@ -172,6 +313,33 @@
   /* Animação suave para os elementos de fundo */
   .absolute {
     transition: opacity 0.3s ease;
+  }
+  
+  /* Estilos do slider infinito */
+  .slider-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .slider-item {
+    flex-shrink: 0;
+    width: 100%;
+  }
+  
+  /* Animação de slide automático */
+  @keyframes slide {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-400%); /* 4 slides originais */
+    }
   }
 </style>
 
