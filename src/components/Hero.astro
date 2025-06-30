@@ -1,308 +1,176 @@
 ---
-// Hero Section - Impacto inicial
+// Hero moderno com design limpo e compacto
 ---
 
-<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black">
-  
+<section class="relative min-h-[90vh] md:min-h-screen bg-[#121212] flex items-center overflow-hidden pt-[80px] md:pt-[60px]">
   <!-- Background Pattern -->
-  <div class="absolute inset-0 opacity-20">
-    <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;%3E%3Cg fill=&quot;%2300bc61&quot; fill-opacity=&quot;0.1&quot;%3E%3Ccircle cx=&quot;30&quot; cy=&quot;30&quot; r=&quot;1&quot;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')"></div>
+  <div class="absolute inset-0 opacity-30">
+    <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0); background-size: 50px 50px;"></div>
   </div>
-  
-  <!-- Gradient Overlays -->
-  <div class="absolute top-0 left-0 w-full h-full">
-    <div class="absolute top-20 left-20 w-72 h-72 bg-[#00bc61]/20 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-20 right-20 w-96 h-96 bg-[#00bc61]/10 rounded-full blur-3xl"></div>
-  </div>
-  
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center items-center min-h-screen">
-    <div class="grid lg:grid-cols-2 gap-8 lg:gap-32 items-center">
-      
-      <!-- Conteúdo Principal -->
-      <div class="text-white text-center lg:text-left">
-        
-        <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold mb-3 lg:mb-6 leading-tight animate-on-scroll fade-up">
-          Soluções 
-          <span class="text-[#00bc61] relative">
-            Digitais
-            <svg class="absolute -bottom-2 left-0 w-full h-3" viewBox="0 0 200 12" fill="none">
-              <path d="M2 10C20 5 40 2 60 3C80 4 100 7 120 4C140 1 160 5 180 8C185 9 190 10 198 10" stroke="#00bc61" stroke-width="3" stroke-linecap="round" class="animate-pulse"/>
-            </svg>
-          </span>
-          <br />Sob Medida
-        </h1>
-        
-        <p class="text-lg sm:text-xl text-[#A7A9AC] mb-4 lg:mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0 animate-on-scroll fade-up animation-delay-200">
-          Ajudamos <strong class="text-white">empresas e profissionais</strong> a <strong class="text-white">crescerem online</strong>, 
-          <strong class="text-white">facilitarem o dia a dia</strong> e <strong class="text-white">otimizarem processos</strong> 
-          através de tecnologias modernas e <strong class="text-white">soluções inteligentes</strong>.
-        </p>
-        
-        <!-- Principais Serviços -->
-        <div class="mb-4 lg:mb-8 animate-on-scroll fade-up animation-delay-400">
-          <!-- Mobile: Layout compacto em 2x2 -->
-          <div class="grid grid-cols-2 gap-2 lg:hidden">
-            <div class="flex flex-col items-center text-center p-2 bg-white/3 rounded-lg backdrop-blur-sm border border-white/5 hover:bg-white/5 transition-all duration-300 group">
-              <div class="w-8 h-8 rounded-lg flex items-center justify-center group-hover:bg-[#00bc61]/20 transition-colors duration-300 mb-1">
-                <svg class="w-4 h-4 text-[#00bc61]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-              </div>
-              <span class="text-white/80 font-normal text-xs leading-tight">Sites & E-commerces</span>
-            </div>
-            
-            <div class="flex flex-col items-center text-center p-2 bg-white/3 rounded-lg backdrop-blur-sm border border-white/5 hover:bg-white/5 transition-all duration-300 group">
-              <div class="w-8 h-8 rounded-lg flex items-center justify-center group-hover:bg-[#00bc61]/20 transition-colors duration-300 mb-1">
-                <svg class="w-4 h-4 text-[#00bc61]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
-                </svg>
-              </div>
-              <span class="text-white/80 font-normal text-xs leading-tight">Aplicativos</span>
-            </div>
-            
-            <div class="flex flex-col items-center text-center p-2 bg-white/3 rounded-lg backdrop-blur-sm border border-white/5 hover:bg-white/5 transition-all duration-300 group">
-              <div class="w-8 h-8 rounded-lg flex items-center justify-center group-hover:bg-[#00bc61]/20 transition-colors duration-300 mb-1">
-                <svg class="w-4 h-4 text-[#00bc61]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                </svg>
-              </div>
-              <span class="text-white/80 font-normal text-xs leading-tight">Sistemas & Plataformas</span>
-            </div>
-            
-            <div class="flex flex-col items-center text-center p-2 bg-white/3 rounded-lg backdrop-blur-sm border border-white/5 hover:bg-white/5 transition-all duration-300 group">
-              <div class="w-8 h-8 rounded-lg flex items-center justify-center group-hover:bg-[#00bc61]/20 transition-colors duration-300 mb-1">
-                <svg class="w-4 h-4 text-[#00bc61]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                </svg>
-              </div>
-              <span class="text-white/80 font-normal text-xs leading-tight">Automação de Processos</span>
-            </div>
-          </div>
-          
-          <!-- Desktop: Layout original em linha -->
-          <div class="hidden lg:grid lg:grid-cols-2 lg:gap-4">
-            <div class="flex items-center space-x-3 group justify-start">
-              <div class="w-8 h-8 bg-[#00bc61]/20 rounded-lg flex items-center justify-center group-hover:bg-[#00bc61]/30 transition-colors duration-300 group-hover:scale-110 flex-shrink-0">
-                <svg class="w-4 h-4 text-[#00bc61]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-              </div>
-              <span class="text-white font-medium text-sm sm:text-base">Sites & E-commerces</span>
-            </div>
-            
-            <div class="flex items-center space-x-3 group justify-start">
-              <div class="w-8 h-8 bg-[#00bc61]/20 rounded-lg flex items-center justify-center group-hover:bg-[#00bc61]/30 transition-colors duration-300 group-hover:scale-110 flex-shrink-0">
-                <svg class="w-4 h-4 text-[#00bc61]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
-                </svg>
-              </div>
-              <span class="text-white font-medium text-sm sm:text-base">Aplicativos</span>
-            </div>
-            
-            <div class="flex items-center space-x-3 group justify-start">
-              <div class="w-8 h-8 bg-[#00bc61]/20 rounded-lg flex items-center justify-center group-hover:bg-[#00bc61]/30 transition-colors duration-300 group-hover:scale-110 flex-shrink-0">
-                <svg class="w-4 h-4 text-[#00bc61]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                </svg>
-              </div>
-              <span class="text-white font-medium text-sm sm:text-base">Sistemas & Plataformas</span>
-            </div>
-            
-            <div class="flex items-center space-x-3 group justify-start">
-              <div class="w-8 h-8 bg-[#00bc61]/20 rounded-lg flex items-center justify-center group-hover:bg-[#00bc61]/30 transition-colors duration-300 group-hover:scale-110 flex-shrink-0">
-                <svg class="w-4 h-4 text-[#00bc61]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                </svg>
-              </div>
-              <span class="text-white font-medium text-sm sm:text-base">Automação de Processos</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="flex flex-col gap-3 mb-4 lg:mb-8 animate-on-scroll fade-up animation-delay-600 sm:flex-row sm:justify-center lg:justify-start">
-          <a href="#contact" class="bg-[#00bc61] text-white px-6 lg:px-8 py-3 lg:py-4 rounded-lg font-semibold hover:bg-[#00a555] hover:shadow-xl hover:shadow-[#00bc61]/25 hover:scale-105 transition-all duration-300 text-center flex items-center justify-center group text-sm lg:text-base">
-            <span>Começar Meu Projeto</span>
-            <svg class="ml-2 w-4 h-4 lg:w-5 lg:h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-          </a>
-          <a href="#portfolio" class="border-2 border-[#A7A9AC] text-white px-6 lg:px-8 py-3 lg:py-4 rounded-lg font-semibold hover:border-[#00bc61] hover:text-[#00bc61] hover:shadow-lg transition-all duration-300 text-center text-sm lg:text-base">
-            Ver Portfólio
-          </a>
-        </div>
-      </div>
-      
-      <!-- Visual/Animação -->
-      <div class="hidden lg:block relative flex items-center justify-center animate-on-scroll fade-right animation-delay-400">
-        <div class="relative">
-          <!-- Imagem -->
-          <div class="relative rounded-2xl overflow-hidden transform rotate-3 hover:rotate-0 transition-all duration-500 flex items-center justify-center hover:scale-105 ">
-            <img src="/hero.svg" alt="Prado Soluções Digitais" class="ml-12 w-[80%] h-auto rounded-2xl" />
-          </div>
-          
-          <!-- Elementos flutuantes -->
-          <div class="absolute -top-4 -right-4 w-20 h-20 bg-[#00bc61]/20 rounded-full animate-bounce delay-300"></div>
-          <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-[#00bc61]/30 rounded-full animate-bounce delay-700"></div>
-        </div>
-      </div>
+
+  <!-- Tech Background Elements - Oculto em telas muito pequenas -->
+  <div class="absolute inset-0 overflow-hidden select-none pointer-events-none hidden sm:block">
+    <!-- Code Snippets -->
+    <div class="absolute top-10 left-5 text-[#00B050]/10 text-xs font-mono">
+      const init = async () =&gt; &#123;<br/>
+      &nbsp;&nbsp;await setup();<br/>
+      &#125;
     </div>
+    <div class="absolute bottom-20 right-10 text-blue-500/10 text-xs font-mono">
+      function optimize() &#123;<br/>
+      &nbsp;&nbsp;return true;<br/>
+      &#125;
+    </div>
+
+    <!-- Tech Symbols -->
+    <div class="absolute top-1/4 left-[15%] text-purple-500/10 text-xl rotate-12">&lt;/&gt;</div>
+    <div class="absolute top-1/3 right-[20%] text-[#00B050]/10 text-xl">&#123; &#125;</div>
+    <div class="absolute bottom-1/4 left-[25%] text-blue-500/10 text-xl">&lt;/&gt;</div>
+    
+    <!-- Floating Tech Words -->
+    <div class="absolute top-20 right-[30%] text-white/5 text-sm font-mono">React</div>
+    <div class="absolute bottom-32 left-[40%] text-white/5 text-sm font-mono">Node.js</div>
+    <div class="absolute top-1/2 right-[15%] text-white/5 text-sm font-mono">API</div>
   </div>
+
+  <!-- Floating Elements - Reduzidos em mobile -->
+  <div class="absolute inset-0 overflow-hidden">
+    <div class="floating-element absolute top-20 left-10 w-1.5 md:w-2 h-1.5 md:h-2 bg-[#00B050] rounded-full opacity-60"></div>
+    <div class="floating-element absolute top-40 right-20 w-0.5 md:w-1 h-0.5 md:h-1 bg-white rounded-full opacity-40"></div>
+    <div class="floating-element absolute bottom-40 left-20 w-1 md:w-1.5 h-1 md:h-1.5 bg-[#00B050] rounded-full opacity-50"></div>
+    <div class="floating-element absolute bottom-20 right-40 w-0.5 md:w-1 h-0.5 md:h-1 bg-white rounded-full opacity-30"></div>
+  </div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-4 md:px-6 lg:px-8 w-full">
   
-  <!-- Scroll Indicator -->
-  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-    <div class="flex flex-col items-center text-[#A7A9AC] animate-bounce">
-      <span class="text-sm mb-2">Role para baixo</span>
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-      </svg>
+    <!-- Main Content -->
+    <div class="text-center mb-8 md:mb-12">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight font-manrope">
+        <span class="text-white">
+          Soluções Digitais
+        </span>
+        <br />
+        <span class="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
+          para o seu negócio
+        </span>
+      </h1>
+    
+      <p class="text-base sm:text-lg md:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed mb-8 md:mb-12 px-2">
+        Ajudamos empresas e profissionais a crescerem online, facilitarem o dia a dia e otimizarem processos através de tecnologias modernas e soluções inteligentes.
+      </p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mb-8 md:mb-12 max-w-3xl mx-auto">
+      
+      <!-- Site & E-commerce -->
+      <a href="#services" class="group bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10 p-3 md:p-4 hover:border-[#00B050]/30 transition-all duration-300 hover:scale-[1.02] cursor-pointer">
+        <div class="flex items-center gap-2 md:gap-3">
+          <div class="w-8 h-8 md:w-10 md:h-10 bg-[#00B050]/20 rounded-md md:rounded-lg flex items-center justify-center shrink-0 group-hover:bg-[#00B050]/30 transition-colors duration-300">
+            <svg class="w-4 h-4 md:w-5 md:h-5 text-[#00B050]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+            </svg>
+          </div>
+          <h3 class="text-base md:text-lg font-bold text-white group-hover:text-[#00B050] transition-colors duration-300">Sites & E-commerces</h3>
+        </div>
+      </a>
+
+      <!-- Aplicativos -->
+      <a href="#services" class="group bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10 p-3 md:p-4 hover:border-blue-500/30 transition-all duration-300 hover:scale-[1.02] cursor-pointer">
+        <div class="flex items-center gap-2 md:gap-3">
+          <div class="w-8 h-8 md:w-10 md:h-10 bg-blue-500/20 rounded-md md:rounded-lg flex items-center justify-center shrink-0 group-hover:bg-blue-500/30 transition-colors duration-300">
+            <svg class="w-4 h-4 md:w-5 md:h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="text-base md:text-lg font-bold text-white group-hover:text-blue-400 transition-colors duration-300">Aplicativos</h3>
+        </div>
+      </a>
+
+      <!-- Sistemas & Plataformas -->
+      <a href="#services" class="group bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10 p-3 md:p-4 hover:border-purple-500/30 transition-all duration-300 hover:scale-[1.02] cursor-pointer">
+        <div class="flex items-center gap-2 md:gap-3">
+          <div class="w-8 h-8 md:w-10 md:h-10 bg-purple-500/20 rounded-md md:rounded-lg flex items-center justify-center shrink-0 group-hover:bg-purple-500/30 transition-colors duration-300">
+            <svg class="w-4 h-4 md:w-5 md:h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+            </svg>
+          </div>
+          <h3 class="text-base md:text-lg font-bold text-white group-hover:text-purple-400 transition-colors duration-300">Sistemas & Plataformas</h3>
+        </div>
+      </a>
+
+      <!-- Automação -->
+      <a href="#services" class="group bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl border border-white/10 p-3 md:p-4 hover:border-orange-500/30 transition-all duration-300 hover:scale-[1.02] cursor-pointer">
+        <div class="flex items-center gap-2 md:gap-3">
+          <div class="w-8 h-8 md:w-10 md:h-10 bg-orange-500/20 rounded-md md:rounded-lg flex items-center justify-center shrink-0 group-hover:bg-orange-500/30 transition-colors duration-300">
+            <svg class="w-4 h-4 md:w-5 md:h-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-base md:text-lg font-bold text-white group-hover:text-orange-400 transition-colors duration-300">Automação</h3>
+        </div>
+      </a>
+    </div>
+
+    <!-- CTA Buttons -->
+    <div class="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center">
+      <a href="#contact" class="w-full sm:w-auto inline-flex items-center justify-center bg-[#00B050] hover:bg-[#00B050]/90 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg md:rounded-xl font-semibold transition-all duration-300 hover:scale-[1.02] shadow-lg hover:shadow-[#00B050]/25">
+        <span>Começar Projeto</span>
+        <svg class="ml-2 w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+      
+      <a href="#portfolio" class="w-full sm:w-auto inline-flex items-center justify-center bg-white/5 backdrop-blur-sm border border-white/20 hover:border-[#00B050]/50 hover:bg-white/10 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg md:rounded-xl font-semibold transition-all duration-300 hover:scale-[1.02]">
+        <svg class="mr-2 w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+        </svg>
+        <span>Ver Portfólio</span>
+      </a>
     </div>
   </div>
 </section>
 
 <style>
-  /* Animações baseadas em scroll - otimizadas para mobile */
-  .animate-on-scroll {
-    opacity: 0;
-    transition: all 0.4s ease-out;
+  .floating-element {
+    animation: float 6s ease-in-out infinite;
   }
-  
-  .animate-on-scroll.fade-up {
-    transform: translateY(15px);
-  }
-  
-  .animate-on-scroll.fade-right {
-    transform: translateX(-15px);
-  }
-  
-  .animate-on-scroll.animate-in {
-    opacity: 1;
-    transform: translateY(0) translateX(0);
-  }
-  
-  /* Delays reduzidos para mobile */
-  .animation-delay-200 {
-    transition-delay: 0.05s;
-  }
-  
-  .animation-delay-400 {
-    transition-delay: 0.1s;
-  }
-  
-  .animation-delay-600 {
-    transition-delay: 0.15s;
-  }
-  
-  /* Mobile: animações mais rápidas e sem delays */
-  @media (max-width: 768px) {
-    .animate-on-scroll {
-      transition: all 0.3s ease-out;
-    }
 
-    /* Prevenir realces e seleção indesejada no mobile */
-    * {
-      -webkit-user-select: none !important;
-      -moz-user-select: none !important;
-      -ms-user-select: none !important;
-      user-select: none !important;
-      -webkit-touch-callout: none !important;
-      -webkit-tap-highlight-color: transparent !important;
-      pointer-events: none !important;
-    }
+  .floating-element:nth-child(2) {
+    animation-delay: -2s;
+  }
 
-    /* Permitir interação apenas em botões e links principais */
-    a, button {
-      pointer-events: auto !important;
-      -webkit-user-select: none !important;
-      -moz-user-select: none !important;
-      -ms-user-select: none !important;
-      user-select: none !important;
-    }
+  .floating-element:nth-child(3) {
+    animation-delay: -4s;
+  }
 
-    /* Permitir seleção apenas em inputs e textareas */
-    input, textarea, [contenteditable] {
-      -webkit-user-select: text !important;
-      -moz-user-select: text !important;
-      -ms-user-select: text !important;
-      user-select: text !important;
-      pointer-events: auto !important;
-    }
+  .floating-element:nth-child(4) {
+    animation-delay: -6s;
+  }
 
-    /* Desabilitar completamente todos os efeitos hover/active em mobile */
-    * {
-      transition: none !important;
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
     }
-    
-    *:hover,
-    *:active,
-    *:focus,
-    .group:hover *,
-    .hover\\:bg-white\\/5,
-    .hover\\:bg-\\[\\#00bc61\\]\\/30,
-    .hover\\:scale-110,
-    .group-hover\\:bg-\\[\\#00bc61\\]\\/20,
-    .group-hover\\:bg-\\[\\#00bc61\\]\\/30,
-    .group-hover\\:scale-110 {
-      transform: none !important;
-      background-color: inherit !important;
-      box-shadow: inherit !important;
-      border-color: inherit !important;
-      color: inherit !important;
-      scale: none !important;
-    }
-
-    /* Manter transições apenas nos botões principais */
-    a[href="#contact"],
-    a[href="#portfolio"] {
-      transition: all 0.3s ease !important;
-      pointer-events: auto !important;
-    }
-    
-    .animation-delay-200,
-    .animation-delay-400,
-    .animation-delay-600 {
-      transition-delay: 0s !important;
-    }
-    
-    .animate-on-scroll.fade-up {
-      transform: translateY(10px);
-    }
-    
-    .animate-on-scroll.fade-right {
-      transform: translateX(-10px);
+    50% {
+      transform: translateY(-20px);
     }
   }
 
-  /* Desabilitar hover effects em dispositivos touch globalmente */
-  @media (hover: none) and (pointer: coarse) {
-    *:hover,
-    *:active,
-    *:focus {
-      transform: none !important;
-      background-color: inherit !important;
-      box-shadow: inherit !important;
-      border-color: inherit !important;
-      color: inherit !important;
-      scale: none !important;
-    }
+  /* Glassmorphism effect */
+  .backdrop-blur-sm {
+    backdrop-filter: blur(8px);
+  }
 
-    /* Elementos que não devem ser interativos no touch */
-    .group,
-    h1, h2, h3, h4, h5, h6,
-    p, span, div:not(a):not(button) {
-      pointer-events: none !important;
-      -webkit-user-select: none !important;
-      -moz-user-select: none !important;
-      -ms-user-select: none !important;
-      user-select: none !important;
-      -webkit-touch-callout: none !important;
-      -webkit-tap-highlight-color: transparent !important;
-    }
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
 
-    /* Manter interatividade apenas nos botões principais */
-    a[href^="#"],
-    button {
-      pointer-events: auto !important;
-    }
+  /* Animação suave para os elementos de fundo */
+  .absolute {
+    transition: opacity 0.3s ease;
   }
 </style>
 

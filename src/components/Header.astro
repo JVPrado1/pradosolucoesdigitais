@@ -1,129 +1,113 @@
 ---
-// Header component
+// Header moderno com glassmorphismaaa
 ---
 
-<header id="header" class="fixed top-0 left-0 right-0 z-50 bg-transparent animate-slide-down transition-all duration-300">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
-    <div class="flex justify-between items-center h-16">
-      
+<header class="fixed w-full top-0 z-50 bg-[#121212]/80 backdrop-blur-sm border-b border-white/10">
+  <div class="max-w-6xl mx-auto px-6 lg:px-8">
+    <div class="flex items-center justify-between h-[60px]">
       <!-- Logo -->
-      <div class="flex-shrink-0 flex items-center space-x-3">
-        <img src="/logo.png" alt="Prado Soluções Digitais" class="w-auto h-9 hover:scale-105 transition-all duration-300" />
-      </div>
-      
-      <!-- Menu Desktop -->
-      <nav class="hidden md:flex items-center space-x-8">
-        <a href="#hero" class="text-white hover:text-[#00bc61] px-3 py-2 font-medium transition-colors duration-200 relative group">
-          Início
-          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00bc61] group-hover:w-full transition-all duration-300"></span>
-        </a>
-        <a href="#about" class="text-white hover:text-[#00bc61] px-3 py-2 font-medium transition-colors duration-200 relative group">
-          Sobre
-          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00bc61] group-hover:w-full transition-all duration-300"></span>
-        </a>
-        <a href="#services" class="text-white hover:text-[#00bc61] px-3 py-2 font-medium transition-colors duration-200 relative group">
-          Serviços
-          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00bc61] group-hover:w-full transition-all duration-300"></span>
-        </a>
-        <a href="#portfolio" class="text-white hover:text-[#00bc61] px-3 py-2 font-medium transition-colors duration-200 relative group">
-          Portfólio
-          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#00bc61] group-hover:w-full transition-all duration-300"></span>
-        </a>
-        <a href="#contact" class="bg-[#00bc61] text-white px-6 py-2 rounded-lg hover:bg-[#00a555] hover:scale-105 transition-all duration-200 font-medium ml-4">Contato</a>
+      <a href="/" class="flex-shrink-0">
+        <img src="/logo.png" alt="Prado Soluções Digitais" class="h-10 w-auto">
+      </a>
+
+      <!-- Links de Navegação Desktop -->
+      <nav class="hidden md:block">
+        <ul class="flex items-center space-x-8">
+          <li>
+            <a href="#about" class="text-white/60 hover:text-[#00B050] transition-colors duration-300">
+              Sobre
+            </a>
+          </li>
+          <li>
+            <a href="#services" class="text-white/60 hover:text-[#00B050] transition-colors duration-300">
+              Serviços
+            </a>
+          </li>
+          <li>
+            <a href="#portfolio" class="text-white/60 hover:text-[#00B050] transition-colors duration-300">
+              Portfólio
+            </a>
+          </li>
+          <li>
+            <a href="#contact" class="text-white/60 hover:text-[#00B050] transition-colors duration-300">
+              Contato
+            </a>
+          </li>
+        </ul>
       </nav>
-      
-      <!-- Menu Mobile Button -->
-      <div class="md:hidden">
-        <button id="mobile-menu-button" class="text-white hover:text-[#00bc61] transition-colors duration-200">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-        </button>
-      </div>
+
+      <!-- Botão Menu Mobile -->
+      <button id="mobile-menu-button" class="md:hidden text-white/60 hover:text-white transition-colors duration-300">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path class="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          <path class="close-icon hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
     </div>
-  </div>
-  
-  <!-- Menu Mobile -->
-  <div id="mobile-menu" class="md:hidden fixed inset-0 bg-black/95 backdrop-blur-xl z-40 opacity-0 transition-all duration-300 flex flex-col items-center justify-center text-center space-y-4 min-h-screen" style="display: none;">
-    <a href="#hero" class="text-white hover:text-[#00bc61] transition-colors duration-200 font-medium text-xl py-2">Início</a>
-    <a href="#about" class="text-white hover:text-[#00bc61] transition-colors duration-200 font-medium text-xl py-2">Sobre</a>
-    <a href="#services" class="text-white hover:text-[#00bc61] transition-colors duration-200 font-medium text-xl py-2">Serviços</a>
-    <a href="#portfolio" class="text-white hover:text-[#00bc61] transition-colors duration-200 font-medium text-xl py-2">Portfólio</a>
-    <a href="#contact" class="text-white hover:text-[#00bc61] transition-colors duration-200 font-medium text-xl py-2 ">Contato</a>
+
+    <!-- Menu Mobile -->
+    <div id="mobile-menu" class="hidden md:hidden">
+      <nav class="py-4">
+        <ul class="space-y-4">
+          <li>
+            <a href="#about" class="block text-white/60 hover:text-[#00B050] transition-colors duration-300">
+              Sobre
+            </a>
+          </li>
+          <li>
+            <a href="#services" class="block text-white/60 hover:text-[#00B050] transition-colors duration-300">
+              Serviços
+            </a>
+          </li>
+          <li>
+            <a href="#portfolio" class="block text-white/60 hover:text-[#00B050] transition-colors duration-300">
+              Portfólio
+            </a>
+          </li>
+          <li>
+            <a href="#contact" class="block text-white/60 hover:text-[#00B050] transition-colors duration-300">
+              Contato
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </div>
 </header>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Header background on scroll
-    const header = document.getElementById('header');
-    
-    function handleScroll() {
-      if (window.scrollY > 50) {
-        header.classList.remove('bg-transparent');
-        header.classList.add('bg-black/95', 'backdrop-blur-sm',  'border-white/10');
-      } else {
-        header.classList.add('bg-transparent');
-        header.classList.remove('bg-black/95', 'backdrop-blur-sm', 'border-white/10');
+  // Elementos do DOM
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.querySelector('.menu-icon');
+  const closeIcon = document.querySelector('.close-icon');
+
+  // Toggle do menu mobile
+  mobileMenuButton?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+    menuIcon?.classList.toggle('hidden');
+    closeIcon?.classList.toggle('hidden');
+  });
+
+  // Fecha o menu ao clicar em um link
+  const mobileLinks = mobileMenu?.querySelectorAll('a');
+  mobileLinks?.forEach(link => {
+    link.addEventListener('click', () => {
+      if (mobileMenu) {
+        mobileMenu.classList.add('hidden');
+        menuIcon?.classList.remove('hidden');
+        closeIcon?.classList.add('hidden');
       }
-    }
-    
-    // Verificar posição inicial da página
-    handleScroll();
-    
-    window.addEventListener('scroll', handleScroll);
-    
-    // Mobile menu toggle
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    let isMenuOpen = false;
-    
-    if (mobileMenuButton && mobileMenu) {
-      
-      mobileMenuButton.addEventListener('click', () => {
-        if (!isMenuOpen) {
-          // Abrir menu
-          mobileMenu.style.display = 'flex';
-          setTimeout(() => {
-            mobileMenu.classList.remove('opacity-0');
-          }, 10);
-          isMenuOpen = true;
-        } else {
-          // Fechar menu
-          mobileMenu.classList.add('opacity-0');
-          setTimeout(() => {
-            mobileMenu.style.display = 'none';
-          }, 300);
-          isMenuOpen = false;
-        }
-      });
-    }
-    
-    // Smooth scroll para links de navegação
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          const headerHeight = 50;
-          const targetPosition = target.offsetTop - headerHeight;
-          
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
-          
-          // Fechar menu mobile se estiver aberto
-          if (mobileMenu && mobileMenu.style.display === 'flex') {
-            mobileMenu.classList.add('opacity-0');
-            setTimeout(() => {
-              mobileMenu.style.display = 'none';
-            }, 300);
-            isMenuOpen = false;
-          }
-        }
-      });
     });
+  });
+
+  // Fecha o menu ao redimensionar a tela para desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768) { // 768px é o breakpoint md do Tailwind
+      mobileMenu?.classList.add('hidden');
+      menuIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+    }
   });
 </script>
 
@@ -149,6 +133,7 @@
     -webkit-backdrop-filter: blur(24px) !important;
   }
 </style>
+
 
 
 

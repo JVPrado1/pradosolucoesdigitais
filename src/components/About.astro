@@ -1,327 +1,226 @@
 ---
-// About Section - Sobre a empresa
+// Por que escolher a Prado - Seção moderna com glassmorphism
 ---
 
-<section id="about" class="py-12 lg:py-20 bg-gray-100">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    
+<section id="about" class="relative py-12 md:py-32 bg-[#121212]">
+  <!-- Background Pattern -->
+  <div class="absolute inset-0 opacity-20">
+    <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0); background-size: 50px 50px;"></div>
+  </div>
+
+  <!-- Floating Elements -->
+  <div class="absolute inset-0 overflow-hidden">
+    <div class="floating-element absolute top-20 left-10 w-2 h-2 bg-[#00B050] rounded-full opacity-40"></div>
+    <div class="floating-element absolute top-40 right-20 w-1 h-1 bg-blue-400 rounded-full opacity-30"></div>
+    <div class="floating-element absolute bottom-40 left-20 w-1.5 h-1.5 bg-purple-400 rounded-full opacity-35"></div>
+    <div class="floating-element absolute bottom-20 right-40 w-1 h-1 bg-orange-400 rounded-full opacity-25"></div>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 relative z-10">
     <!-- Header da Seção -->
-    <div class="text-center mb-8 lg:mb-16 animate-on-scroll fade-up">
-      <h2 class="text-3xl md:text-5xl font-bold text-black mb-4 lg:mb-6">
-        Por que escolher a 
-        <span class="text-[#00bc61] relative">
-          Prado
-          <svg class="absolute -bottom-2 left-0 w-full h-3" viewBox="0 0 200 12" fill="none">
-            <path d="M2 10C20 5 40 2 60 3C80 4 100 7 120 4C140 1 160 5 180 8C185 9 190 10 198 10" stroke="#00bc61" stroke-width="3" stroke-linecap="round" class="animate-pulse"/>
-          </svg>
-        </span>?
+    <div class="text-center mb-8 md:mb-20">
+      <h2 class="text-2xl md:text-5xl font-bold mb-3 md:mb-8 leading-tight">
+        <span class="text-white">
+          Por que escolher a
+        </span>
+        <span class="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
+          Prado Soluções Digitais?
+        </span>
       </h2>
-      <p class="text-xl text-[#A7A9AC] max-w-3xl mx-auto leading-relaxed">
-        Somos uma empresa jovem e inovadora, focada em entregar soluções digitais 
-        que realmente fazem a diferença no seu negócio.
+      
+      <p class="text-base md:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed px-2">
+        Somos uma empresa jovem e inovadora, focada em entregar soluções digitais que realmente fazem a diferença no seu negócio.
       </p>
     </div>
 
-    <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-8 lg:mb-16">
-      
-      <!-- Conteúdo Principal -->
-      <div class="animate-on-scroll fade-left text-center lg:text-left">
-        <div class="group p-4 bg-white rounded-xl border border-gray-200 shadow-sm text-left mb-3 lg:mb-4">
-          <!-- Mobile: ícone e título na mesma linha -->
-          <div class="flex items-center space-x-3 mb-2 md:hidden">
-            <div class="flex-shrink-0 w-10 h-10 bg-[#00bc61]/10 rounded-lg flex items-center justify-center group-hover:bg-[#00bc61]/20 transition-colors duration-300">
-              <svg class="w-5 h-5 text-[#00bc61]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09zM12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h.01M15 8h.01"/>
-              </svg>
-            </div>
-            <h4 class="text-lg font-semibold text-black">Nossa Missão</h4>
-          </div>
-          <!-- Desktop: layout original -->
-          <div class="hidden md:flex md:items-start md:space-x-4">
-            <div class="flex-shrink-0 w-12 h-12 bg-[#00bc61]/10 rounded-lg flex items-center justify-center group-hover:bg-[#00bc61]/20 transition-colors duration-300">
-              <svg class="w-6 h-6 text-[#00bc61]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09zM12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h.01M15 8h.01"/>
-              </svg>
+    <!-- Features Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 mb-10 md:mb-24">
+      <!-- Diferencial 1: Inovação -->
+      <div class="group">
+        <div class="bg-white/5 backdrop-blur-sm rounded-xl md:rounded-2xl border border-white/10 hover:border-[#00B050]/30 transition-all duration-300 hover:bg-white/10 p-4 md:p-8 hover:scale-[1.02]">
+          <div class="flex items-start gap-3 md:gap-6">
+            <div class="flex-shrink-0">
+              <div class="w-10 h-10 md:w-16 md:h-16 bg-[#00B050]/20 rounded-lg md:rounded-xl flex items-center justify-center text-[#00B050] group-hover:bg-[#00B050]/30 transition-colors duration-300">
+                <svg class="w-5 h-5 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                </svg>
+              </div>
             </div>
             <div>
-              <h4 class="text-xl font-semibold text-black mb-2">Nossa Missão</h4>
-              <p class="text-base text-[#A7A9AC] leading-relaxed">Democratizar o acesso à tecnologia de qualidade, criando soluções digitais acessíveis e eficientes que impulsionam o crescimento de empresas e profissionais.</p>
+              <h3 class="text-lg md:text-xl font-semibold text-white mb-1 md:mb-3">Foco na Inovação</h3>
+              <p class="text-sm md:text-base text-white/60 leading-relaxed">
+                Utilizamos as tecnologias mais atuais do mercado para criar soluções modernas e eficientes.
+              </p>
             </div>
-          </div>
-          <!-- Texto para mobile -->
-          <p class="text-sm text-[#A7A9AC] leading-relaxed md:hidden">Democratizar o acesso à tecnologia de qualidade, criando soluções digitais acessíveis e eficientes que impulsionam o crescimento de empresas e profissionais.</p>
-        </div>
-        
-        <!-- Diferenciais -->
-        <div class="space-y-3 md:space-y-6">
-          <div class="group p-4 bg-white rounded-xl border border-gray-200 shadow-sm text-left">
-            <!-- Mobile: ícone e título na mesma linha -->
-            <div class="flex items-center space-x-3 mb-2 md:hidden">
-              <div class="flex-shrink-0 w-10 h-10 bg-[#00bc61]/10 rounded-lg flex items-center justify-center group-hover:bg-[#00bc61]/20 transition-colors duration-300">
-                <svg class="w-5 h-5 text-[#00bc61]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-                </svg>
-              </div>
-              <h4 class="text-lg font-semibold text-black">Foco na Inovação</h4>
-            </div>
-            <!-- Desktop: layout original -->
-            <div class="hidden md:flex md:items-start md:space-x-4">
-              <div class="flex-shrink-0 w-12 h-12 bg-[#00bc61]/10 rounded-lg flex items-center justify-center group-hover:bg-[#00bc61]/20 transition-colors duration-300">
-                <svg class="w-6 h-6 text-[#00bc61]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-                </svg>
-              </div>
-              <div>
-                <h4 class="text-xl font-semibold text-black mb-2">Foco na Inovação</h4>
-                <p class="text-base text-[#A7A9AC] leading-relaxed">Utilizamos as tecnologias mais atuais do mercado para criar soluções modernas e eficientes.</p>
-              </div>
-            </div>
-            <!-- Texto para mobile -->
-            <p class="text-sm text-[#A7A9AC] leading-relaxed md:hidden">Utilizamos as tecnologias mais atuais do mercado para criar soluções modernas e eficientes.</p>
-          </div>
-          
-          <div class="group p-4 bg-white rounded-xl border border-gray-200 shadow-sm text-left">
-            <!-- Mobile: ícone e título na mesma linha -->
-            <div class="flex items-center space-x-3 mb-2 md:hidden">
-              <div class="flex-shrink-0 w-10 h-10 bg-[#00bc61]/10 rounded-lg flex items-center justify-center group-hover:bg-[#00bc61]/20 transition-colors duration-300">
-                <svg class="w-5 h-5 text-[#00bc61]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                </svg>
-              </div>
-              <h4 class="text-lg font-semibold text-black">Atendimento Personalizado</h4>
-            </div>
-            <!-- Desktop: layout original -->
-            <div class="hidden md:flex md:items-start md:space-x-4">
-              <div class="flex-shrink-0 w-12 h-12 bg-[#00bc61]/10 rounded-lg flex items-center justify-center group-hover:bg-[#00bc61]/20 transition-colors duration-300">
-                <svg class="w-6 h-6 text-[#00bc61]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                </svg>
-              </div>
-              <div>
-                <h4 class="text-xl font-semibold text-black mb-2">Atendimento Personalizado</h4>
-                <p class="text-base text-[#A7A9AC] leading-relaxed">Cada cliente é único. Oferecemos atenção personalizada e soluções sob medida para suas necessidades.</p>
-              </div>
-            </div>
-            <!-- Texto para mobile -->
-            <p class="text-sm text-[#A7A9AC] leading-relaxed md:hidden">Cada cliente é único. Oferecemos atenção personalizada e soluções sob medida para suas necessidades.</p>
-          </div>
-          
-          <div class="group p-4 bg-white rounded-xl border border-gray-200 shadow-sm text-left">
-            <!-- Mobile: ícone e título na mesma linha -->
-            <div class="flex items-center space-x-3 mb-2 md:hidden">
-              <div class="flex-shrink-0 w-10 h-10 bg-[#00bc61]/10 rounded-lg flex items-center justify-center group-hover:bg-[#00bc61]/20 transition-colors duration-300">
-                <svg class="w-5 h-5 text-[#00bc61]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
-                </svg>
-              </div>
-              <h4 class="text-lg font-semibold text-black">Crescimento Conjunto</h4>
-            </div>
-            <!-- Desktop: layout original -->
-            <div class="hidden md:flex md:items-start md:space-x-4">
-              <div class="flex-shrink-0 w-12 h-12 bg-[#00bc61]/10 rounded-lg flex items-center justify-center group-hover:bg-[#00bc61]/20 transition-colors duration-300">
-                <svg class="w-6 h-6 text-[#00bc61]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
-                </svg>
-              </div>
-              <div>
-                <h4 class="text-xl font-semibold text-black mb-2">Crescimento Conjunto</h4>
-                <p class="text-base text-[#A7A9AC] leading-relaxed">Seu sucesso é o nosso sucesso. Criamos parcerias duradouras e acompanhamos seu crescimento.</p>
-              </div>
-            </div>
-            <!-- Texto para mobile -->
-            <p class="text-sm text-[#A7A9AC] leading-relaxed md:hidden">Seu sucesso é o nosso sucesso. Criamos parcerias duradouras e acompanhamos seu crescimento.</p>
           </div>
         </div>
       </div>
-      
-      <!-- Visual -->
-      <div class="relative animate-on-scroll fade-right">
-     
-        <!-- Grid de Cards - Desktop: 2x2, Mobile: Lista vertical -->
-        <div class="hidden md:grid md:grid-cols-2 gap-6">
-          <!-- Card Qualidade -->
-          <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-lg hover:shadow-xl hover:border-[#00bc61]/30 transition-all duration-500 hover:-translate-y-1 group">
-            <div class="w-14 h-14 bg-gradient-to-br from-[#00bc61] to-[#00a555] rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
-              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
-              </svg>
+
+      <!-- Diferencial 2: Atendimento -->
+      <div class="group">
+        <div class="bg-white/5 backdrop-blur-sm rounded-xl md:rounded-2xl border border-white/10 hover:border-blue-500/30 transition-all duration-300 hover:bg-white/10 p-4 md:p-8 hover:scale-[1.02]">
+          <div class="flex items-start gap-3 md:gap-6">
+            <div class="flex-shrink-0">
+              <div class="w-10 h-10 md:w-16 md:h-16 bg-blue-500/20 rounded-lg md:rounded-xl flex items-center justify-center text-blue-400 group-hover:bg-blue-500/30 transition-colors duration-300">
+                <svg class="w-5 h-5 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </div>
             </div>
-            <h5 class="font-bold text-black mb-2 text-lg">Qualidade</h5>
-            <p class="text-sm text-[#A7A9AC] leading-relaxed">Código limpo, eficiente e performático</p>
-          </div>
-          
-          <!-- Card Agilidade -->
-          <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-lg hover:shadow-xl hover:border-[#00bc61]/30 transition-all duration-500 hover:-translate-y-1 group">
-            <div class="w-14 h-14 bg-gradient-to-br from-[#00bc61] to-[#00a555] rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
-              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
+            <div>
+              <h3 class="text-lg md:text-xl font-semibold text-white mb-1 md:mb-3">Atendimento Personalizado</h3>
+              <p class="text-sm md:text-base text-white/60 leading-relaxed">
+                Cada cliente é único. Oferecemos atenção personalizada e soluções sob medida para suas necessidades.
+              </p>
             </div>
-            <h5 class="font-bold text-black mb-2 text-lg">Agilidade</h5>
-            <p class="text-sm text-[#A7A9AC] leading-relaxed">Desenvolvimento rápido e eficiente</p>
-          </div>
-          
-          <!-- Card Suporte -->
-          <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-lg hover:shadow-xl hover:border-[#00bc61]/30 transition-all duration-500 hover:-translate-y-1 group">
-            <div class="w-14 h-14 bg-gradient-to-br from-[#00bc61] to-[#00a555] rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
-              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
-              </svg>
-            </div>
-            <h5 class="font-bold text-black mb-2 text-lg">Suporte</h5>
-            <p class="text-sm text-[#A7A9AC] leading-relaxed">Sempre disponível quando precisar</p>
-          </div>
-          
-          <!-- Card Tecnologia -->
-          <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-lg hover:shadow-xl hover:border-[#00bc61]/30 transition-all duration-500 hover:-translate-y-1 group">
-            <div class="w-14 h-14 bg-gradient-to-br from-[#00bc61] to-[#00a555] rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
-              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-              </svg>
-            </div>
-            <h5 class="font-bold text-black mb-2 text-lg">Tecnologia</h5>
-            <p class="text-sm text-[#A7A9AC] leading-relaxed">Stack moderno e atualizado</p>
           </div>
         </div>
+      </div>
 
-        <!-- Layout Mobile - Grid 2x2 com melhor separação -->
-        <div class="md:hidden">
-          <div class="grid grid-cols-2 gap-4 mb-6">
-            <!-- Card Qualidade -->
-            <div class="bg-white p-4 rounded-xl border-2 border-gray-100 shadow-md hover:shadow-lg hover:border-[#00bc61]/30 transition-all duration-300 group text-left">
-              <div class="flex items-center space-x-2 mb-2">
-                <div class="w-8 h-8 bg-gradient-to-br from-[#00bc61] to-[#00a555] rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
-                  </svg>
-                </div>
-                <h5 class="font-bold text-black text-sm">Qualidade</h5>
+      <!-- Diferencial 3: Crescimento -->
+      <div class="group">
+        <div class="bg-white/5 backdrop-blur-sm rounded-xl md:rounded-2xl border border-white/10 hover:border-purple-500/30 transition-all duration-300 hover:bg-white/10 p-4 md:p-8 hover:scale-[1.02]">
+          <div class="flex items-start gap-3 md:gap-6">
+            <div class="flex-shrink-0">
+              <div class="w-10 h-10 md:w-16 md:h-16 bg-purple-500/20 rounded-lg md:rounded-xl flex items-center justify-center text-purple-400 group-hover:bg-purple-500/30 transition-colors duration-300">
+                <svg class="w-5 h-5 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                </svg>
               </div>
-              <p class="text-xs text-[#A7A9AC] leading-relaxed">Código limpo e performático</p>
             </div>
-            
-            <!-- Card Agilidade -->
-            <div class="bg-gray-50 p-4 rounded-xl border-2 border-gray-200 shadow-md hover:shadow-lg hover:border-[#00bc61]/30 transition-all duration-300 group text-left">
-              <div class="flex items-center space-x-2 mb-2">
-                <div class="w-8 h-8 bg-gradient-to-br from-[#00bc61] to-[#00a555] rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                  </svg>
-                </div>
-                <h5 class="font-bold text-black text-sm">Agilidade</h5>
-              </div>
-              <p class="text-xs text-[#A7A9AC] leading-relaxed">Desenvolvimento rápido</p>
+            <div>
+              <h3 class="text-lg md:text-xl font-semibold text-white mb-1 md:mb-3">Crescimento Conjunto</h3>
+              <p class="text-sm md:text-base text-white/60 leading-relaxed">
+                Seu sucesso é o nosso sucesso. Criamos parcerias duradouras e acompanhamos seu crescimento.
+              </p>
             </div>
           </div>
-          
-          <div class="grid grid-cols-2 gap-4">
-            <!-- Card Suporte -->
-            <div class="bg-gray-50 p-4 rounded-xl border-2 border-gray-200 shadow-md hover:shadow-lg hover:border-[#00bc61]/30 transition-all duration-300 group text-left">
-              <div class="flex items-center space-x-2 mb-2">
-                <div class="w-8 h-8 bg-gradient-to-br from-[#00bc61] to-[#00a555] rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
-                  </svg>
-                </div>
-                <h5 class="font-bold text-black text-sm">Suporte</h5>
+        </div>
+      </div>
+
+      <!-- Diferencial 4: Qualidade -->
+      <div class="group">
+        <div class="bg-white/5 backdrop-blur-sm rounded-xl md:rounded-2xl border border-white/10 hover:border-orange-500/30 transition-all duration-300 hover:bg-white/10 p-4 md:p-8 hover:scale-[1.02]">
+          <div class="flex items-start gap-3 md:gap-6">
+            <div class="flex-shrink-0">
+              <div class="w-10 h-10 md:w-16 md:h-16 bg-orange-500/20 rounded-lg md:rounded-xl flex items-center justify-center text-orange-400 group-hover:bg-orange-500/30 transition-colors duration-300">
+                <svg class="w-5 h-5 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                </svg>
               </div>
-              <p class="text-xs text-[#A7A9AC] leading-relaxed">Sempre disponível</p>
             </div>
-            
-            <!-- Card Tecnologia -->
-            <div class="bg-white p-4 rounded-xl border-2 border-gray-100 shadow-md hover:shadow-lg hover:border-[#00bc61]/30 transition-all duration-300 group text-left">
-              <div class="flex items-center space-x-2 mb-2">
-                <div class="w-8 h-8 bg-gradient-to-br from-[#00bc61] to-[#00a555] rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-                  </svg>
-                </div>
-                <h5 class="font-bold text-black text-sm">Tecnologia</h5>
-              </div>
-              <p class="text-xs text-[#A7A9AC] leading-relaxed">Stack moderna</p>
+            <div>
+              <h3 class="text-lg md:text-xl font-semibold text-white mb-1 md:mb-3">Excelência Técnica</h3>
+              <p class="text-sm md:text-base text-white/60 leading-relaxed">
+                Código limpo, eficiente e bem documentado. Seguimos as melhores práticas de desenvolvimento.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
-    
-    <!-- CTA Section -->
-    <div class="mt-16 text-center animate-on-scroll fade-up animation-delay-400  hidden">
-      <div class="bg-white rounded-3xl p-8 md:p-12 border border-gray-200 shadow-sm">
-        <h3 class="text-3xl font-bold text-black mb-4">
-          Pronto para começar seu projeto?
-        </h3>
-        <p class="text-lg text-[#A7A9AC] mb-8 max-w-2xl mx-auto">
-          Vamos conversar sobre suas necessidades e criar uma solução digital 
-          que impulsione seu negócio para o próximo nível.
-        </p>
-        <a href="#contact" class="inline-flex items-center px-8 py-4 bg-[#00bc61] text-white font-semibold rounded-lg hover:bg-[#00a555] hover:shadow-xl hover:shadow-[#00bc61]/25 hover:scale-105 transition-all duration-300 group">
-          <span>Vamos conversar</span>
-          <svg class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-          </svg>
-        </a>
+
+    <!-- Nossa Missão -->
+    <div class="text-center mb-10 md:mb-24">
+      <div class="bg-white/5 backdrop-blur-sm rounded-xl md:rounded-2xl border border-white/10 p-5 md:p-12">
+        <div class="flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-3 md:gap-6 max-w-4xl mx-auto">
+          <div class="flex-shrink-0">
+            <div class="w-14 h-14 md:w-20 md:h-20 bg-gradient-to-br from-[#00B050]/20 to-blue-500/20 rounded-xl text-[#00B050] flex items-center justify-center mx-auto md:mx-0">
+              <svg class="w-7 h-7 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09zM12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"/>
+              </svg>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl md:text-3xl font-bold text-white mb-2 md:mb-1">Nossa Missão</h3>
+            <p class="text-sm md:text-base text-white/70 leading-relaxed">
+              Democratizar o acesso à tecnologia de qualidade, criando soluções digitais acessíveis e eficientes que impulsionam o crescimento.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features Grid -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
+      <!-- Feature 1 -->
+      <div class="group flex flex-col">
+        <div class="bg-white/5 backdrop-blur-sm rounded-xl md:rounded-2xl border border-white/10 hover:border-[#00B050]/30 transition-all duration-300 hover:bg-white/10 p-3 md:p-6 hover:scale-[1.02] h-full flex flex-col">
+          <div class="w-8 h-8 md:w-12 md:h-12 bg-[#00B050]/20 rounded-lg md:rounded-xl flex items-center justify-center text-[#00B050] group-hover:bg-[#00B050]/30 transition-colors duration-300 mb-2 md:mb-4 flex-shrink-0">
+            <svg class="w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3 class="text-sm md:text-lg font-semibold text-white mb-1 md:mb-2">Agilidade</h3>
+          <p class="text-xs md:text-sm text-white/60 leading-relaxed">Desenvolvimento rápido e eficiente</p>
+        </div>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="group flex flex-col">
+        <div class="bg-white/5 backdrop-blur-sm rounded-xl md:rounded-2xl border border-white/10 hover:border-blue-500/30 transition-all duration-300 hover:bg-white/10 p-3 md:p-6 hover:scale-[1.02] h-full flex flex-col">
+          <div class="w-8 h-8 md:w-12 md:h-12 bg-blue-500/20 rounded-lg md:rounded-xl flex items-center justify-center text-blue-400 group-hover:bg-blue-500/30 transition-colors duration-300 mb-2 md:mb-4 flex-shrink-0">
+            <svg class="w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-sm md:text-lg font-semibold text-white mb-1 md:mb-2">Design Moderno</h3>
+          <p class="text-xs md:text-sm text-white/60 leading-relaxed">Interfaces intuitivas e ágeis</p>
+        </div>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="group flex flex-col">
+        <div class="bg-white/5 backdrop-blur-sm rounded-xl md:rounded-2xl border border-white/10 hover:border-purple-500/30 transition-all duration-300 hover:bg-white/10 p-3 md:p-6 hover:scale-[1.02] h-full flex flex-col">
+          <div class="w-8 h-8 md:w-12 md:h-12 bg-purple-500/20 rounded-lg md:rounded-xl flex items-center justify-center text-purple-400 group-hover:bg-purple-500/30 transition-colors duration-300 mb-2 md:mb-4 flex-shrink-0">
+            <svg class="w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-sm md:text-lg font-semibold text-white mb-1 md:mb-2">Alta Performance</h3>
+          <p class="text-xs md:text-sm text-white/60 leading-relaxed">Otimização para velocidade</p>
+        </div>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="group flex flex-col">
+        <div class="bg-white/5 backdrop-blur-sm rounded-xl md:rounded-2xl border border-white/10 hover:border-orange-500/30 transition-all duration-300 hover:bg-white/10 p-3 md:p-6 hover:scale-[1.02] h-full flex flex-col">
+          <div class="w-8 h-8 md:w-12 md:h-12 bg-orange-500/20 rounded-lg md:rounded-xl flex items-center justify-center text-orange-400 group-hover:bg-orange-500/30 transition-colors duration-300 mb-2 md:mb-4 flex-shrink-0">
+            <svg class="w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-sm md:text-lg font-semibold text-white mb-1 md:mb-2">Suporte Completo</h3>
+          <p class="text-xs md:text-sm text-white/60 leading-relaxed">Acompanhamento contínuo</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <style>
-  /* Animações baseadas em scroll - otimizadas para mobile */
-  .animate-on-scroll {
-    opacity: 0;
-    transition: all 0.4s ease-out;
+  .floating-element {
+    animation: float 6s ease-in-out infinite;
   }
-  
-  .animate-on-scroll.fade-up {
-    transform: translateY(15px);
-  }
-  
-  .animate-on-scroll.fade-left {
-    transform: translateX(-15px);
-  }
-  
-  .animate-on-scroll.fade-right {
-    transform: translateX(15px);
-  }
-  
-  .animate-on-scroll.animate-in {
-    opacity: 1;
-    transform: translate(0, 0);
-  }
-  
-  .animation-delay-400 {
-    transition-delay: 0.1s;
-  }
-  
-  /* Mobile: animações mais rápidas e sem delays */
-  @media (max-width: 768px) {
-    .animate-on-scroll {
-      transition: all 0.3s ease-out;
-    }
 
-    /* Desabilitar hover effects no mobile */
-    .group:hover .group-hover\\:bg-\\[\\#00bc61\\]\\/20,
-    .group:hover .group-hover\\:scale-110,
-    .hover\\:shadow-xl,
-    .hover\\:border-\\[\\#00bc61\\]\\/30,
-    .hover\\:-translate-y-1 {
-      transform: none !important;
-      background-color: inherit !important;
-      box-shadow: inherit !important;
-      border-color: inherit !important;
+  .floating-element:nth-child(2) {
+    animation-delay: -2s;
+  }
+
+  .floating-element:nth-child(3) {
+    animation-delay: -4s;
+  }
+
+  .floating-element:nth-child(4) {
+    animation-delay: -6s;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
     }
-    
-    .animation-delay-400 {
-      transition-delay: 0s !important;
-    }
-    
-    .animate-on-scroll.fade-up,
-    .animate-on-scroll.fade-left,
-    .animate-on-scroll.fade-right {
-      transform: translateY(10px);
+    50% {
+      transform: translateY(-20px);
     }
   }
 </style> 

@@ -1,64 +1,120 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{Astro.props.title}</title>
+		<meta name="description" content="Prado Soluções Digitais - Transformamos ideias em soluções digitais modernas" />
+		
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 	</head>
-	<body>
-		<slot />
+	<body class="font-inter antialiased bg-[#121212] text-white">
+		<!-- Main Content -->
+		<div class="relative">
+			<slot />
+		</div>
+
 		<script>
-			// Animações baseadas em scroll usando Intersection Observer
+			// Smooth scrolling and animations
 			document.addEventListener('DOMContentLoaded', function() {
-				// Detectar se é mobile
-				const isMobile = window.innerWidth <= 768;
-				
-				// Configuração do Intersection Observer (mais agressiva no mobile)
+				// Intersection Observer for animations
 				const observerOptions = {
-					threshold: isMobile ? 0.05 : 0.01, // Mobile: 5% visível, Desktop: 1%
-					rootMargin: isMobile ? '0px 0px 50px 0px' : '0px 0px 100px 0px' // Mobile: menos margem
+					threshold: 0.1,
+					rootMargin: '0px 0px -50px 0px'
 				};
 
-				// Callback do observer
-				const observerCallback = (entries) => {
+				const observer = new IntersectionObserver((entries) => {
 					entries.forEach(entry => {
 						if (entry.isIntersecting) {
-							// No mobile, remove delays para animação mais rápida
-							if (isMobile) {
-								entry.target.style.transitionDelay = '0s';
-							}
-							
-							// Adiciona a classe de animação quando o elemento entra na viewport
 							entry.target.classList.add('animate-in');
-							
-							// Para de observar o elemento após animar
 							observer.unobserve(entry.target);
 						}
 					});
-				};
+				}, observerOptions);
 
-				// Cria o observer
-				const observer = new IntersectionObserver(observerCallback, observerOptions);
+				// Observe all animated elements
+				document.querySelectorAll('.animate-on-scroll').forEach(el => {
+					observer.observe(el);
+				});
 
-				// Seleciona todos os elementos que devem ser animados
-				const animatedElements = document.querySelectorAll('.animate-on-scroll');
-
-				// Observa cada elemento
-				animatedElements.forEach(element => {
-					observer.observe(element);
+				// Smooth scroll for anchor links
+				document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+					anchor.addEventListener('click', (e: Event) => {
+						e.preventDefault();
+						const href = (anchor as HTMLAnchorElement).getAttribute('href');
+						const target = href ? document.querySelector(href) : null;
+						if (target) {
+							target.scrollIntoView({
+								behavior: 'smooth',
+								block: 'start'
+							});
+						}
+					});
 				});
 			});
 		</script>
 	</body>
 </html>
 
-<style>
-	html,
+<style is:global>
+	* {
+		box-sizing: border-box;
+	}
+	
+	html {
+		font-family: 'Inter', system-ui, sans-serif;
+		scroll-behavior: smooth;
+		background-color: #121212;
+	}
+	
 	body {
 		margin: 0;
-		width: 100%;
-		height: 100%;
+		min-height: 100vh;
+		color: #FFFFFF;
+		background-color: #121212;
+		overflow-x: hidden;
+	}
+
+	/* Scroll animations */
+	.animate-on-scroll {
+		opacity: 0;
+		transform: translateY(20px);
+		transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.animate-on-scroll.animate-in {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	/* Custom scrollbar */
+	::-webkit-scrollbar {
+		width: 8px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: #121212;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: #00B050;
+		border-radius: 4px;
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		background: #00B050;
+		opacity: 0.8;
+	}
+
+	/* Firefox */
+	* {
+		scrollbar-width: thin;
+		scrollbar-color: #00B050 #121212;
 	}
 </style>
+
