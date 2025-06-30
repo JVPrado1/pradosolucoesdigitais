@@ -18,8 +18,8 @@
 			// Theme management - executa imediatamente antes do HTML renderizar
 			function initTheme() {
 				const savedTheme = localStorage.getItem('theme');
-				const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-				const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+				// Sempre iniciar com dark, ignorando preferências do sistema
+				const theme = savedTheme || 'dark';
 				
 				// Limpa todas as classes de tema primeiro
 				document.documentElement.classList.remove('light', 'dark');
@@ -37,7 +37,6 @@
 				console.log('Tema inicializado:', theme);
 				console.log('Classes no HTML:', document.documentElement.classList.toString());
 				console.log('Tema salvo:', localStorage.getItem('theme'));
-				console.log('Prefere dark:', prefersDark);
 			}
 			
 			// Execute imediatamente
