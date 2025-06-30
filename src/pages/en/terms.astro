@@ -1,0 +1,76 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import '../../styles/global.css';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Terms of Use - Prado Digital Solutions">
+	<Header />
+	
+	<main class="pt-24 pb-16 bg-background">
+		<div class="max-w-4xl mx-auto px-4 md:px-6 lg:px-8">
+			<h1 class="text-3xl md:text-4xl font-bold mb-6 md:mb-10">Terms of Use</h1>
+			
+			<div class="prose prose-invert max-w-none">
+				<p>Last updated: June 1, 2024</p>
+				
+				<h2>1. Acceptance of Terms</h2>
+				<p>By accessing and using the services provided by Prado Digital Solutions, you agree to be bound by these Terms of Use. If you do not agree with any part of these terms, please do not use our services.</p>
+				
+				<h2>2. Description of Services</h2>
+				<p>Prado Digital Solutions provides digital services including but not limited to website development, mobile application development, system development, and process automation.</p>
+				
+				<h2>3. User Obligations</h2>
+				<p>Users of our services agree to:</p>
+				<ul>
+					<li>Provide accurate and complete information when required</li>
+					<li>Use our services only for lawful purposes</li>
+					<li>Not interfere with the proper functioning of our services</li>
+					<li>Respect intellectual property rights</li>
+				</ul>
+				
+				<h2>4. Intellectual Property</h2>
+				<p>All content, designs, code, and materials used in our services are the intellectual property of Prado Digital Solutions or its content suppliers and are protected by applicable copyright and trademark laws.</p>
+				
+				<h2>5. Limitation of Liability</h2>
+				<p>Prado Digital Solutions shall not be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use the services.</p>
+				
+				<h2>6. Changes to Terms</h2>
+				<p>We reserve the right to modify these terms at any time. We will provide notice of any material changes by updating the "Last Updated" date at the top of these Terms.</p>
+				
+				<h2>7. Governing Law</h2>
+				<p>These Terms shall be governed and construed in accordance with the laws of Brazil, without regard to its conflict of law provisions.</p>
+				
+				<h2>8. Contact Information</h2>
+				<p>If you have any questions about these Terms, please contact us at contato@pradosolucoes.com.br.</p>
+			</div>
+		</div>
+	</main>
+	
+	<Footer />
+</Layout>
+
+<style>
+	.prose {
+		color: var(--foreground);
+	}
+	
+	.prose h2 {
+		color: var(--foreground);
+		margin-top: 2rem;
+		margin-bottom: 1rem;
+		font-weight: 600;
+	}
+	
+	.prose p, .prose li {
+		color: var(--muted-foreground);
+		margin-bottom: 1rem;
+	}
+	
+	.prose ul {
+		list-style-type: disc;
+		padding-left: 1.5rem;
+		margin-bottom: 1.5rem;
+	}
+</style> 

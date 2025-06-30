@@ -1,8 +1,107 @@
 ---
-// Seção de Serviços com glassmorphism
+// Seção de Serviços com glassmorphism e i18n
+
+// Obter o idioma atual da URL
+const currentPath = Astro.url.pathname;
+const lang = currentPath.startsWith('/en') ? 'en' : 'pt';
+
+// Traduções
+const translations = {
+  pt: {
+    title: "Nossos",
+    titleHighlight: "Serviços",
+    description: "Oferecemos um portfólio completo de serviços digitais para transformar seu negócio e acelerar seu crescimento.",
+    mobileInstruction: "Deslize para ver os serviços",
+    services: [
+      {
+        title: 'Sites & <br> E-commerces',
+        icon: 'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9',
+        color: '#00B050',
+        description: 'Sites modernos e lojas virtuais completas que fortalecem sua presença digital e geram vendas online.',
+        features: ['Design Responsivo', 'SEO Otimizado', 'Pagamentos Online'],
+        footer: 'Entrega em 15-30 dias',
+        footerIcon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'
+      },
+      {
+        title: 'Apps Mobile & <br> Web Apps',
+        icon: 'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z',
+        color: '#60A5FA',
+        description: 'Aplicativos personalizados para melhorar a experiência dos seus clientes, equipe ou negócio.',
+        features: ['Interface Intuitiva', 'Multiplataforma', 'Notificações Push'],
+        footer: 'iOS e Android',
+        footerIcon: 'M7 2h10a2 2 0 012 2v16a2 2 0 01-2 2H7a2 2 0 01-2-2V4a2 2 0 012-2z'
+      },
+      {
+        title: 'Sistemas & <br> Plataformas',
+        icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
+        color: '#A78BFA',
+        description: 'Sistemas personalizados para gestão interna, processos específicos e necessidades do seu negócio.',
+        features: ['Dashboards', 'Relatórios', 'Integrações'],
+        footer: 'Escalável e seguro',
+        footerIcon: 'M12 11C13.657 11 15 9.657 15 8V6a3 3 0 00-6 0v2c0 1.657 1.343 3 3 3zM5 11h14a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2z'
+      },
+      {
+        title: 'Automação de <br> Processos',
+        icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+        color: '#F97316',
+        description: 'Automatizamos tarefas e otimizamos processos, eliminando atividades manuais do seu dia a dia.',
+        features: ['APIs & Webhooks', 'Fluxos Automáticos', 'Notificações'],
+        footer: 'Economiza até 80% do tempo',
+        footerIcon: 'M13 10V3L4 14h7v7l9-11h-7z'
+      }
+    ]
+  },
+  en: {
+    title: "Our",
+    titleHighlight: "Services",
+    description: "We offer a complete portfolio of digital services to transform your business and accelerate your growth.",
+    mobileInstruction: "Swipe to see the services",
+    services: [
+      {
+        title: 'Websites & <br> E-commerce',
+        icon: 'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9',
+        color: '#00B050',
+        description: 'Modern websites and complete online stores that strengthen your digital presence and generate online sales.',
+        features: ['Responsive Design', 'SEO Optimized', 'Online Payments'],
+        footer: 'Delivery in 15-30 days',
+        footerIcon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'
+      },
+      {
+        title: 'Mobile Apps & <br> Web Apps',
+        icon: 'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z',
+        color: '#60A5FA',
+        description: 'Custom applications to improve the experience of your customers, team, or business.',
+        features: ['Intuitive Interface', 'Multi-platform', 'Push Notifications'],
+        footer: 'iOS and Android',
+        footerIcon: 'M7 2h10a2 2 0 012 2v16a2 2 0 01-2 2H7a2 2 0 01-2-2V4a2 2 0 012-2z'
+      },
+      {
+        title: 'Systems & <br> Platforms',
+        icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
+        color: '#A78BFA',
+        description: 'Custom systems for internal management, specific processes, and your business needs.',
+        features: ['Dashboards', 'Reports', 'Integrations'],
+        footer: 'Scalable and secure',
+        footerIcon: 'M12 11C13.657 11 15 9.657 15 8V6a3 3 0 00-6 0v2c0 1.657 1.343 3 3 3zM5 11h14a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2z'
+      },
+      {
+        title: 'Process <br> Automation',
+        icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+        color: '#F97316',
+        description: 'We automate tasks and optimize processes, eliminating manual activities from your daily routine.',
+        features: ['APIs & Webhooks', 'Automated Flows', 'Notifications'],
+        footer: 'Saves up to 80% of time',
+        footerIcon: 'M13 10V3L4 14h7v7l9-11h-7z'
+      }
+    ]
+  }
+};
+
+const t = translations[lang];
+const servicesData = JSON.stringify(t.services);
 ---
 
-<section id="services" class="py-16 relative overflow-hidden bg-background transition-colors duration-300">
+<section id="services" class="py-16 relative overflow-hidden bg-background transition-colors duration-300" data-services={servicesData}>
   <!-- Background Pattern -->
   <div class="absolute inset-0 opacity-20">
     <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0); background-size: 50px 50px;"></div>
@@ -21,15 +120,15 @@
     <div class="text-center mb-12 md:mb-20 max-w-2xl mx-auto">
       <h2 class="text-2xl md:text-5xl font-bold mb-2 leading-tight">
         <span class="text-foreground">
-          Nossos
+          {t.title}
         </span>
         <span class="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
-          Serviços
+          {t.titleHighlight}
         </span>
       </h2>
       
       <p class="text-base md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-        Oferecemos um portfólio completo de serviços digitais para transformar seu negócio e acelerar seu crescimento.
+        {t.description}
       </p>
     </div>
 
@@ -37,24 +136,21 @@
     <div class="md:hidden relative">
       <div id="services-carousel" class="overflow-hidden">
         <div id="carousel-inner" class="flex transition-transform duration-300">
-          <!-- Os cards serão colocados aqui -->
+          <!-- Os cards serão colocados aqui pelo script -->
         </div>
       </div>
       
-      <!-- Indicador de progresso sutil -->
       <div class="flex justify-center mt-6 flex-col items-center">
-        <!-- Barra de progresso -->
         <div class="w-32">
           <div class="h-2 border border-gray-800 rounded-full overflow-hidden">
             <div id="progress-bar" class="h-full bg-gradient-to-r from-[#00B050]/60 to-blue-400/60 rounded-full transition-all duration-500 ease-out" style="width: 25%"></div>
           </div>
         </div>
-        <!-- Texto de instrução -->
         <p class="text-xs text-muted-foreground mt-2 flex items-center">
           <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
           </svg>
-          Deslize para ver os serviços
+          {t.mobileInstruction}
           <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
           </svg>
@@ -64,369 +160,164 @@
 
     <!-- Desktop Grid -->
     <div class="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6">
-      <!-- Sites & E-commerces -->
-      <div class="group bg-card backdrop-blur-sm rounded-2xl border border-border shadow-2xl hover:shadow-[#00B050]/10 transition-all duration-500 hover:scale-105 hover:border-[#00B050]/30 p-8 h-full flex flex-col">
-        <div class="absolute inset-0 bg-[#00B050]/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-        <div class="relative z-10 flex flex-col h-full">
-          <div class="w-16 h-16 bg-[#00B050]/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#00B050]/30 transition-colors duration-300 shadow-lg">
-            <svg class="w-8 h-8 text-[#00B050]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"/>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold text-foreground mb-4">Sites & <br> E-commerces</h3>
-          <p class="text-muted-foreground leading-relaxed mb-6 flex-grow">
-            Sites modernos e lojas virtuais completas que fortalecem sua presença digital e geram vendas online.
-          </p>
-          <div class="space-y-3 mb-6">
-            <div class="flex items-center text-sm text-[#00B050]">
-              <svg class="w-4 h-4 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+      {t.services.map((service: any) => (
+        <div class="group bg-card backdrop-blur-sm rounded-2xl border border-border shadow-2xl hover:shadow-[#00B050]/10 transition-all duration-500 hover:scale-105 p-8 h-full flex flex-col" style={`--service-color: ${service.color}; --service-color-light: ${service.color}1A;`}>
+          <div class="absolute inset-0 bg-[var(--service-color-light)] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10 flex flex-col h-full">
+            <div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-opacity-30 transition-colors duration-300 shadow-lg" style={{ backgroundColor: `${service.color}33` }}>
+              <svg class="w-8 h-8" style={{ color: service.color }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={service.icon} />
               </svg>
-              Design Responsivo
             </div>
-            <div class="flex items-center text-sm text-[#00B050]">
-              <svg class="w-4 h-4 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-              </svg>
-              SEO Otimizado
+            <h3 class="text-xl font-bold text-foreground mb-4" set:html={service.title} />
+            <p class="text-muted-foreground leading-relaxed mb-6 flex-grow">
+              {service.description}
+            </p>
+            <div class="space-y-3 mb-6">
+              {service.features.map((feature: any) => (
+                <div class="flex items-center text-sm" style={{ color: service.color }}>
+                  <svg class="w-4 h-4 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  {feature}
+                </div>
+              ))}
             </div>
-            <div class="flex items-center text-sm text-[#00B050]">
-              <svg class="w-4 h-4 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-              </svg>
-              Pagamentos Online
-            </div>
-          </div>
-          <div class="mt-auto pt-4 border-t border-border">
-            <div class="flex items-center text-sm text-[#00B050] font-medium">
-              <svg class="w-4 h-4 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
-              Entrega em 15-30 dias
+            <div class="mt-auto pt-4 border-t border-border">
+              <div class="flex items-center text-sm font-medium" style={{ color: service.color }}>
+                <svg class="w-4 h-4 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={service.footerIcon}/>
+                </svg>
+                {service.footer}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <!-- Apps Mobile & Web Apps -->
-      <div class="group bg-card backdrop-blur-sm rounded-2xl border border-border shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 hover:scale-105 hover:border-blue-500/30 p-8 h-full flex flex-col">
-        <div class="absolute inset-0 bg-blue-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-        <div class="relative z-10 flex flex-col h-full">
-          <div class="w-16 h-16 bg-blue-500/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-500/30 transition-colors duration-300 shadow-lg">
-            <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold text-foreground mb-4">Apps Mobile & <br>Web Apps</h3>
-          <p class="text-muted-foreground leading-relaxed mb-6 flex-grow">
-            Aplicativos personalizados para melhorar a experiência dos seus clientes, equipe ou negócio.
-          </p>
-          <div class="space-y-3 mb-6">
-            <div class="flex items-center text-sm text-blue-400">
-              <svg class="w-4 h-4 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-              </svg>
-              Interface Intuitiva
-            </div>
-            <div class="flex items-center text-sm text-blue-400">
-              <svg class="w-4 h-4 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-              </svg>
-              Multiplataforma
-            </div>
-            <div class="flex items-center text-sm text-blue-400">
-              <svg class="w-4 h-4 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-              </svg>
-              Notificações Push
-            </div>
-          </div>
-          <div class="mt-auto pt-4 border-t border-border">
-            <div class="flex items-center text-sm text-blue-400 font-medium">
-              <svg class="w-4 h-4 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 2h10a2 2 0 012 2v16a2 2 0 01-2 2H7a2 2 0 01-2-2V4a2 2 0 012-2z"/>
-              </svg>
-              iOS e Android
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Sistemas & Plataformas -->
-      <div class="group bg-card backdrop-blur-sm rounded-2xl border border-border shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 hover:scale-105 hover:border-purple-500/30 p-8 h-full flex flex-col">
-        <div class="absolute inset-0 bg-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-        <div class="relative z-10 flex flex-col h-full">
-          <div class="w-16 h-16 bg-purple-500/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-purple-500/30 transition-colors duration-300 shadow-lg">
-            <svg class="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold text-foreground mb-4">Sistemas & Plataformas</h3>
-          <p class="text-muted-foreground leading-relaxed mb-6 flex-grow">
-            Sistemas personalizados para gestão interna, processos específicos e necessidades do seu negócio.
-          </p>
-          <div class="space-y-3 mb-6">
-            <div class="flex items-center text-sm text-purple-400">
-              <svg class="w-4 h-4 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-              </svg>
-              Dashboards
-            </div>
-            <div class="flex items-center text-sm text-purple-400">
-              <svg class="w-4 h-4 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-              </svg>
-              Relatórios
-            </div>
-            <div class="flex items-center text-sm text-purple-400">
-              <svg class="w-4 h-4 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-              </svg>
-              Integrações
-            </div>
-          </div>
-          <div class="mt-auto pt-4 border-t border-border">
-            <div class="flex items-center text-sm text-purple-400 font-medium">
-              <svg class="w-4 h-4 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11C13.657 11 15 9.657 15 8V6a3 3 0 00-6 0v2c0 1.657 1.343 3 3 3zM5 11h14a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2z"/>
-              </svg>
-              Escalável e seguro
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Automação de Processos -->
-      <div class="group bg-card backdrop-blur-sm rounded-2xl border border-border shadow-2xl hover:shadow-orange-500/10 transition-all duration-500 hover:scale-105 hover:border-orange-500/30 p-8 h-full flex flex-col">
-        <div class="absolute inset-0 bg-orange-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-        <div class="relative z-10 flex flex-col h-full">
-          <div class="w-16 h-16 bg-orange-500/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-orange-500/30 transition-colors duration-300 shadow-lg">
-            <svg class="w-8 h-8 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold text-foreground mb-4">Automação de Processos</h3>
-          <p class="text-muted-foreground leading-relaxed mb-6 flex-grow">
-            Automatizamos tarefas e otimizamos processos, eliminando atividades manuais do seu dia a dia.
-          </p>
-          <div class="space-y-3 mb-6">
-            <div class="flex items-center text-sm text-orange-400">
-              <svg class="w-4 h-4 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-              </svg>
-              APIs & Webhooks
-            </div>
-            <div class="flex items-center text-sm text-orange-400">
-              <svg class="w-4 h-4 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-              </svg>
-              Fluxos Automáticos
-            </div>
-            <div class="flex items-center text-sm text-orange-400">
-              <svg class="w-4 h-4 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-              </svg>
-              Notificações
-            </div>
-          </div>
-          <div class="mt-auto pt-4 border-t border-border">
-            <div class="flex items-center text-sm text-orange-400 font-medium">
-              <svg class="w-4 h-4 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-              </svg>
-              Economiza até 80% do tempo
-            </div>
-          </div>
-        </div>
-      </div>
+      ))}
     </div>
   </div>
 </section>
 
 <script>
-  // Elementos do carrossel
-  const carousel = document.getElementById('services-carousel');
-  const carouselInner = document.getElementById('carousel-inner');
-  const progressBar = document.getElementById('progress-bar');
+  document.addEventListener('DOMContentLoaded', () => {
+    const section = document.getElementById('services');
+    if (!section) return;
 
-  // Dados dos serviços
-  const services = [
-    {
-      title: 'Sites & <br> E-commerces',
-      icon: 'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9',
-      color: '#00B050',
-      bgIcon: 'rgba(0,176,80,0.2)',
-      overlayBg: 'rgba(0,176,80,0.05)',
-      description: 'Sites modernos e lojas virtuais completas que fortalecem sua presença digital e geram vendas online.',
-      features: ['Design Responsivo', 'SEO Otimizado', 'Pagamentos Online'],
-      footer: 'Entrega em 15-30 dias',
-      footerIcon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'
-    },
-    {
-      title: 'Apps Mobile & <br> Web Apps',
-      icon: 'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z',
-      color: '#60A5FA',
-      bgIcon: 'rgba(96,165,250,0.2)',
-      overlayBg: 'rgba(96,165,250,0.05)',
-      description: 'Aplicativos personalizados para melhorar a experiência dos seus clientes, equipe ou negócio.',
-      features: ['Interface Intuitiva', 'Multiplataforma', 'Notificações Push'],
-      footer: 'iOS e Android',
-      footerIcon: 'M7 2h10a2 2 0 012 2v16a2 2 0 01-2 2H7a2 2 0 01-2-2V4a2 2 0 012-2z'
-    },
-    {
-      title: 'Sistemas & <br> Plataformas',
-      icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
-      color: '#A78BFA',
-      bgIcon: 'rgba(167,139,250,0.2)',
-      overlayBg: 'rgba(167,139,250,0.05)',
-      description: 'Sistemas personalizados para gestão interna, processos específicos e necessidades do seu negócio.',
-      features: ['Dashboards', 'Relatórios', 'Integrações'],
-      footer: 'Escalável e seguro',
-      footerIcon: 'M12 11C13.657 11 15 9.657 15 8V6a3 3 0 00-6 0v2c0 1.657 1.343 3 3 3zM5 11h14a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2z'
-    },
-    {
-      title: 'Automação de <br> Processos',
-      icon: 'M13 10V3L4 14h7v7l9-11h-7z',
-      color: '#F97316',
-      bgIcon: 'rgba(249,115,22,0.2)',
-      overlayBg: 'rgba(249,115,22,0.05)',
-      description: 'Automatizamos tarefas e otimizamos processos, eliminando atividades manuais do seu dia a dia.',
-      features: ['APIs & Webhooks', 'Fluxos Automáticos', 'Notificações'],
-      footer: 'Economiza até 80% do tempo',
-      footerIcon: 'M13 10V3L4 14h7v7l9-11h-7z'
-    }
-  ];
+    const servicesDataString = section.dataset.services;
+    if (!servicesDataString) return;
 
-  // Criar cards do carrossel
-  services.forEach((service, index) => {
-    const card = document.createElement('div');
-    card.className = 'w-full flex-shrink-0 px-4';
-    card.innerHTML = `
-      <div class="group bg-card backdrop-blur-sm rounded-2xl shadow-2xl transition-all duration-500 hover:scale-105 p-6 h-full flex flex-col" style="border:1px solid ${service.color}30">
-        <div class="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background-color: ${service.color}05"></div>
-        <div class="relative z-10 flex flex-col h-full">
-          <div class="flex items-center gap-4 mb-4">
-            <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center transition-colors duration-300 shadow-lg shrink-0" style="background-color: ${service.color}20">
-              <svg class="w-8 h-8" style="color: ${service.color}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${service.icon}"/>
-              </svg>
-            </div>
-            <h3 class="text-lg sm:text-xl font-bold text-foreground">${service.title}</h3>
-          </div>
-          <p class="text-muted-foreground leading-relaxed mb-6 flex-grow text-sm sm:text-base">
-            ${service.description}
-          </p>
-          <div class="space-y-3 mb-6">
-            ${service.features.map(feature => `
-              <div class="flex items-center text-sm" style="color: ${service.color}">
-                <svg class="w-4 h-4 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+    const services = JSON.parse(servicesDataString);
+
+    const carousel = document.getElementById('services-carousel') as HTMLElement;
+    const carouselInner = document.getElementById('carousel-inner') as HTMLElement;
+    const progressBar = document.getElementById('progress-bar') as HTMLElement;
+
+    if (!carousel || !carouselInner || !progressBar) return;
+
+    // Create carousel cards
+    services.forEach((service: any) => {
+      const card = document.createElement('div');
+      card.className = 'w-full flex-shrink-0 px-4';
+      card.innerHTML = `
+        <div class="group bg-card backdrop-blur-sm rounded-2xl shadow-2xl transition-all duration-500 p-6 h-full flex flex-col" style="border:1px solid ${service.color}30">
+          <div class="absolute inset-0 rounded-2xl opacity-0" style="background-color: ${service.color}05"></div>
+          <div class="relative z-10 flex flex-col h-full">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center transition-colors duration-300 shadow-lg shrink-0" style="background-color: ${service.color}20">
+                <svg class="w-8 h-8" style="color: ${service.color}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${service.icon}"/>
                 </svg>
-                ${feature}
               </div>
-            `).join('')}
-          </div>
-          <div class="mt-auto pt-4 border-t border-border">
-            <div class="flex items-center text-sm font-medium" style="color: ${service.color}">
-              <svg class="w-4 h-4 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${service.footerIcon}"/>
-              </svg>
-              ${service.footer}
+              <h3 class="text-lg sm:text-xl font-bold text-foreground">${service.title}</h3>
+            </div>
+            <p class="text-muted-foreground leading-relaxed mb-6 flex-grow text-sm sm:text-base">
+              ${service.description}
+            </p>
+            <div class="space-y-3 mb-6">
+              ${service.features.map((feature: any) => `
+                <div class="flex items-center text-sm" style="color: ${service.color}">
+                  <svg class="w-4 h-4 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  ${feature}
+                </div>
+              `).join('')}
+            </div>
+            <div class="mt-auto pt-4 border-t border-border">
+              <div class="flex items-center text-sm font-medium" style="color: ${service.color}">
+                <svg class="w-4 h-4 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${service.footerIcon}"/>
+                </svg>
+                ${service.footer}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    `;
-    carouselInner?.appendChild(card);
-  });
-
-  // Variáveis do carrossel
-  let currentSlide = 0;
-  const totalSlides = services.length;
-  
-  // Atualizar largura do carrossel no resize
-  function updateCarouselWidth() {
-    if (!carousel || !carouselInner) return;
-    const slideWidth = carousel.offsetWidth;
-    carouselInner.style.width = `${slideWidth * totalSlides}px`;
-    const slides = carouselInner.children;
-    Array.from(slides).forEach(slide => {
-      (slide as HTMLElement).style.width = `${slideWidth}px`;
+      `;
+      carouselInner.appendChild(card);
     });
-    goToSlide(currentSlide);
-  }
 
-  // Ir para slide específico
-  function goToSlide(index: number) {
-    if (!carouselInner || !progressBar) return;
-    currentSlide = index;
-    const offset = -index * (carousel?.offsetWidth || 0);
-    carouselInner.style.transform = `translateX(${offset}px)`;
-    
-    // Atualizar barra de progresso
-    const progress = ((index + 1) / totalSlides) * 100;
-    progressBar.style.width = `${progress}%`;
-  }
+    let currentSlide = 0;
+    const totalSlides = services.length;
 
-  // Touch events para swipe
-  let touchStartX = 0;
-  let touchEndX = 0;
+    function updateCarouselWidth() {
+      const slideWidth = carousel.offsetWidth;
+      carouselInner.style.width = `${slideWidth * totalSlides}px`;
+      const slides = carouselInner.children;
+      Array.from(slides).forEach(slide => {
+        (slide as HTMLElement).style.width = `${slideWidth}px`;
+      });
+      goToSlide(currentSlide);
+    }
 
-  carousel?.addEventListener('touchstart', (e) => {
-    touchStartX = e.touches[0].clientX;
-  });
+    function goToSlide(index: number) {
+      currentSlide = index;
+      const offset = -index * carousel.offsetWidth;
+      carouselInner.style.transform = `translateX(${offset}px)`;
+      const progress = ((index + 1) / totalSlides) * 100;
+      progressBar.style.width = `${progress}%`;
+    }
 
-  carousel?.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].clientX;
-    handleSwipe();
-  });
+    let touchStartX = 0;
+    let touchEndX = 0;
 
-  function handleSwipe() {
-    const swipeThreshold = 50;
-    const diff = touchStartX - touchEndX;
+    carousel.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+    });
 
-    if (Math.abs(diff) > swipeThreshold) {
-      if (diff > 0) {
-        // Swipe left
-        const newIndex = (currentSlide + 1) % totalSlides;
-        goToSlide(newIndex);
-      } else {
-        // Swipe right
-        const newIndex = (currentSlide - 1 + totalSlides) % totalSlides;
-        goToSlide(newIndex);
+    carousel.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].clientX;
+      handleSwipe();
+    });
+
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      const diff = touchStartX - touchEndX;
+
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+          goToSlide((currentSlide + 1) % totalSlides);
+        } else {
+          goToSlide((currentSlide - 1 + totalSlides) % totalSlides);
+        }
       }
     }
-  }
 
-  // Inicialização
-  window.addEventListener('resize', updateCarouselWidth);
-  window.addEventListener('load', updateCarouselWidth);
-  updateCarouselWidth();
+    window.addEventListener('resize', updateCarouselWidth);
+    updateCarouselWidth();
+  });
 </script>
 
 <style>
   .floating-element {
     animation: float 6s ease-in-out infinite;
   }
-
-  .floating-element:nth-child(2) {
-    animation-delay: -2s;
-  }
-
-  .floating-element:nth-child(3) {
-    animation-delay: -4s;
-  }
-
-  .floating-element:nth-child(4) {
-    animation-delay: -6s;
-  }
+  .floating-element:nth-child(2) { animation-delay: -2s; }
+  .floating-element:nth-child(3) { animation-delay: -4s; }
+  .floating-element:nth-child(4) { animation-delay: -6s; }
 
   @keyframes float {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
   }
-</style> 
+</style>

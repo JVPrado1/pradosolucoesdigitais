@@ -1,0 +1,23 @@
+{
+  "nav": {
+    "about": "Sobre",
+    "services": "Serviços",
+    "portfolio": "Portfólio",
+    "contact": "Contato"
+  },
+  "hero": {
+    "title": "Soluções Digitais",
+    "subtitle": "para o seu negócio",
+    "description": "Ajudamos empresas e profissionais a crescerem online, facilitarem o dia a dia e otimizarem processos através de tecnologias modernas e soluções inteligentes.",
+    "cta": {
+      "start": "Começar Projeto",
+      "portfolio": "Ver Portfólio"
+    },
+    "services": {
+      "sites": "Sites",
+      "apps": "Apps",
+      "systems": "Sistemas",
+      "automation": "Automação"
+    }
+  }
+}

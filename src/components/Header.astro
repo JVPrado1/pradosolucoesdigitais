@@ -1,7 +1,43 @@
 ---
-// Header moderno com glassmorphismaaa
----
+// Obter o idioma atual da URL
+const currentPath = Astro.url.pathname;
+const lang = currentPath.startsWith('/en') ? 'en' : 'pt';
 
+// Função para alternar entre idiomas
+function getAlternateLink() {
+  // Remover o prefixo de idioma se existir
+  let path = currentPath;
+  if (path.startsWith('/en')) {
+    path = path.substring(3) || '/';
+  }
+  
+  // Adicionar prefixo do outro idioma
+  return lang === 'pt' ? `/en${path}` : path;
+}
+
+const alternateLink = getAlternateLink();
+
+// Traduções
+const translations = {
+  pt: {
+    about: "Sobre",
+    services: "Serviços",
+    portfolio: "Portfólio",
+    contact: "Contato",
+    langSwitch: "EN"
+  },
+  en: {
+    about: "About",
+    services: "Services",
+    portfolio: "Portfolio",
+    contact: "Contact",
+    langSwitch: "PT"
+  }
+};
+
+const t = translations[lang];
+---
+// Header moderno com glassmorphismaaa
 <header class="fixed w-full top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border transition-colors duration-300 ">
 
    <!-- Menu Mobile Fullscreen -->
@@ -17,10 +53,10 @@
   <nav class="flex flex-col items-center space-y-8 text-center  ">
     <ul class="flex flex-col items-center space-y-8 text-center ">
       <li><a href="#hero" class="bg-red block text-2xl font-bold text-white hover:text-[#00B050] transition-colors duration-300">Início</a></li>
-      <li><a href="#about" class="block text-2xl font-bold text-white hover:text-[#00B050] transition-colors duration-300">Sobre</a></li>
-      <li><a href="#services" class="block text-2xl font-bold text-white hover:text-[#00B050] transition-colors duration-300">Serviços</a></li>
-      <li><a href="#portfolio" class="block text-2xl font-bold text-white hover:text-[#00B050] transition-colors duration-300">Portfólio</a></li>
-      <li><a href="#contact" class="block text-2xl font-bold text-white hover:text-[#00B050] transition-colors duration-300">Contato</a></li>
+      <li><a href="#about" class="block text-2xl font-bold text-white hover:text-[#00B050] transition-colors duration-300">{t.about}</a></li>
+      <li><a href="#services" class="block text-2xl font-bold text-white hover:text-[#00B050] transition-colors duration-300">{t.services}</a></li>
+      <li><a href="#portfolio" class="block text-2xl font-bold text-white hover:text-[#00B050] transition-colors duration-300">{t.portfolio}</a></li>
+      <li><a href="#contact" class="block text-2xl font-bold text-white hover:text-[#00B050] transition-colors duration-300">{t.contact}</a></li>
     </ul>
     
     <!-- Linha divisória verde -->
@@ -59,29 +95,31 @@
           <ul class="flex items-center space-x-6">
             <li>
               <a href="#about" class="text-linkmenu hover:text-[#00B050] transition-colors duration-300">
-                Sobre
+                {t.about}
               </a>
             </li>
             <li>
               <a href="#services" class="text-linkmenu hover:text-[#00B050] transition-colors duration-300">
-                Serviços
+                {t.services}
               </a>
             </li>
             <li>
               <a href="#portfolio" class="text-linkmenu hover:text-[#00B050] transition-colors duration-300">
-                Portfólio
+                {t.portfolio}
               </a>
             </li>
             <li>
               <a href="#contact" class="text-linkmenu hover:text-[#00B050] transition-colors duration-300">
-                Contato
+                {t.contact}
               </a>
             </li>
           </ul>
         </nav>
 
+   
+
         <!-- Theme Toggle Button -->
-        <button id="theme-toggle" class="p-2 rounded-lg bg-card hover:bg-card-hover border border-border transition-all duration-300 cursor-pointer ml-4" title="Alternar tema">
+        <button id="theme-toggle" class="p-2 rounded-lg bg-card hover:bg-card-hover border border-border transition-all duration-300 cursor-pointer" title="Alternar tema">
           <svg id="sun-icon" class="w-5 h-5 text-muted-foreground hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
           </svg>
@@ -89,7 +127,23 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
           </svg>
         </button>
+     <!-- Language Switcher (Desktop) -->
+     <a href={alternateLink} class="hidden md:flex items-center justify-center w-10 h-7 rounded-md border border-border hover:bg-card-hover transition-all duration-300 overflow-hidden">
+      {lang === 'pt' ? (
+        <img src="/bandeiras/usa.svg" alt="Switch to English" class="w-full h-full object-cover" />
+      ) : (
+        <img src="/bandeiras/brazil.svg" alt="Mudar para Português" class="w-full h-full object-cover" />
+      )}
+    </a>
 
+    <!-- Language Switcher (Mobile) -->
+    <a href={alternateLink} class="md:hidden flex items-center justify-center w-10 h-7 rounded-md border border-border hover:bg-card-hover transition-all duration-300 overflow-hidden">
+      {lang === 'pt' ? (
+        <img src="/bandeiras/usa.svg" alt="Switch to English" class="w-full h-full object-cover" />
+      ) : (
+        <img src="/bandeiras/brazil.svg" alt="Mudar para Português" class="w-full h-full object-cover" />
+      )}
+    </a>
         <!-- Menu Mobile Button -->
         <button id="mobile-menu-button" class="md:hidden text-muted-foreground hover:text-foreground transition-colors duration-300 ml-2 z-50">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -185,6 +239,10 @@
     localStorage.setItem('theme', newTheme);
     updateThemeIcons();
     
+    // Dispara um evento customizado para notificar outros componentes
+    const event = new CustomEvent('theme-changed', { detail: { theme: newTheme } });
+    document.dispatchEvent(event);
+    
     // Debug
     console.log('Tema alterado para:', newTheme);
     console.log('Classes no HTML após toggle:', document.documentElement.classList.toString());
@@ -238,7 +296,3 @@
     opacity: 1;
   }
 </style>
-
-
-
-

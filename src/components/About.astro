@@ -1,5 +1,117 @@
 ---
 // Por que escolher a Prado - Seção moderna com glassmorphism
+
+// Obter o idioma atual da URL
+const currentPath = Astro.url.pathname;
+const lang = currentPath.startsWith('/en') ? 'en' : 'pt';
+
+// Traduções
+const translations = {
+  pt: {
+    title: "Por que escolher a",
+    titleHighlight: "Prado Soluções Digitais?",
+    description: "Somos uma empresa jovem e inovadora, focada em entregar soluções digitais que realmente fazem a diferença no seu negócio.",
+    features: {
+      innovation: {
+        title: "Inovação",
+        description: "Utilizamos as tecnologias mais modernas do mercado para criar soluções inovadoras e eficientes."
+      },
+      quality: {
+        title: "Qualidade",
+        description: "Nosso foco é entregar produtos de alta qualidade, com código limpo e performático."
+      },
+      support: {
+        title: "Suporte",
+        description: "Oferecemos suporte contínuo e manutenção para garantir que sua solução continue funcionando perfeitamente."
+      },
+      customization: {
+        title: "Personalização",
+        description: "Cada projeto é único e desenvolvido de acordo com as necessidades específicas do seu negócio."
+      }
+    },
+    personalizedService: {
+      title: "Atendimento Personalizado",
+      description: "Cada cliente é único. Oferecemos atenção personalizada e soluções sob medida para suas necessidades."
+    },
+    jointGrowth: {
+      title: "Crescimento Conjunto",
+      description: "Seu sucesso é o nosso sucesso. Criamos parcerias duradouras e acompanhamos seu crescimento."
+    },
+    mission: {
+      title: "Nossa Missão",
+      description: "Democratizar o acesso à tecnologia de qualidade, criando soluções digitais acessíveis e eficientes que impulsionam o crescimento."
+    },
+    agility: {
+      title: "Agilidade",
+      description: "Desenvolvimento rápido e eficiente"
+    },
+    modernDesign: {
+      title: "Design Moderno",
+      description: "Interfaces intuitivas e ágeis"
+    },
+    highPerformance: {
+      title: "Alta Performance",
+      description: "Otimização para velocidade"
+    },
+    completeSupport: {
+      title: "Suporte Completo",
+      description: "Acompanhamento contínuo"
+    }
+  },
+  en: {
+    title: "Why choose",
+    titleHighlight: "Prado Digital Solutions?",
+    description: "We are a young and innovative company, focused on delivering digital solutions that truly make a difference in your business.",
+    features: {
+      innovation: {
+        title: "Innovation",
+        description: "We use the most modern technologies in the market to create innovative and efficient solutions."
+      },
+      quality: {
+        title: "Quality",
+        description: "Our focus is to deliver high-quality products with clean and performant code."
+      },
+      support: {
+        title: "Support",
+        description: "We offer continuous support and maintenance to ensure that your solution continues to work perfectly."
+      },
+      customization: {
+        title: "Customization",
+        description: "Each project is unique and developed according to the specific needs of your business."
+      }
+    },
+    personalizedService: {
+      title: "Personalized Service",
+      description: "Each client is unique. We offer personalized attention and tailored solutions for your needs."
+    },
+    jointGrowth: {
+      title: "Joint Growth",
+      description: "Your success is our success. We create lasting partnerships and follow your growth."
+    },
+    mission: {
+      title: "Our Mission",
+      description: "Democratize access to quality technology, creating accessible and efficient digital solutions that drive growth."
+    },
+    agility: {
+      title: "Agility",
+      description: "Fast and efficient development"
+    },
+    modernDesign: {
+      title: "Modern Design",
+      description: "Intuitive and agile interfaces"
+    },
+    highPerformance: {
+      title: "High Performance",
+      description: "Speed optimization"
+    },
+    completeSupport: {
+      title: "Complete Support",
+      description: "Continuous monitoring"
+    }
+  }
+};
+
+const t = translations[lang];
 ---
 
 <section id="about" class="relative py-16 bg-background z-1 overflow-visible transition-colors duration-300">
@@ -21,23 +133,23 @@
     <div class="text-center mb-8 md:mb-20">
       <h2 class="text-2xl md:text-5xl font-bold mb-3 md:mb-8 leading-tight">
         <span class="text-foreground">
-          Por que escolher a
+          {t.title}
         </span>
         <span class="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
-          Prado Soluções Digitais?
+          {t.titleHighlight}
         </span>
       </h2>
       
       <p class="text-base md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-2">
-        Somos uma empresa jovem e inovadora, focada em entregar soluções digitais que realmente fazem a diferença no seu negócio.
+        {t.description}
       </p>
     </div>
 
     <!-- Features Grid -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 mb-10 md:mb-24">
       <!-- Diferencial 1: Inovação -->
-      <div class="group">
-        <div class="bg-card backdrop-blur-sm rounded-xl md:rounded-2xl border border-border hover:border-[#00B050]/30 transition-all duration-300 hover:bg-card-hover p-4 md:p-8 hover:scale-[1.02]">
+      <div class="group flex flex-col">
+        <div class="bg-card backdrop-blur-sm rounded-xl md:rounded-2xl border border-border hover:border-[#00B050]/30 transition-all duration-300 hover:bg-card-hover p-4 md:p-8 hover:scale-[1.02] h-full">
           <div class="flex items-start gap-3 md:gap-6">
             <div class="flex-shrink-0">
               <div class="w-10 h-10 md:w-16 md:h-16 bg-[#00B050]/20 rounded-lg md:rounded-xl flex items-center justify-center text-[#00B050] group-hover:bg-[#00B050]/30 transition-colors duration-300">
@@ -47,9 +159,9 @@
               </div>
             </div>
             <div>
-              <h3 class="text-lg md:text-xl font-semibold text-foreground mb-1 md:mb-3">Foco na Inovação</h3>
+              <h3 class="text-lg md:text-xl font-semibold text-foreground mb-1 md:mb-3">{t.features.innovation.title}</h3>
               <p class="text-sm md:text-base text-muted-foreground leading-relaxed">
-                Utilizamos as tecnologias mais atuais do mercado para criar soluções modernas e eficientes.
+                {t.features.innovation.description}
               </p>
             </div>
           </div>
@@ -57,8 +169,8 @@
       </div>
 
       <!-- Diferencial 2: Atendimento -->
-      <div class="group">
-        <div class="bg-card backdrop-blur-sm rounded-xl md:rounded-2xl border border-border hover:border-blue-500/30 transition-all duration-300 hover:bg-card-hover p-4 md:p-8 hover:scale-[1.02]">
+      <div class="group flex flex-col">
+        <div class="bg-card backdrop-blur-sm rounded-xl md:rounded-2xl border border-border hover:border-blue-500/30 transition-all duration-300 hover:bg-card-hover p-4 md:p-8 hover:scale-[1.02] h-full">
           <div class="flex items-start gap-3 md:gap-6">
             <div class="flex-shrink-0">
               <div class="w-10 h-10 md:w-16 md:h-16 bg-blue-500/20 rounded-lg md:rounded-xl flex items-center justify-center text-blue-400 group-hover:bg-blue-500/30 transition-colors duration-300">
@@ -68,9 +180,9 @@
               </div>
             </div>
             <div>
-              <h3 class="text-lg md:text-xl font-semibold text-foreground mb-1 md:mb-3">Atendimento Personalizado</h3>
+              <h3 class="text-lg md:text-xl font-semibold text-foreground mb-1 md:mb-3">{t.personalizedService.title}</h3>
               <p class="text-sm md:text-base text-muted-foreground leading-relaxed">
-                Cada cliente é único. Oferecemos atenção personalizada e soluções sob medida para suas necessidades.
+                {t.personalizedService.description}
               </p>
             </div>
           </div>
@@ -78,8 +190,8 @@
       </div>
 
       <!-- Diferencial 3: Crescimento -->
-      <div class="group">
-        <div class="bg-card backdrop-blur-sm rounded-xl md:rounded-2xl border border-border hover:border-purple-500/30 transition-all duration-300 hover:bg-card-hover p-4 md:p-8 hover:scale-[1.02]">
+      <div class="group flex flex-col">
+        <div class="bg-card backdrop-blur-sm rounded-xl md:rounded-2xl border border-border hover:border-purple-500/30 transition-all duration-300 hover:bg-card-hover p-4 md:p-8 hover:scale-[1.02] h-full">
           <div class="flex items-start gap-3 md:gap-6">
             <div class="flex-shrink-0">
               <div class="w-10 h-10 md:w-16 md:h-16 bg-purple-500/20 rounded-lg md:rounded-xl flex items-center justify-center text-purple-400 group-hover:bg-purple-500/30 transition-colors duration-300">
@@ -89,9 +201,9 @@
               </div>
             </div>
             <div>
-              <h3 class="text-lg md:text-xl font-semibold text-foreground mb-1 md:mb-3">Crescimento Conjunto</h3>
+              <h3 class="text-lg md:text-xl font-semibold text-foreground mb-1 md:mb-3">{t.jointGrowth.title}</h3>
               <p class="text-sm md:text-base text-muted-foreground leading-relaxed">
-                Seu sucesso é o nosso sucesso. Criamos parcerias duradouras e acompanhamos seu crescimento.
+                {t.jointGrowth.description}
               </p>
             </div>
           </div>
@@ -99,8 +211,8 @@
       </div>
 
       <!-- Diferencial 4: Qualidade -->
-      <div class="group">
-        <div class="bg-card backdrop-blur-sm rounded-xl md:rounded-2xl border border-border hover:border-orange-500/30 transition-all duration-300 hover:bg-card-hover p-4 md:p-8 hover:scale-[1.02]">
+      <div class="group flex flex-col">
+        <div class="bg-card backdrop-blur-sm rounded-xl md:rounded-2xl border border-border hover:border-orange-500/30 transition-all duration-300 hover:bg-card-hover p-4 md:p-8 hover:scale-[1.02] h-full">
           <div class="flex items-start gap-3 md:gap-6">
             <div class="flex-shrink-0">
               <div class="w-10 h-10 md:w-16 md:h-16 bg-orange-500/20 rounded-lg md:rounded-xl flex items-center justify-center text-orange-400 group-hover:bg-orange-500/30 transition-colors duration-300">
@@ -110,9 +222,9 @@
               </div>
             </div>
             <div>
-              <h3 class="text-lg md:text-xl font-semibold text-foreground mb-1 md:mb-3">Excelência Técnica</h3>
+              <h3 class="text-lg md:text-xl font-semibold text-foreground mb-1 md:mb-3">{t.features.quality.title}</h3>
               <p class="text-sm md:text-base text-muted-foreground leading-relaxed">
-                Código limpo, eficiente e bem documentado. Seguimos as melhores práticas de desenvolvimento.
+                {t.features.quality.description}
               </p>
             </div>
           </div>
@@ -132,9 +244,9 @@
             </div>
           </div>
           <div>
-            <h3 class="text-xl md:text-3xl font-bold text-foreground mb-2 md:mb-1">Nossa Missão</h3>
+            <h3 class="text-xl md:text-3xl font-bold text-foreground mb-2 md:mb-1">{t.mission.title}</h3>
             <p class="text-sm md:text-base text-muted-foreground leading-relaxed">
-              Democratizar o acesso à tecnologia de qualidade, criando soluções digitais acessíveis e eficientes que impulsionam o crescimento.
+              {t.mission.description}
             </p>
           </div>
         </div>
@@ -151,8 +263,8 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
             </svg>
           </div>
-          <h3 class="text-sm md:text-lg font-semibold text-foreground mb-1 md:mb-2">Agilidade</h3>
-          <p class="text-xs md:text-sm text-muted-foreground leading-relaxed">Desenvolvimento rápido e eficiente</p>
+          <h3 class="text-sm md:text-lg font-semibold text-foreground mb-1 md:mb-2">{t.agility.title}</h3>
+          <p class="text-xs md:text-sm text-muted-foreground leading-relaxed">{t.agility.description}</p>
         </div>
       </div>
 
@@ -164,8 +276,8 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
             </svg>
           </div>
-          <h3 class="text-sm md:text-lg font-semibold text-foreground mb-1 md:mb-2">Design Moderno</h3>
-          <p class="text-xs md:text-sm text-muted-foreground leading-relaxed">Interfaces intuitivas e ágeis</p>
+          <h3 class="text-sm md:text-lg font-semibold text-foreground mb-1 md:mb-2">{t.modernDesign.title}</h3>
+          <p class="text-xs md:text-sm text-muted-foreground leading-relaxed">{t.modernDesign.description}</p>
         </div>
       </div>
 
@@ -177,8 +289,8 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
           </div>
-          <h3 class="text-sm md:text-lg font-semibold text-foreground mb-1 md:mb-2">Alta Performance</h3>
-          <p class="text-xs md:text-sm text-muted-foreground leading-relaxed">Otimização para velocidade</p>
+          <h3 class="text-sm md:text-lg font-semibold text-foreground mb-1 md:mb-2">{t.highPerformance.title}</h3>
+          <p class="text-xs md:text-sm text-muted-foreground leading-relaxed">{t.highPerformance.description}</p>
         </div>
       </div>
 
@@ -187,11 +299,11 @@
         <div class="bg-card backdrop-blur-sm rounded-xl md:rounded-2xl border border-border hover:border-orange-500/30 transition-all duration-300 hover:bg-card-hover p-3 md:p-6 hover:scale-[1.02] h-full flex flex-col">
           <div class="w-8 h-8 md:w-12 md:h-12 bg-orange-500/20 rounded-lg md:rounded-xl flex items-center justify-center text-orange-400 group-hover:bg-orange-500/30 transition-colors duration-300 mb-2 md:mb-4 flex-shrink-0">
             <svg class="w-4 h-4 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
             </svg>
           </div>
-          <h3 class="text-sm md:text-lg font-semibold text-foreground mb-1 md:mb-2">Suporte Completo</h3>
-          <p class="text-xs md:text-sm text-muted-foreground leading-relaxed">Acompanhamento contínuo</p>
+          <h3 class="text-sm md:text-lg font-semibold text-foreground mb-1 md:mb-2">{t.completeSupport.title}</h3>
+          <p class="text-xs md:text-sm text-muted-foreground leading-relaxed">{t.completeSupport.description}</p>
         </div>
       </div>
     </div>
@@ -223,4 +335,4 @@
       transform: translateY(-20px);
     }
   }
-</style> 
+</style>

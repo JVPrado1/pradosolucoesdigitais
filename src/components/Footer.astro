@@ -1,124 +1,169 @@
 ---
-// Footer moderno com glassmorphism
+// Obter o idioma atual da URL
+const currentPath = Astro.url.pathname;
+const lang = currentPath.startsWith('/en') ? 'en' : 'pt';
+
+// Traduções
+const translations = {
+  pt: {
+    description: "Ajudamos empresas e profissionais a crescerem online, facilitarem o dia a dia e otimizarem processos através de tecnologias modernas e soluções inteligentes.",
+    location: "Atendimento remoto em todo Brasil\nPresencial em São Paulo",
+    usefulLinks: "Links Úteis",
+    contact: "Contato",
+    copyright: `© ${new Date().getFullYear()} Prado Soluções Digitais. Todos os direitos reservados.`,
+    nav: {
+      about: "Sobre Nós",
+      services: "Nossos Serviços",
+      portfolio: "Portfólio",
+      contact: "Contato",
+      privacy: "Política de Privacidade",
+      terms: "Termos de Uso"
+    },
+    contactInfo: {
+      email: "contato@pradosolucoes.com.br",
+      phone: "+55 (14) 99729-5849",
+      address: "Jaú - SP, Brasil",
+      hours: "Seg-Sex: 9h às 18h"
+    }
+  },
+  en: {
+    description: "We help companies and professionals grow online, streamline daily tasks, and optimize processes through modern technologies and intelligent solutions.",
+    location: "Remote support throughout the world.\nIn-person in São Paulo, Brazil.",
+    usefulLinks: "Useful Links",
+    contact: "Contact",
+    copyright: `© ${new Date().getFullYear()} Prado Digital Solutions. All rights reserved.`,
+    nav: {
+      about: "About Us",
+      services: "Our Services",
+      portfolio: "Portfolio",
+      contact: "Contact",
+      privacy: "Privacy Policy",
+      terms: "Terms of Use"
+    },
+    contactInfo: {
+      email: "contato@pradosolucoes.com.br",
+      phone: "+55 (14) 99729-5849",
+      address: "Jaú - SP, Brazil",
+      hours: "Mon-Fri: 9am to 6pm"
+    }
+  }
+};
+
+const t = translations[lang];
+
+const termsLink = lang === 'pt' ? '/terms' : '/en/terms';
+const privacyLink = lang === 'pt' ? '/privacy' : '/en/privacy';
+const aboutLink = lang === 'pt' ? '/#about' : '/en/#about';
+const servicesLink = lang === 'pt' ? '/#services' : '/en/#services';
+const portfolioLink = lang === 'pt' ? '/#portfolio' : '/en/#portfolio';
+const contactLink = lang === 'pt' ? '/#contact' : '/en/#contact';
 ---
 
-<footer class="bg-background border-t border-border">
-  <div class="max-w-6xl mx-auto px-6 lg:px-8 py-16">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<footer class="bg-background text-muted-foreground transition-colors duration-300">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       
-      <!-- Coluna 1: Sobre a Empresa -->
-      <div class="md:col-span-1">
-        <div class="flex items-center space-x-3 mb-6">
+      <!-- Coluna 1: Logo e Descrição -->
+      <div class="space-y-4">
+        <a href={lang === 'pt' ? '/' : '/en'} class="flex-shrink-0">
           <img id="footer-logo" src="/logo-preto.png" alt="Prado Soluções Digitais" class="h-10 w-auto">
-        </div>
-        <p class="text-muted-foreground text-sm leading-relaxed mb-4">
-          Ajudamos empresas e profissionais a crescerem online, facilitarem o dia a dia e otimizarem processos através de tecnologias modernas e soluções inteligentes.
-        </p>
-        <p class="text-muted-foreground text-sm mb-6">
-          Atendimento remoto em todo Brasil<br/>
-          Presencial em São Paulo
-        </p>
-
-        <div class="flex items-center space-x-4">
-          <a href="https://www.instagram.com/pradosolucoesdigitais" target="_blank" rel="noopener noreferrer" class="w-8 h-8 bg-pink-500/20 rounded-lg flex items-center justify-center hover:bg-pink-500/30 transition-colors duration-300 hover:translate-y-[-2px]">
-            <svg class="w-4 h-4 text-pink-400" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-            </svg>
+        </a>
+        <p class="mt-4 text-sm leading-relaxed whitespace-pre-line">{t.description}</p>
+        <p class="text-sm leading-relaxed whitespace-pre-line">{t.location}</p>
+        <div class="flex space-x-4 mt-4">
+          <a href="https://www.instagram.com/pradosolucoesdigitais/" target="_blank" rel="noopener noreferrer">
+            <div class="w-8 h-8 flex-shrink-0 rounded-lg bg-pink-500/20 flex items-center justify-center">
+              <svg class="w-5 h-5 text-pink-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.07 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"/></svg>
+            </div>
           </a>
-          <a href="https://wa.me/5514997295849" target="_blank" rel="noopener noreferrer" class="w-8 h-8 bg-[#25D366]/20 rounded-lg flex items-center justify-center hover:bg-[#25D366]/30 transition-colors duration-300 hover:translate-y-[-2px]">
-            <svg class="w-4 h-4 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M20.463 3.488C18.217 1.24 15.231 0 12.05 0 5.495 0 .16 5.334.157 11.892c0 2.096.548 4.142 1.588 5.945L.138 24l6.272-1.646a11.88 11.88 0 005.681 1.447h.005c6.554 0 11.89-5.335 11.893-11.893 0-3.181-1.237-6.167-3.486-8.42zM12.05 21.785h-.004a9.88 9.88 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.827 9.827 0 01-1.51-5.26c0-5.445 4.432-9.877 9.884-9.877 2.64 0 5.122 1.03 6.988 2.898a9.826 9.826 0 012.896 6.989c-.003 5.445-4.436 9.883-9.884 9.883zm5.43-7.403c-.296-.148-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.198.296-.767.966-.94 1.164-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.019-.458.13-.606.133-.133.297-.347.446-.52.148-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.148-.668-1.612-.916-2.207-.241-.578-.486-.5-.668-.51-.173-.008-.371-.01-.57-.01-.197 0-.519.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.066 2.875 1.214 3.074.148.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.57-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-            </svg>
+          <a href="https://wa.me/5514997295849" target="_blank" rel="noopener noreferrer">
+            <div class="w-8 h-8 flex-shrink-0 rounded-lg bg-green-500/20 flex items-center justify-center">
+              <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.109"/></svg>
+            </div>
           </a>
         </div>
       </div>
 
-      <!-- Coluna 2: Links Rápidos -->
-      <div class="md:col-span-1">
-        <h3 class="text-foreground font-semibold mb-6">Links Úteis</h3>
-        <ul class="space-y-4">
-          <li>
-            <a href="#about" class="text-sm text-muted-foreground hover:text-[#00B050] transition-all duration-300 hover:translate-x-1 inline-block">
-              Sobre Nós
-            </a>
-          </li>
-          <li>
-            <a href="#services" class="text-sm text-muted-foreground hover:text-[#00B050] transition-all duration-300 hover:translate-x-1 inline-block">
-              Nossos Serviços
-            </a>
-          </li>
-          <li>
-            <a href="#portfolio" class="text-sm text-muted-foreground hover:text-[#00B050] transition-all duration-300 hover:translate-x-1 inline-block">
-              Portfólio
-            </a>
-          </li>
-          <li>
-            <a href="#contact" class="text-sm text-muted-foreground hover:text-[#00B050] transition-all duration-300 hover:translate-x-1 inline-block">
-              Contato
-            </a>
-          </li>
-          <li>
-            <a href="/privacy" class="text-sm text-muted-foreground hover:text-[#00B050] transition-all duration-300 hover:translate-x-1 inline-block">
-              Política de Privacidade
-            </a>
-          </li>
-          <li>
-            <a href="/terms" class="text-sm text-muted-foreground hover:text-[#00B050] transition-all duration-300 hover:translate-x-1 inline-block">
-              Termos de Uso
-            </a>
-          </li>
+      <!-- Coluna 2: Links Úteis -->
+      <div class="space-y-4">
+        <h3 class="text-lg font-semibold text-foreground">{t.usefulLinks}</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href={aboutLink} class="hover:text-foreground transition-colors">{t.nav.about}</a></li>
+          <li><a href={servicesLink} class="hover:text-foreground transition-colors">{t.nav.services}</a></li>
+          <li><a href={portfolioLink} class="hover:text-foreground transition-colors">{t.nav.portfolio}</a></li>
+          <li><a href={contactLink} class="hover:text-foreground transition-colors">{t.nav.contact}</a></li>
+          <li><a href={privacyLink} class="hover:text-foreground transition-colors">{t.nav.privacy}</a></li>
+          <li><a href={termsLink} class="hover:text-foreground transition-colors">{t.nav.terms}</a></li>
         </ul>
       </div>
 
       <!-- Coluna 3: Contato -->
-      <div class="md:col-span-1">
-        <h3 class="text-foreground font-semibold mb-6">Contato</h3>
-        <div class="space-y-4">
-          <div class="flex items-center space-x-3">
-            <div class="w-8 h-8 bg-[#00B050]/20 rounded-lg flex items-center justify-center">
-              <svg class="w-4 h-4 text-[#00B050]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-              </svg>
+      <div class="space-y-4">
+        <h3 class="text-lg font-semibold text-foreground">{t.contact}</h3>
+        <ul class="space-y-3 text-sm">
+          <li class="flex items-center space-x-3">
+            <div class="w-8 h-8 flex-shrink-0 rounded-lg bg-blue-500/20 flex items-center justify-center">
+              <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
             </div>
-            <span class="text-sm text-muted-foreground">contato@pradosolucoes.com.br</span>
-          </div>
-
-          <div class="flex items-center space-x-3">
-            <div class="w-8 h-8 bg-[#25D366]/20 rounded-lg flex items-center justify-center">
-              <svg class="w-4 h-4 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M20.463 3.488C18.217 1.24 15.231 0 12.05 0 5.495 0 .16 5.334.157 11.892c0 2.096.548 4.142 1.588 5.945L.138 24l6.272-1.646a11.88 11.88 0 005.681 1.447h.005c6.554 0 11.89-5.335 11.893-11.893 0-3.181-1.237-6.167-3.486-8.42zM12.05 21.785h-.004a9.88 9.88 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.827 9.827 0 01-1.51-5.26c0-5.445 4.432-9.877 9.884-9.877 2.64 0 5.122 1.03 6.988 2.898a9.826 9.826 0 012.896 6.989c-.003 5.445-4.436 9.883-9.884 9.883zm5.43-7.403c-.296-.148-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.198.296-.767.966-.94 1.164-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.019-.458.13-.606.133-.133.297-.347.446-.52.148-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.148-.668-1.612-.916-2.207-.241-.578-.486-.5-.668-.51-.173-.008-.371-.01-.57-.01-.197 0-.519.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.066 2.875 1.214 3.074.148.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.57-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-              </svg>
+            <a href={`mailto:${t.contactInfo.email}`} class="hover:text-foreground transition-colors">{t.contactInfo.email}</a>
+          </li>
+          <li class="flex items-center space-x-3">
+            <div class="w-8 h-8 flex-shrink-0 rounded-lg bg-green-500/20 flex items-center justify-center">
+              <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.109"/></svg>
             </div>
-            <a href="https://wa.me/5514997295849" target="_blank" rel="noopener noreferrer" class="text-sm text-muted-foreground hover:text-[#25D366] transition-colors duration-300">+55 (14) 99729-5849</a>
-          </div>
-
-          <div class="flex items-center space-x-3">
-            <div class="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center">
-              <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-              </svg>
+            <a href={`https://wa.me/${t.contactInfo.phone.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer" class="hover:text-foreground transition-colors">{t.contactInfo.phone}</a>
+          </li>
+          <li class="flex items-center space-x-3">
+            <div class="w-8 h-8 flex-shrink-0 rounded-lg bg-purple-500/20 flex items-center justify-center">
+              <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
             </div>
-            <span class="text-sm text-muted-foreground">Jaú - SP, Brasil</span>
-          </div>
-
-          <div class="flex items-center space-x-3">
-            <div class="w-8 h-8 bg-orange-500/20 rounded-lg flex items-center justify-center">
-              <svg class="w-4 h-4 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
+            <span>{t.contactInfo.address}</span>
+          </li>
+          <li class="flex items-center space-x-3">
+            <div class="w-8 h-8 flex-shrink-0 rounded-lg bg-orange-500/20 flex items-center justify-center">
+              <svg class="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             </div>
-            <span class="text-sm text-muted-foreground">Seg-Sex: 9h às 18h</span>
-          </div>
-        </div>
+            <span>{t.contactInfo.hours}</span>
+          </li>
+        </ul>
       </div>
     </div>
 
     <!-- Copyright -->
-    <div class="border-t border-border mt-12 pt-8 text-center">
-      <p class="text-muted-foreground text-sm">
-        © 2025 Prado Soluções Digitais. Todos os direitos reservados.
-      </p>
+    <div class="mt-12 bg-background border-t border-border pt-8 text-center text-sm">
+      <p>{t.copyright}</p>
     </div>
   </div>
-</footer> 
+</footer>
+
+<script is:inline>
+  function updateFooterLogo() {
+    const logoElement = document.getElementById('footer-logo');
+    if (!logoElement) return;
+
+    // Verifica o tema diretamente do atributo no HTML ou do localStorage
+    const isDarkMode = document.documentElement.classList.contains('dark') || 
+                       (localStorage.getItem('theme') === 'dark') || 
+                       (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+    if (isDarkMode) {
+      logoElement.src = '/logo.png'; // Logo branca para tema escuro
+    } else {
+      logoElement.src = '/logo-preto.png'; // Logo preta para tema claro
+    }
+  }
+
+  // Atualiza a logo na carga inicial da página
+  document.addEventListener('DOMContentLoaded', updateFooterLogo);
+
+  // Ouve mudanças no localStorage para sincronizar entre abas/componentes
+  window.addEventListener('storage', (event) => {
+    if (event.key === 'theme') {
+      updateFooterLogo();
+    }
+  });
+  
+  // Ouve o evento customizado disparado pelo Header
+  document.addEventListener('theme-changed', updateFooterLogo);
+
+</script>

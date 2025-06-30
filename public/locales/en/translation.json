@@ -1,0 +1,23 @@
+{
+  "nav": {
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Digital Solutions",
+    "subtitle": "for your business",
+    "description": "We help companies and professionals grow online, simplify their daily operations, and optimize processes through modern technologies and intelligent solutions.",
+    "cta": {
+      "start": "Start Project",
+      "portfolio": "View Portfolio"
+    },
+    "services": {
+      "sites": "Websites",
+      "apps": "Apps",
+      "systems": "Systems",
+      "automation": "Automation"
+    }
+  }
+}

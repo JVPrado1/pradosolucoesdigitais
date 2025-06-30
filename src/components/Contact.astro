@@ -1,8 +1,143 @@
 ---
-// Seção de Contato com glassmorphism
+// Seção de Contato com glassmorphism e i18n
+
+// Obter o idioma atual da URL
+const currentPath = Astro.url.pathname;
+const lang = currentPath.startsWith('/en') ? 'en' : 'pt';
+
+// Traduções
+const translations = {
+  pt: {
+    title: "Pronto para começar",
+    titleHighlight: "seu projeto?",
+    description: "Entre em contato conosco e receba uma proposta personalizada conforme as suas necessidades.",
+    formTitle: "Solicite seu orçamento",
+    labels: {
+      name: "Nome",
+      email: "E-mail",
+      phone: "Telefone",
+      company: "Empresa",
+      projectType: "Tipo de Projeto",
+      budget: "Orçamento Estimado",
+      message: "Mensagem"
+    },
+    placeholders: {
+      name: "Seu nome completo",
+      email: "seu@email.com",
+      phone: "(11) 99999-9999",
+      company: "Nome da sua empresa",
+      message: "Conte-nos mais sobre seu projeto..."
+    },
+    projectTypes: [
+      "Selecione um serviço", "Site Institucional", "E-commerce", "Aplicativo Mobile", 
+      "Sistema Web", "Landing Page", "Automação de Processos", "Consultoria", "Outro"
+    ],
+    budgetRanges: [
+      "Selecione uma faixa", "R$ 500 - R$ 1.500", "R$ 1.500 - R$ 3.000", 
+      "R$ 3.000 - R$ 5.000", "Acima de R$ 5.000"
+    ],
+    submitButton: "Enviar via WhatsApp",
+    contactInfo: {
+      whatsapp: {
+        title: "WhatsApp",
+        description: "Resposta rápida e personalizada"
+      },
+      email: {
+        title: "E-mail",
+        description: "Proposta personalizada"
+      },
+      location: {
+        title: "Localização",
+        description: "Atendemos remotamente em todo o Brasil e presencialmente em São Paulo",
+        city: "Jaú, SP"
+      },
+      hours: {
+        title: "Horário",
+        description: "Segunda a Sexta: 8h às 18h",
+        emergency: "Emergências via WhatsApp"
+      }
+    },
+    whatsappMessage: {
+      greeting: "Olá! Gostaria de solicitar um orçamento para meu projeto.",
+      title: "Solicitação de Orçamento",
+      name: "Nome",
+      email: "E-mail",
+      phone: "Telefone",
+      company: "Empresa",
+      projectType: "Tipo de Projeto",
+      budget: "Orçamento",
+      message: "Mensagem"
+    }
+  },
+  en: {
+    title: "Ready to start",
+    titleHighlight: "your project?",
+    description: "Contact us and receive a personalized proposal according to your needs.",
+    formTitle: "Request your quote",
+    labels: {
+      name: "Name",
+      email: "E-mail",
+      phone: "Phone",
+      company: "Company",
+      projectType: "Project Type",
+      budget: "Estimated Budget",
+      message: "Message"
+    },
+    placeholders: {
+      name: "Your full name",
+      email: "your@email.com",
+      phone: "(11) 99999-9999",
+      company: "Your company's name",
+      message: "Tell us more about your project..."
+    },
+    projectTypes: [
+      "Select a service", "Institutional Website", "E-commerce", "Mobile App", 
+      "Web System", "Landing Page", "Process Automation", "Consulting", "Other"
+    ],
+    budgetRanges: [
+      "Select a range", "$100 - $300", "$300 - $600", 
+      "$600 - $1,000", "Above $1,000"
+    ],
+    submitButton: "Send via WhatsApp",
+    contactInfo: {
+      whatsapp: {
+        title: "WhatsApp",
+        description: "Quick and personalized response"
+      },
+      email: {
+        title: "E-mail",
+        description: "Personalized proposal"
+      },
+      location: {
+        title: "Location",
+        description: "We serve remotely throughout Brazil and in-person in São Paulo",
+        city: "Jaú, SP"
+      },
+      hours: {
+        title: "Business Hours",
+        description: "Monday to Friday: 8am to 6pm",
+        emergency: "Emergencies via WhatsApp"
+      }
+    },
+    whatsappMessage: {
+      greeting: "Hello! I would like to request a quote for my project.",
+      title: "Quote Request",
+      name: "Name",
+      email: "E-mail",
+      phone: "Phone",
+      company: "Company",
+      projectType: "Project Type",
+      budget: "Budget",
+      message: "Message"
+    }
+  }
+};
+
+const t = translations[lang];
+const formTranslations = JSON.stringify(t.whatsappMessage);
 ---
 
-<section id="contact" class="py-16 relative overflow-hidden bg-background transition-colors duration-300">
+<section id="contact" class="py-16 relative overflow-hidden bg-background transition-colors duration-300" data-form-translations={formTranslations}>
   <!-- Background Pattern -->
   <div class="absolute inset-0 opacity-20">
     <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0); background-size: 50px 50px;"></div>
@@ -20,86 +155,65 @@
     <!-- Header -->
     <div class="text-center mb-16">
       <h2 class="text-2xl md:text-5xl font-bold mb-6 leading-tight">
-        <span class="text-foreground">
-          Pronto para começar
-        </span>
+        <span class="text-foreground">{t.title}</span>
         <br />
-        <span class="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
-          seu projeto?
-        </span>
+        <span class="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">{t.titleHighlight}</span>
       </h2>
-      
-      <p class="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-        Entre em contato conosco e receba uma proposta personalizada conforme as suas necessidades.
-      </p>
+      <p class="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">{t.description}</p>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
       
       <!-- Formulário de Contato -->
       <div class="lg:col-span-2 bg-card backdrop-blur-sm rounded-2xl border border-border shadow-2xl p-8">
-        <h3 class="text-lg md:text-2xl font-bold text-foreground mb-6">Solicite seu orçamento</h3>
+        <h3 class="text-lg md:text-2xl font-bold text-foreground mb-6">{t.formTitle}</h3>
         
         <form id="whatsapp-form" class="space-y-6">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label for="name" class="block text-muted-foreground font-medium mb-3">Nome <span class="text-red-400">*</span></label>
-              <input type="text" id="name" name="name" required class="w-full px-6 py-4 bg-card backdrop-blur-sm border border-border rounded-xl text-foreground placeholder-muted-foreground/60 focus:border-[#00B050]/50 focus:outline-none focus:ring-2 focus:ring-[#00B050]/20 transition-all duration-300" placeholder="Seu nome completo">
+              <label for="name" class="block text-muted-foreground font-medium mb-3">{t.labels.name} <span class="text-red-400">*</span></label>
+              <input type="text" id="name" name="name" required class="w-full px-6 py-4 bg-card backdrop-blur-sm border border-border rounded-xl text-foreground placeholder-muted-foreground/60 focus:border-[#00B050]/50 focus:outline-none focus:ring-2 focus:ring-[#00B050]/20 transition-all duration-300" placeholder={t.placeholders.name}>
             </div>
             <div>
-              <label for="email" class="block text-muted-foreground font-medium mb-3">E-mail <span class="text-red-400">*</span></label>
-              <input type="email" id="email" name="email" required class="w-full px-6 py-4 bg-card backdrop-blur-sm border border-border rounded-xl text-foreground placeholder-muted-foreground/60 focus:border-[#00B050]/50 focus:outline-none focus:ring-2 focus:ring-[#00B050]/20 transition-all duration-300" placeholder="seu@email.com">
+              <label for="email" class="block text-muted-foreground font-medium mb-3">{t.labels.email} <span class="text-red-400">*</span></label>
+              <input type="email" id="email" name="email" required class="w-full px-6 py-4 bg-card backdrop-blur-sm border border-border rounded-xl text-foreground placeholder-muted-foreground/60 focus:border-[#00B050]/50 focus:outline-none focus:ring-2 focus:ring-[#00B050]/20 transition-all duration-300" placeholder={t.placeholders.email}>
             </div>
           </div>
           
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label for="phone" class="block text-muted-foreground font-medium mb-3">Telefone</label>
-              <input type="tel" id="phone" name="phone" class="w-full px-6 py-4 bg-card backdrop-blur-sm border border-border rounded-xl text-foreground placeholder-muted-foreground/60 focus:border-[#00B050]/50 focus:outline-none focus:ring-2 focus:ring-[#00B050]/20 transition-all duration-300" placeholder="(11) 99999-9999">
+              <label for="phone" class="block text-muted-foreground font-medium mb-3">{t.labels.phone}</label>
+              <input type="tel" id="phone" name="phone" class="w-full px-6 py-4 bg-card backdrop-blur-sm border border-border rounded-xl text-foreground placeholder-muted-foreground/60 focus:border-[#00B050]/50 focus:outline-none focus:ring-2 focus:ring-[#00B050]/20 transition-all duration-300" placeholder={t.placeholders.phone}>
             </div>
             <div>
-              <label for="empresa" class="block text-muted-foreground font-medium mb-3">Empresa</label>
-              <input type="text" id="empresa" name="empresa" class="w-full px-6 py-4 bg-card backdrop-blur-sm border border-border rounded-xl text-foreground placeholder-muted-foreground/60 focus:border-[#00B050]/50 focus:outline-none focus:ring-2 focus:ring-[#00B050]/20 transition-all duration-300" placeholder="Nome da sua empresa">
+              <label for="empresa" class="block text-muted-foreground font-medium mb-3">{t.labels.company}</label>
+              <input type="text" id="empresa" name="empresa" class="w-full px-6 py-4 bg-card backdrop-blur-sm border border-border rounded-xl text-foreground placeholder-muted-foreground/60 focus:border-[#00B050]/50 focus:outline-none focus:ring-2 focus:ring-[#00B050]/20 transition-all duration-300" placeholder={t.placeholders.company}>
             </div>
           </div>
           
           <div>
-            <label for="tipo-projeto" class="block text-muted-foreground font-medium mb-3">Tipo de Projeto <span class="text-red-400">*</span></label>
+            <label for="tipo-projeto" class="block text-muted-foreground font-medium mb-3">{t.labels.projectType} <span class="text-red-400">*</span></label>
             <select id="tipo-projeto" name="tipo-projeto" required class="w-full px-6 py-4 bg-card backdrop-blur-sm border border-border rounded-xl text-foreground focus:border-[#00B050]/50 focus:outline-none focus:ring-2 focus:ring-[#00B050]/20 transition-all duration-300">
-              <option value="" class="bg-background">Selecione um serviço</option>
-              <option value="Site Institucional" class="bg-background">Site Institucional</option>
-              <option value="E-commerce" class="bg-background">E-commerce</option>
-              <option value="Aplicativo Mobile" class="bg-background">Aplicativo Mobile</option>
-              <option value="Sistema Web" class="bg-background">Sistema Web</option>
-              <option value="Landing Page" class="bg-background">Landing Page</option>
-              <option value="Automação de Processos" class="bg-background">Automação de Processos</option>
-              <option value="Consultoria" class="bg-background">Consultoria</option>
-              <option value="Outro" class="bg-background">Outro</option>
+              {t.projectTypes.map((type, index) => <option value={index === 0 ? "" : type} class="bg-background">{type}</option>)}
             </select>
           </div>
           
           <div>
-            <label for="orcamento" class="block text-muted-foreground font-medium mb-3">Orçamento Estimado</label>
+            <label for="orcamento" class="block text-muted-foreground font-medium mb-3">{t.labels.budget}</label>
             <select id="orcamento" name="orcamento" class="w-full px-6 py-4 bg-card backdrop-blur-sm border border-border rounded-xl text-foreground focus:border-[#00B050]/50 focus:outline-none focus:ring-2 focus:ring-[#00B050]/20 transition-all duration-300">
-              <option value="" class="bg-background">Selecione uma faixa</option>
-              <option value="R$ 500 - R$ 1.500" class="bg-background">R$ 500 - R$ 1.500</option>
-              <option value="R$ 1.500 - R$ 3.000" class="bg-background">R$ 1.500 - R$ 3.000</option>
-              <option value="R$ 3.000 - R$ 5.000" class="bg-background">R$ 3.000 - R$ 5.000</option>
-              <option value="Acima de R$ 5.000" class="bg-background">Acima de R$ 5.000</option>
+              {t.budgetRanges.map((range, index) => <option value={index === 0 ? "" : range} class="bg-background">{range}</option>)}
             </select>
           </div>
           
           <div>
-            <label for="message" class="block text-muted-foreground font-medium mb-3">Mensagem <span class="text-red-400">*</span></label>
-            <textarea id="message" name="message" rows="5" required class="w-full px-6 py-4 bg-card backdrop-blur-sm border border-border rounded-xl text-foreground placeholder-muted-foreground/60 focus:border-[#00B050]/50 focus:outline-none focus:ring-2 focus:ring-[#00B050]/20 transition-all duration-300 resize-none" placeholder="Conte-nos mais sobre seu projeto..."></textarea>
+            <label for="message" class="block text-muted-foreground font-medium mb-3">{t.labels.message} <span class="text-red-400">*</span></label>
+            <textarea id="message" name="message" rows="5" required class="w-full px-6 py-4 bg-card backdrop-blur-sm border border-border rounded-xl text-foreground placeholder-muted-foreground/60 focus:border-[#00B050]/50 focus:outline-none focus:ring-2 focus:ring-[#00B050]/20 transition-all duration-300 resize-none" placeholder={t.placeholders.message}></textarea>
           </div>
           
           <button type="submit" class="w-full bg-[#25D366] hover:bg-[#25D366]/90 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-[#25D366]/20 border border-[#25D366]/20 cursor-pointer hover:translate-y-[-2px]">
             <span class="flex items-center justify-center">
-              Enviar via WhatsApp
-              <svg class="ml-3 w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.109"/>
-              </svg>
+              {t.submitButton}
+              <svg class="ml-3 w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.109"/></svg>
             </span>
           </button>
         </form>
@@ -107,84 +221,43 @@
 
       <!-- Informações de Contato -->
       <div class="lg:col-span-1 space-y-6">
-        
-        <!-- WhatsApp -->
         <div class="bg-card backdrop-blur-sm rounded-2xl border border-border shadow-2xl hover:shadow-[#25D366]/10 transition-all duration-300 hover:border-[#25D366]/30 p-6">
           <div class="flex items-center space-x-4">
-            <div class="flex-shrink-0">
-              <div class="w-12 h-12 bg-[#25D366]/20 rounded-xl flex items-center justify-center">
-                <svg class="w-6 h-6 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.109"/>
-                </svg>
-              </div>
-            </div>
+            <div class="flex-shrink-0"><div class="w-12 h-12 bg-[#25D366]/20 rounded-xl flex items-center justify-center"><svg class="w-6 h-6 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.109"/></svg></div></div>
             <div>
-              <h4 class="text-base md:text-lg font-semibold text-foreground mb-1">WhatsApp</h4>
-              <p class="text-muted-foreground text-sm mb-2">Resposta rápida e personalizada</p>
-              <a href="https://wa.me/5514997295849" target="_blank" rel="noopener noreferrer" class="text-[#25D366] hover:text-[#25D366]/80 transition-colors font-medium text-sm">
-                (14) 99729-5849
-              </a>
+              <h4 class="text-base md:text-lg font-semibold text-foreground mb-1">{t.contactInfo.whatsapp.title}</h4>
+              <p class="text-muted-foreground text-sm mb-2">{t.contactInfo.whatsapp.description}</p>
+              <a href="https://wa.me/5514997295849" target="_blank" rel="noopener noreferrer" class="text-[#25D366] hover:text-[#25D366]/80 transition-colors font-medium text-sm">(14) 99729-5849</a>
             </div>
           </div>
         </div>
-
-        <!-- E-mail -->
         <div class="bg-card backdrop-blur-sm rounded-2xl border border-border shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 hover:border-blue-500/30 p-6">
           <div class="flex items-center space-x-4">
-            <div class="flex-shrink-0">
-              <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center">
-                <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                </svg>
-              </div>
-            </div>
+            <div class="flex-shrink-0"><div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center"><svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div></div>
             <div>
-              <h4 class="text-base md:text-lg font-semibold text-foreground mb-1">E-mail</h4>
-              <p class="text-muted-foreground text-sm mb-2">Proposta personalizada</p>
-              <a href="mailto:contato@pradosolucoes.com" class="text-blue-400 hover:text-blue-300 transition-colors font-medium text-sm">
-                contato@pradosolucoes.com
-              </a>
+              <h4 class="text-base md:text-lg font-semibold text-foreground mb-1">{t.contactInfo.email.title}</h4>
+              <p class="text-muted-foreground text-sm mb-2">{t.contactInfo.email.description}</p>
+              <a href="mailto:contato@pradosolucoes.com" class="text-blue-400 hover:text-blue-300 transition-colors font-medium text-sm">contato@pradosolucoes.com</a>
             </div>
           </div>
         </div>
-
-        <!-- Localização -->
         <div class="bg-card backdrop-blur-sm rounded-2xl border border-border shadow-2xl hover:shadow-purple-500/10 transition-all duration-300 hover:border-purple-500/30 p-6">
           <div class="flex items-center space-x-4">
-            <div class="flex-shrink-0">
-              <div class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center">
-                <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                </svg>
-              </div>
-            </div>
+            <div class="flex-shrink-0"><div class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center"><svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div></div>
             <div>
-              <h4 class="text-base md:text-lg font-semibold text-foreground mb-1">Localização</h4>
-              <p class="text-muted-foreground text-sm mb-2">Atendemos remotamente em todo o Brasil e presencialmente em São Paulo</p>
-              <div class="text-purple-400 font-medium text-sm">
-                Jaú, SP
-              </div>
+              <h4 class="text-base md:text-lg font-semibold text-foreground mb-1">{t.contactInfo.location.title}</h4>
+              <p class="text-muted-foreground text-sm mb-2">{t.contactInfo.location.description}</p>
+              <div class="text-purple-400 font-medium text-sm">{t.contactInfo.location.city}</div>
             </div>
           </div>
         </div>
-
-        <!-- Horário de Atendimento -->
         <div class="bg-card backdrop-blur-sm rounded-2xl border border-border shadow-2xl hover:shadow-orange-500/10 transition-all duration-300 hover:border-orange-500/30 p-6">
           <div class="flex items-center space-x-4">
-            <div class="flex-shrink-0">
-              <div class="w-12 h-12 bg-orange-500/20 rounded-xl flex items-center justify-center">
-                <svg class="w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-              </div>
-            </div>
+            <div class="flex-shrink-0"><div class="w-12 h-12 bg-orange-500/20 rounded-xl flex items-center justify-center"><svg class="w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div></div>
             <div>
-              <h4 class="text-base md:text-lg font-semibold text-foreground mb-1">Horário</h4>
-              <p class="text-muted-foreground text-sm mb-2">Segunda a Sexta: 8h às 18h</p>
-              <div class="text-orange-400 font-medium text-sm">
-                Emergências via WhatsApp
-              </div>
+              <h4 class="text-base md:text-lg font-semibold text-foreground mb-1">{t.contactInfo.hours.title}</h4>
+              <p class="text-muted-foreground text-sm mb-2">{t.contactInfo.hours.description}</p>
+              <div class="text-orange-400 font-medium text-sm">{t.contactInfo.hours.emergency}</div>
             </div>
           </div>
         </div>
@@ -194,34 +267,22 @@
 </section>
 
 <style>
-  .floating-element {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .floating-element:nth-child(2) {
-    animation-delay: -2s;
-  }
-
-  .floating-element:nth-child(3) {
-    animation-delay: -4s;
-  }
-
-  .floating-element:nth-child(4) {
-    animation-delay: -6s;
-  }
-
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
-  }
+  .floating-element { animation: float 6s ease-in-out infinite; }
+  .floating-element:nth-child(2) { animation-delay: -2s; }
+  .floating-element:nth-child(3) { animation-delay: -4s; }
+  .floating-element:nth-child(4) { animation-delay: -6s; }
+  @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
 </style>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    const section = document.getElementById('contact');
+    if (!section) return;
+
+    const formTranslationsString = section.dataset.formTranslations;
+    if (!formTranslationsString) return;
+
+    const t = JSON.parse(formTranslationsString);
     const form = document.getElementById('whatsapp-form') as HTMLFormElement;
     
     if (form) {
@@ -237,40 +298,24 @@
         const orcamento = formData.get('orcamento');
         const message = formData.get('message');
         
-        // Construir mensagem do WhatsApp
-        let whatsappMessage = `Olá! Gostaria de solicitar um orçamento para meu projeto.\n\n`;
-        whatsappMessage += `*Solicitação de Orçamento*\n\n`;
-        whatsappMessage += `*Nome:* ${name}\n`;
-        whatsappMessage += `*E-mail:* ${email}\n`;
+        let whatsappMessage = `${t.greeting}\n\n`;
+        whatsappMessage += `*${t.title}*\n\n`;
+        whatsappMessage += `*${t.name}:* ${name}\n`;
+        whatsappMessage += `*${t.email}:* ${email}\n`;
         
-        if (phone) {
-          whatsappMessage += `*Telefone:* ${phone}\n`;
-        }
+        if (phone) whatsappMessage += `*${t.phone}:* ${phone}\n`;
+        if (empresa) whatsappMessage += `*${t.company}:* ${empresa}\n`;
+        if (tipoProjeto) whatsappMessage += `*${t.projectType}:* ${tipoProjeto}\n`;
+        if (orcamento) whatsappMessage += `*${t.budget}:* ${orcamento}\n`;
         
-        if (empresa) {
-          whatsappMessage += `*Empresa:* ${empresa}\n`;
-        }
+        whatsappMessage += `\n*${t.message}:*\n${message}`;
         
-        whatsappMessage += `*Tipo de Projeto:* ${tipoProjeto}\n`;
-        
-        if (orcamento) {
-          whatsappMessage += `*Orçamento:* ${orcamento}\n`;
-        }
-        
-        whatsappMessage += `\n*Mensagem:*\n${message}`;
-        
-        // Codificar mensagem para URL
         const encodedMessage = encodeURIComponent(whatsappMessage);
-        
-        // Número do WhatsApp
         const phoneNumber = '5514997295849';
-        
-        // URL do WhatsApp
         const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
         
-        // Abrir WhatsApp
         window.open(whatsappURL, '_blank');
       });
     }
   });
-</script> 
+</script>

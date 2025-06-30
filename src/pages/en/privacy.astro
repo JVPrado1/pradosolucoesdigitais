@@ -1,0 +1,91 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import '../../styles/global.css';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Privacy Policy - Prado Digital Solutions">
+	<Header />
+	
+	<main class="pt-24 pb-16 bg-background">
+		<div class="max-w-4xl mx-auto px-4 md:px-6 lg:px-8">
+			<h1 class="text-3xl md:text-4xl font-bold mb-6 md:mb-10">Privacy Policy</h1>
+			
+			<div class="prose prose-invert max-w-none">
+				<p>Last updated: June 1, 2024</p>
+				
+				<h2>1. Introduction</h2>
+				<p>At Prado Digital Solutions, we respect your privacy and are committed to protecting your personal data. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our services.</p>
+				
+				<h2>2. Information We Collect</h2>
+				<p>We may collect the following types of information:</p>
+				<ul>
+					<li>Personal identification information (Name, email address, phone number, etc.)</li>
+					<li>Business information</li>
+					<li>Technical data (IP address, browser type, device information)</li>
+					<li>Usage data (how you interact with our services)</li>
+				</ul>
+				
+				<h2>3. How We Use Your Information</h2>
+				<p>We use the collected information for various purposes including:</p>
+				<ul>
+					<li>Providing and maintaining our services</li>
+					<li>Notifying you about changes to our services</li>
+					<li>Providing customer support</li>
+					<li>Gathering analysis to improve our services</li>
+					<li>Monitoring the usage of our services</li>
+				</ul>
+				
+				<h2>4. Data Security</h2>
+				<p>We implement appropriate security measures to protect your personal information. However, no method of transmission over the Internet or electronic storage is 100% secure, and we cannot guarantee absolute security.</p>
+				
+				<h2>5. Third-Party Disclosure</h2>
+				<p>We do not sell, trade, or otherwise transfer your personally identifiable information to outside parties unless we provide users with advance notice. This does not include website hosting partners and other parties who assist us in operating our website, conducting our business, or serving our users.</p>
+				
+				<h2>6. Your Data Protection Rights</h2>
+				<p>Depending on your location, you may have the following rights regarding your data:</p>
+				<ul>
+					<li>The right to access your personal data</li>
+					<li>The right to rectification</li>
+					<li>The right to erasure</li>
+					<li>The right to restrict processing</li>
+					<li>The right to data portability</li>
+					<li>The right to object</li>
+				</ul>
+				
+				<h2>7. Changes to This Privacy Policy</h2>
+				<p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
+				
+				<h2>8. Contact Us</h2>
+				<p>If you have any questions about this Privacy Policy, please contact us at contato@pradosolucoes.com.br.</p>
+			</div>
+		</div>
+	</main>
+	
+	<Footer />
+</Layout>
+
+<style>
+	.prose {
+		color: var(--foreground);
+	}
+	
+	.prose h2 {
+		color: var(--foreground);
+		margin-top: 2rem;
+		margin-bottom: 1rem;
+		font-weight: 600;
+	}
+	
+	.prose p, .prose li {
+		color: var(--muted-foreground);
+		margin-bottom: 1rem;
+	}
+	
+	.prose ul {
+		list-style-type: disc;
+		padding-left: 1.5rem;
+		margin-bottom: 1.5rem;
+	}
+</style> 

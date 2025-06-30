@@ -1,8 +1,146 @@
 ---
-// Portfolio moderno com glassmorphism e carrossel mobile
+// Portfolio moderno com glassmorphism, carrossel mobile e i18n
+
+// Obter o idioma atual da URL
+const currentPath = Astro.url.pathname;
+const lang = currentPath.startsWith('/en') ? 'en' : 'pt';
+
+// Traduções
+const translations = {
+  pt: {
+    title: "Projetos",
+    titleHighlight: "em destaque",
+    description: "Conheça alguns dos projetos que desenvolvemos, entregando soluções personalizadas e resultados eficientes para nossos clientes.",
+    mobileInstruction: "Deslize para ver os projetos",
+    visitSite: "Visitar site",
+    closedProject: "Projeto Fechado",
+    cta: {
+      title: "Vamos criar juntos?",
+      description: "Que tal ser o próximo case de sucesso? Vamos transformar sua ideia em um projeto incrível e inovador.",
+      button: "Começar Projeto",
+      header: "Seu Projeto Aqui"
+    },
+    projects: [
+      {
+        imgSrc: "/trackbytrack.webp",
+        tag: "Plataforma Web",
+        tagColor: "#00B050",
+        title: "Track By Track",
+        description: "A plataforma permite que os usuários avaliem músicas individualmente, calculem uma média para o álbum, registrem o histórico de escutas e compartilhem opiniões com a comunidade.",
+        link: "https://www.trackbytrackapp.com",
+        isLocked: false
+      },
+      {
+        imgSrc: "/plano-marshall.webp",
+        tag: "Website",
+        tagColor: "#3B82F6",
+        title: "Banda Plano Marshall",
+        description: "Landing page desenvolvida para a banda Plano Marshall com foco em SEO, ajudando a banda a ter mais visibilidade online e alcançar novos fãs e contratantes.",
+        link: "https://bandaplanomarshall.com.br",
+        isLocked: false
+      },
+      {
+        imgSrc: "/qlook.webp",
+        tag: "Sistema",
+        tagColor: "#8B5CF6",
+        title: "Qlook Store",
+        description: "Sistema robusto e personalizado para a Qlook Store, com controle total de vendas, clientes, estoque, consignações, crediário e relatórios.",
+        link: "#",
+        isLocked: true
+      },
+      {
+        imgSrc: "/conservatorio.webp",
+        tag: "Website",
+        tagColor: "#F59E0B",
+        title: "Conservatório Jauense de Música",
+        description: "Site institucional desenvolvido para o Conservatório Jauense de Música, apresentando informações sobre cursos, professores e eventos musicais.",
+        link: "#",
+        isLocked: true
+      },
+      {
+        imgSrc: "/portfolio-joao.webp",
+        tag: "Website",
+        tagColor: "#06B6D4",
+        title: "Portfólio Profissional",
+        description: "Site portfólio moderno desenvolvido para profissional destacar seus trabalhos, habilidades e experiências para recrutadores e clientes em potencial.",
+        link: "https://portfoliodev-bkde.vercel.app/",
+        isLocked: false
+      }
+    ]
+  },
+  en: {
+    title: "Featured",
+    titleHighlight: "Projects",
+    description: "Discover some of the projects we have developed, delivering customized solutions and efficient results for our clients.",
+    mobileInstruction: "Swipe to see the projects",
+    visitSite: "Visit site",
+    closedProject: "Closed Project",
+    cta: {
+      title: "Let's create together?",
+      description: "How about being the next success story? Let's turn your idea into an incredible and innovative project.",
+      button: "Start Project",
+      header: "Your Project Here"
+    },
+    projects: [
+      {
+        imgSrc: "/trackbytrack.webp",
+        tag: "Web Platform",
+        tagColor: "#00B050",
+        title: "Track By Track",
+        description: "The platform allows users to rate individual songs, calculate an album average, log listening history, and share opinions with the community.",
+        link: "https://www.trackbytrackapp.com",
+        isLocked: false
+      },
+      {
+        imgSrc: "/plano-marshall.webp",
+        tag: "Website",
+        tagColor: "#3B82F6",
+        title: "Plano Marshall Band",
+        description: "Landing page developed for the Plano Marshall band with a focus on SEO, helping the band gain more online visibility and reach new fans and clients.",
+        link: "https://bandaplanomarshall.com.br",
+        isLocked: false
+      },
+      {
+        imgSrc: "/qlook.webp",
+        tag: "System",
+        tagColor: "#8B5CF6",
+        title: "Qlook Store",
+        description: "A robust and customized system for Qlook Store, with full control over sales, customers, inventory, consignments, credit, and reports.",
+        link: "#",
+        isLocked: true
+      },
+      {
+        imgSrc: "/conservatorio.webp",
+        tag: "Website",
+        tagColor: "#F59E0B",
+        title: "Jauense Music Conservatory",
+        description: "Institutional website developed for the Jauense Music Conservatory, presenting information about courses, teachers, and musical events.",
+        link: "#",
+        isLocked: true
+      },
+      {
+        imgSrc: "/portfolio-joao.webp",
+        tag: "Website",
+        tagColor: "#06B6D4",
+        title: "Professional Portfolio",
+        description: "Modern portfolio website developed for a professional to highlight their work, skills, and experiences to recruiters and potential clients.",
+        link: "https://portfoliodev-bkde.vercel.app/",
+        isLocked: false
+      }
+    ]
+  }
+};
+
+const t = translations[lang];
+const portfolioData = JSON.stringify({
+    projects: t.projects,
+    cta: t.cta,
+    visitSite: t.visitSite,
+    closedProject: t.closedProject
+});
 ---
 
-<section id="portfolio" class="py-16 relative overflow-hidden bg-background transition-colors duration-300">
+<section id="portfolio" class="py-16 relative overflow-hidden bg-background transition-colors duration-300" data-portfolio={portfolioData}>
   <!-- Background Pattern -->
   <div class="absolute inset-0 opacity-20">
     <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0); background-size: 50px 50px;"></div>
@@ -20,11 +158,11 @@
     <!-- Header -->
     <div class="text-center mb-12 md:mb-20">
       <h2 class="text-2xl md:text-5xl font-bold mb-8 leading-tight">
-        <span class="text-foreground">Projetos </span>
-        <span class="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">em destaque</span>
+        <span class="text-foreground">{t.title} </span>
+        <span class="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">{t.titleHighlight}</span>
       </h2>
       <p class="text-base md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-        Conheça alguns dos projetos que desenvolvemos, entregando soluções personalizadas e resultados eficientes para nossos clientes.
+        {t.description}
       </p>
     </div>
 
@@ -35,180 +173,69 @@
           <!-- Cards serão inseridos via JS -->
         </div>
       </div>
-      <!-- Indicador de progresso sutil -->
       <div class="flex justify-center mt-6 flex-col items-center">
-        <!-- Barra de progresso -->
         <div class="w-32">
           <div class="h-2 border border-gray-800 rounded-full overflow-hidden">
             <div id="portfolio-progress-bar" class="h-full bg-gradient-to-r from-[#00B050]/60 to-blue-400/60 rounded-full transition-all duration-500 ease-out" style="width: 20%"></div>
           </div>
         </div>
-        <!-- Texto de instrução -->
         <p class="text-xs text-muted-foreground mt-2 flex items-center">
-          <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
-          </svg>
-          Deslize para ver os projetos
-          <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-          </svg>
+          <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+          {t.mobileInstruction}
+          <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
         </p>
       </div>
     </div>
 
     <!-- Desktop Grid -->
     <div class="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
-        <!-- Projeto 1: Track By Track -->
-      <div class="group bg-card backdrop-blur-sm rounded-2xl border border-border shadow-2xl hover:shadow-[#00B050]/10 transition-all duration-500 hover:scale-105 hover:border-[#00B050]/30 overflow-hidden flex flex-col h-full">
-        <div class="relative h-44 bg-[#00B050]/10 flex-shrink-0">
-          <img src="/trackbytrack.webp" alt="Track By Track" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-          <div class="absolute top-4 right-4 flex flex-col items-end gap-2">
-            <a href="https://www.trackbytrackapp.com/" target="_blank" rel="noopener noreferrer" class="px-3 py-1 bg-[#00B050] text-white text-sm rounded-xl font-medium shadow-lg hover:bg-[#00B050]/90 transition-colors">
-              Plataforma Web
-            </a>
+      {t.projects.map(project => (
+        <div class="group bg-card backdrop-blur-sm rounded-2xl border border-border shadow-2xl transition-all duration-500 hover:scale-105 overflow-hidden flex flex-col h-full" style={`--hover-color: ${project.tagColor}1A; --border-color: ${project.tagColor}4D;`}>
+          <div class="relative h-44 bg-gray-800/50 flex-shrink-0">
+            <img src={project.imgSrc} alt={project.title} class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <div class="absolute top-4 right-4">
+              <span class="px-3 py-1 text-white text-sm rounded-xl font-medium shadow-lg" style={{backgroundColor: project.tagColor}}>
+                {project.tag}
+              </span>
+            </div>
           </div>
-        </div>
-        <div class="p-6 flex flex-col flex-grow">
-          <h3 class="text-lg font-bold text-foreground mb-3 flex-shrink-0 min-h-[3.5rem] flex items-start">Track By Track</h3>
-          <p class="text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">
-            A plataforma permite que os usuários avaliem músicas individualmente, calculem uma média para o álbum, registrem o histórico de escutas e compartilhem opiniões com a comunidade.
-          </p>
-          <a href="https://www.trackbytrackapp.com/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-[#00B050] hover:text-[#00B050]/80 font-medium text-sm mt-auto transition-colors">
-            <span>Visitar site</span>
-            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-        <!-- Projeto 2: Banda Plano Marshall -->
-      <div class="group bg-card backdrop-blur-sm rounded-2xl border border-border shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 hover:scale-105 hover:border-blue-500/30 overflow-hidden flex flex-col h-full">
-        <div class="relative h-44 bg-blue-500/10 flex-shrink-0">
-          <img src="/plano-marshall.webp" alt="Banda Plano Marshall" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-          <div class="absolute top-4 right-4 flex flex-col items-end gap-2">
-            <a href="https://bandaplanomarshall.com.br" target="_blank" rel="noopener noreferrer" class="px-3 py-1 bg-blue-500 text-white text-sm rounded-xl font-medium shadow-lg hover:bg-blue-600 transition-colors">
-              Website
-            </a>
-          </div>
-        </div>
-        <div class="p-6 flex flex-col flex-grow">
-          <h3 class="text-lg font-bold text-foreground mb-3 flex-shrink-0 min-h-[3.5rem] flex items-start">Banda Plano Marshall</h3>
-          <p class="text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">
-            Landing page desenvolvida para a banda Plano Marshall com foco em SEO, ajudando a banda a ter mais visibilidade online e alcançar novos fãs e contratantes.
-          </p>
-          <a href="https://bandaplanomarshall.com.br" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium text-sm transition-colors duration-300 mt-auto">
-            <span>Visitar site</span>
-            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Projeto 3: Odin -->
-      <div class="group bg-card backdrop-blur-sm rounded-2xl border border-border shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 hover:scale-105 hover:border-purple-500/30 overflow-hidden flex flex-col h-full">
-        <div class="relative h-44 bg-purple-500/10 flex-shrink-0">
-          <img src="/qlook.webp" alt="Odin Project" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-          <div class="absolute top-4 right-4">
-            <span class="px-3 py-1 bg-purple-500 text-white text-sm rounded-xl font-medium shadow-lg">
-              Sistema
-            </span>
-          </div>
-        </div>
-        <div class="p-6 flex flex-col flex-grow">
-          <h3 class="text-lg font-bold text-foreground mb-3 flex-shrink-0 min-h-[3.5rem] flex items-start">Qlook Store</h3>
-          <p class="text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">
-            Sistema robusto e personalizado para a Qlook Store, com controle total de vendas, clientes, estoque, consignações, crediário e relatórios.
-          </p>
-          <div class="mt-auto">
-            <div class="inline-flex items-center px-3 py-1.5 bg-card border border-border rounded-lg text-sm text-muted-foreground">
-              <span>Projeto Fechado</span>
-              <svg class="ml-1.5 w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-              </svg>
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-lg font-bold text-foreground mb-3 flex-shrink-0 min-h-[3.5rem] flex items-start">{project.title}</h3>
+            <p class="text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">{project.description}</p>
+            <div class="mt-auto">
+              {project.isLocked ? (
+                <div class="inline-flex items-center px-3 py-1.5 bg-card border border-border rounded-lg text-sm text-muted-foreground">
+                  <span>{t.closedProject}</span>
+                  <svg class="ml-1.5 w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                </div>
+              ) : (
+                <a href={project.link} target="_blank" rel="noopener noreferrer" class="inline-flex items-center font-medium text-sm transition-colors" style={{color: project.tagColor}}>
+                  <span>{t.visitSite}</span>
+                  <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+              )}
             </div>
           </div>
         </div>
-      </div>
-
-      <!-- Projeto 4: ProFi -->
-      <div class="group bg-card backdrop-blur-sm rounded-2xl border border-border shadow-2xl hover:shadow-orange-500/10 transition-all duration-500 hover:scale-105 hover:border-orange-500/30 overflow-hidden flex flex-col h-full">
-        <div class="relative h-44 bg-orange-500/10 flex-shrink-0">
-          <img src="/conservatorio.webp" alt="ProFi" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-          <div class="absolute top-4 right-4">
-            <span class="px-3 py-1 bg-orange-500 text-white text-sm rounded-xl font-medium shadow-lg">
-              Website
-            </span>
-          </div>
-        </div>
-        <div class="p-6 flex flex-col flex-grow">
-          <h3 class="text-lg font-bold text-foreground mb-3 flex-shrink-0 min-h-[3.5rem] flex items-start">Conservatório Jauense de Música</h3>
-          <p class="text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">
-            Site institucional desenvolvido para o Conservatório Jauense de Música, apresentando informações sobre cursos, professores e eventos musicais.
-          </p>
-          <div class="mt-auto">
-            <div class="inline-flex items-center px-3 py-1.5 bg-card border border-border rounded-lg text-sm text-muted-foreground">
-              <span>Projeto Fechado</span>
-              <svg class="ml-1.5 w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Projeto 5: Portfólio Pessoal -->
-      <div class="group bg-card backdrop-blur-sm rounded-2xl border border-border shadow-2xl hover:shadow-cyan-500/10 transition-all duration-500 hover:scale-105 hover:border-cyan-500/30 overflow-hidden flex flex-col h-full">
-        <div class="relative h-44 bg-cyan-500/10 flex-shrink-0">
-          <img src="/portfolio-joao.webp" alt="Portfólio Pessoal" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-          <div class="absolute top-4 right-4 flex flex-col items-end gap-2">
-            <a href="https://portfoliodev-bkde.vercel.app/" target="_blank" rel="noopener noreferrer" class="px-3 py-1 bg-cyan-500 text-white text-sm rounded-xl font-medium shadow-lg hover:bg-cyan-600 transition-colors">
-              Website
-            </a>
-         
-          </div>
-        </div>
-        <div class="p-6 flex flex-col flex-grow">
-          <h3 class="text-lg font-bold text-foreground mb-3 flex-shrink-0 min-h-[3.5rem] flex items-start">Portfólio Profissional</h3>
-          <p class="text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">
-            Site portfólio moderno desenvolvido para profissional destacar seus trabalhos, habilidades e experiências para recrutadores e clientes em potencial.
-          </p>
-          <a href="https://portfoliodev-bkde.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-medium text-sm mt-auto transition-colors">
-            <span>Visitar site</span>
-            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- CTA - Seu Projeto -->
+      ))}
+      
+      <!-- CTA Card -->
       <div class="group bg-card backdrop-blur-sm rounded-2xl border border-[#00B050]/30 shadow-2xl hover:shadow-[#00B050]/10 transition-all duration-500 hover:scale-105 hover:border-[#00B050]/50 overflow-hidden flex flex-col h-full">
-                  <div class="relative h-44 bg-card flex-shrink-0 flex items-center justify-center">
-            <div class="text-center">
-              <div class="w-16 h-16 bg-card backdrop-blur-sm rounded-2xl flex items-center justify-center mb-4 mx-auto border border-border">
-              <svg class="w-8 h-8 text-[#00B050]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
-              </svg>
+        <div class="relative h-44 bg-card flex-shrink-0 flex items-center justify-center">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-card backdrop-blur-sm rounded-2xl flex items-center justify-center mb-4 mx-auto border border-border">
+              <svg class="w-8 h-8 text-[#00B050]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
             </div>
-            <span class="text-foreground font-semibold text-lg">Seu Projeto Aqui</span>
+            <span class="text-foreground font-semibold text-lg">{t.cta.header}</span>
           </div>
         </div>
         <div class="p-6 flex flex-col flex-grow text-center">
-          <h3 class="text-lg font-bold text-foreground mb-3 flex-shrink-0 min-h-[3.5rem] flex items-start justify-center">Vamos criar juntos?</h3>
-          <p class="text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">
-            Que tal ser o próximo case de sucesso? Vamos transformar sua ideia em um projeto incrível e inovador.
-          </p>
+          <h3 class="text-lg font-bold text-foreground mb-3 flex-shrink-0 min-h-[3.5rem] flex items-start justify-center">{t.cta.title}</h3>
+          <p class="text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">{t.cta.description}</p>
           <a href="#contact" class="inline-flex items-center justify-center bg-[#00B050] hover:bg-[#00B050]/90 text-white px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-[#00B050]/25 mt-auto">
-            <span>Começar Projeto</span>
-            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
+            <span>{t.cta.button}</span>
+            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </a>
         </div>
       </div>
@@ -218,156 +245,76 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const projects = [
-      {
-        imgSrc: "/trackbytrack.webp",
-        tag: "Plataforma Web",
-        tagColor: "#00B050",
-        title: "Track By Track",
-        description: "A plataforma permite que os usuários avaliem músicas individualmente, calculem uma média para o álbum, registrem o histórico de escutas e compartilhem opiniões com a comunidade.",
-        link: "https://www.trackbytrackapp.com",
-        hoverColor: "#00B050",
-        isLocked: false
-      },
-      {
-        imgSrc: "/plano-marshall.webp",
-        tag: "Website",
-        tagColor: "#3B82F6",
-        title: "Banda Plano Marshall",
-        description: "Landing page desenvolvida para a banda Plano Marshall com foco em SEO, ajudando a banda a ter mais visibilidade online e alcançar novos fãs e contratantes.",
-        link: "https://bandaplanomarshall.com.br",
-        hoverColor: "#3B82F6",
-        isLocked: false
-      },
-      {
-        imgSrc: "/qlook.webp",
-        tag: "Sistema",
-        tagColor: "#8B5CF6",
-        title: "Qlook Store",
-        description: "Sistema robusto e personalizado para a Qlook Store, com controle total de vendas, clientes, estoque, consignações, crediário e relatórios.",
-        link: "#",
-        hoverColor: "#8B5CF6",
-        isLocked: true
-      },
-      {
-        imgSrc: "/conservatorio.webp",
-        tag: "Website",
-        tagColor: "#F59E0B",
-        title: "Conservatório Jauense de Música",
-        description: "Site institucional desenvolvido para o Conservatório Jauense de Música, apresentando informações sobre cursos, professores e eventos musicais.",
-        link: "#",
-        hoverColor: "#F59E0B",
-        isLocked: true
-      },
-      {
-        imgSrc: "/portfolio-joao.webp",
-        tag: "Website",
-        tagColor: "#06B6D4",
-        title: "Portfólio Profissional",
-        description: "Site portfólio moderno desenvolvido para profissional destacar seus trabalhos, habilidades e experiências para recrutadores e clientes em potencial.",
-        link: "https://portfoliodev-bkde.vercel.app/",
-        hoverColor: "#06B6D4",
-        isLocked: false
-      }
-        
-    ];
+    const section = document.getElementById('portfolio');
+    if (!section) return;
 
-    const carousel = document.getElementById('portfolio-carousel');
-    const carouselInner = document.getElementById('portfolio-carousel-inner');
-    const progressBar = document.getElementById('portfolio-progress-bar');
+    const portfolioDataString = section.dataset.portfolio;
+    if (!portfolioDataString) return;
+    
+    const data = JSON.parse(portfolioDataString);
+    const { projects, cta, visitSite, closedProject } = data;
+
+    const carousel = document.getElementById('portfolio-carousel') as HTMLElement;
+    const carouselInner = document.getElementById('portfolio-carousel-inner') as HTMLElement;
+    const progressBar = document.getElementById('portfolio-progress-bar') as HTMLElement;
 
     if (!carousel || !carouselInner || !progressBar) return;
 
-    projects.forEach((project, index) => {
+    carouselInner.innerHTML = ''; // Limpar conteúdo existente
+
+    projects.forEach((project: any) => {
         const cardWrapper = document.createElement('div');
         cardWrapper.className = 'w-full flex-shrink-0 p-2';
+        
+        const linkOrLock = project.isLocked
+          ? `<div class="mt-auto">
+               <div class="inline-flex items-center px-3 py-1.5 bg-card border border-border rounded-lg text-sm text-muted-foreground">
+                 <span>${closedProject}</span>
+                 <svg class="ml-1.5 w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+               </div>
+             </div>`
+          : `<a href="${project.link}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center font-medium text-sm mt-auto" style="color: ${project.tagColor}">
+               <span>${visitSite}</span>
+               <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+             </a>`;
 
-        let cardHTML;
-        // Removendo o bloco CTA que não está sendo usado
-        if (false) {
-            // Este bloco nunca será executado, mas mantemos o código para referência futura
-            cardHTML = ``;
-        } else {
-            if (project.isLocked) {
-          cardHTML = `
-            <div class="bg-card backdrop-blur-sm rounded-2xl border border-border shadow-2xl hover:shadow-[${project.hoverColor}]/10 transition-all duration-500 overflow-hidden h-full flex flex-col">
-              <div class="relative h-44 bg-[${project.hoverColor}]/10 flex-shrink-0">
-                <img src="${project.imgSrc}" alt="${project.title}" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                <div class="absolute top-4 right-4">
-                  <span class="px-3 py-1 text-white text-sm rounded-xl font-medium shadow-lg" style="background-color: ${project.tagColor}">
-                    ${project.tag}
-                  </span>
-                </div>
-              </div>
-              <div class="p-6 flex flex-col flex-grow">
-                <h3 class="text-lg font-bold text-foreground mb-3">${project.title}</h3>
-                <p class="text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">${project.description}</p>
-                <div class="mt-auto">
-                  <div class="inline-flex items-center px-3 py-1.5 bg-card border border-border rounded-lg text-sm text-muted-foreground">
-                    <span>Projeto Fechado</span>
-                    <svg class="ml-1.5 w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                    </svg>
-                  </div>
-                </div>
+        cardWrapper.innerHTML = `
+          <div class="bg-card backdrop-blur-sm rounded-2xl border border-border shadow-2xl h-full flex flex-col" style="border-color: ${project.tagColor}30;">
+            <div class="relative h-44 bg-gray-800/50 flex-shrink-0">
+              <img src="${project.imgSrc}" alt="${project.title}" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <div class="absolute top-4 right-4">
+                <span class="px-3 py-1 text-white text-sm rounded-xl font-medium shadow-lg" style="background-color: ${project.tagColor}">${project.tag}</span>
               </div>
             </div>
-          `;
-        } else {
-          cardHTML = `
-            <div class="bg-card backdrop-blur-sm rounded-2xl border border-border shadow-2xl hover:shadow-[${project.hoverColor}]/10 transition-all duration-500 overflow-hidden h-full flex flex-col">
-              <div class="relative h-44 bg-[${project.hoverColor}]/10 flex-shrink-0">
-                <img src="${project.imgSrc}" alt="${project.title}" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                <div class="absolute top-4 right-4">
-                  <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="px-3 py-1 text-white text-sm rounded-xl font-medium shadow-lg hover:bg-opacity-90 transition-colors" style="background-color: ${project.tagColor}">
-                    ${project.tag}
-                  </a>
-                </div>
-              </div>
-              <div class="p-6 flex flex-col flex-grow">
-                <h3 class="text-lg font-bold text-foreground mb-3">${project.title}</h3>
-                <p class="text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">${project.description}</p>
-                <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center font-medium text-sm mt-auto" style="color: ${project.tagColor}">
-                  <span>Visitar site</span>
-                  <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                  </svg>
-                </a>
-              </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <h3 class="text-lg font-bold text-foreground mb-3">${project.title}</h3>
+              <p class="text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">${project.description}</p>
+              ${linkOrLock}
             </div>
-          `;
-        }}
-        cardWrapper.innerHTML = cardHTML;
+          </div>
+        `;
         carouselInner.appendChild(cardWrapper);
     });
 
-    // Adicionar o card CTA "Seu Projeto Aqui"
     const ctaCardWrapper = document.createElement('div');
     ctaCardWrapper.className = 'w-full flex-shrink-0 p-2';
     ctaCardWrapper.innerHTML = `
-      <div class="bg-card backdrop-blur-sm rounded-2xl border border-[#00B050]/30 shadow-2xl hover:shadow-[#00B050]/10 transition-all duration-500 overflow-hidden h-full flex flex-col">
+      <div class="bg-card backdrop-blur-sm rounded-2xl border border-[#00B050]/30 shadow-2xl h-full flex flex-col">
         <div class="relative h-44 bg-card flex-shrink-0 flex items-center justify-center">
           <div class="text-center">
             <div class="w-16 h-16 bg-card backdrop-blur-sm rounded-2xl flex items-center justify-center mb-4 mx-auto border border-border">
-              <svg class="w-8 h-8 text-[#00B050]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
-              </svg>
+              <svg class="w-8 h-8 text-[#00B050]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
             </div>
-            <span class="text-foreground font-semibold text-lg">Seu Projeto Aqui</span>
+            <span class="text-foreground font-semibold text-lg">${cta.header}</span>
           </div>
         </div>
         <div class="p-6 flex flex-col flex-grow text-center">
-          <h3 class="text-lg font-bold text-foreground mb-3">Vamos criar juntos?</h3>
-          <p class="text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">
-            Que tal ser o próximo case de sucesso? Vamos transformar sua ideia em um projeto incrível e inovador.
-          </p>
-          <a href="#contact" class="inline-flex items-center justify-center bg-[#00B050] hover:bg-[#00B050]/90 text-white px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-[#00B050]/25 mt-auto">
-            <span>Começar Projeto</span>
-            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
+          <h3 class="text-lg font-bold text-foreground mb-3">${cta.title}</h3>
+          <p class="text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">${cta.description}</p>
+          <a href="#contact" class="inline-flex items-center justify-center bg-[#00B050] hover:bg-[#00B050]/90 text-white px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 mt-auto">
+            <span>${cta.button}</span>
+            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </a>
         </div>
       </div>
@@ -375,10 +322,9 @@
     carouselInner.appendChild(ctaCardWrapper);
 
     let currentSlide = 0;
-    const totalSlides = projects.length + 1; // +1 para o card CTA
+    const totalSlides = projects.length + 1;
 
     function updateCarouselWidth() {
-        if (!carousel || !carouselInner) return;
         const slideWidth = carousel.offsetWidth;
         carouselInner.style.width = `${slideWidth * totalSlides}px`;
         Array.from(carouselInner.children).forEach(slide => {
@@ -388,12 +334,9 @@
     }
 
     function goToSlide(index: number) {
-        if (!carousel || !carouselInner || !progressBar) return;
         currentSlide = index;
         const offset = -index * carousel.offsetWidth;
         carouselInner.style.transform = `translateX(${offset}px)`;
-        
-        // Atualizar barra de progresso
         const progress = ((index + 1) / totalSlides) * 100;
         progressBar.style.width = `${progress}%`;
     }
