@@ -36,14 +36,23 @@
         </div>
       </div>
       <!-- Indicador de progresso sutil -->
-      <div class="flex justify-center mt-6">
+      <div class="flex justify-center mt-6 flex-col items-center">
         <!-- Barra de progresso -->
         <div class="w-32">
-          <div class="h-2 border-[1px] border-gray-
-          800 rounded-full overflow-hidden ">
+          <div class="h-2 border border-gray-800 rounded-full overflow-hidden">
             <div id="portfolio-progress-bar" class="h-full bg-gradient-to-r from-[#00B050]/60 to-blue-400/60 rounded-full transition-all duration-500 ease-out" style="width: 20%"></div>
           </div>
         </div>
+        <!-- Texto de instrução -->
+        <p class="text-xs text-muted-foreground mt-2 flex items-center">
+          <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+          </svg>
+          Deslize para ver os projetos
+          <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </p>
       </div>
     </div>
 
@@ -286,7 +295,7 @@
                 <img src="${project.imgSrc}" alt="${project.title}" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                 <div class="absolute top-4 right-4">
-                  <span class="px-3 py-1 bg-[${project.hoverColor}] text-white text-sm rounded-xl font-medium shadow-lg">
+                  <span class="px-3 py-1 text-white text-sm rounded-xl font-medium shadow-lg" style="background-color: ${project.tagColor}">
                     ${project.tag}
                   </span>
                 </div>
@@ -312,7 +321,7 @@
                 <img src="${project.imgSrc}" alt="${project.title}" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                 <div class="absolute top-4 right-4">
-                  <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="px-3 py-1 bg-[${project.hoverColor}] text-white text-sm rounded-xl font-medium shadow-lg hover:bg-[${project.hoverColor}]/90 transition-colors">
+                  <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="px-3 py-1 text-white text-sm rounded-xl font-medium shadow-lg hover:bg-opacity-90 transition-colors" style="background-color: ${project.tagColor}">
                     ${project.tag}
                   </a>
                 </div>
@@ -320,7 +329,7 @@
               <div class="p-6 flex flex-col flex-grow">
                 <h3 class="text-lg font-bold text-foreground mb-3">${project.title}</h3>
                 <p class="text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">${project.description}</p>
-                <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-[${project.hoverColor}] hover:text-[${project.hoverColor}]/80 font-medium text-sm mt-auto">
+                <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center font-medium text-sm mt-auto" style="color: ${project.tagColor}">
                   <span>Visitar site</span>
                   <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
@@ -334,8 +343,39 @@
         carouselInner.appendChild(cardWrapper);
     });
 
+    // Adicionar o card CTA "Seu Projeto Aqui"
+    const ctaCardWrapper = document.createElement('div');
+    ctaCardWrapper.className = 'w-full flex-shrink-0 p-2';
+    ctaCardWrapper.innerHTML = `
+      <div class="bg-card backdrop-blur-sm rounded-2xl border border-[#00B050]/30 shadow-2xl hover:shadow-[#00B050]/10 transition-all duration-500 overflow-hidden h-full flex flex-col">
+        <div class="relative h-44 bg-card flex-shrink-0 flex items-center justify-center">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-card backdrop-blur-sm rounded-2xl flex items-center justify-center mb-4 mx-auto border border-border">
+              <svg class="w-8 h-8 text-[#00B050]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+              </svg>
+            </div>
+            <span class="text-foreground font-semibold text-lg">Seu Projeto Aqui</span>
+          </div>
+        </div>
+        <div class="p-6 flex flex-col flex-grow text-center">
+          <h3 class="text-lg font-bold text-foreground mb-3">Vamos criar juntos?</h3>
+          <p class="text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">
+            Que tal ser o próximo case de sucesso? Vamos transformar sua ideia em um projeto incrível e inovador.
+          </p>
+          <a href="#contact" class="inline-flex items-center justify-center bg-[#00B050] hover:bg-[#00B050]/90 text-white px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-[#00B050]/25 mt-auto">
+            <span>Começar Projeto</span>
+            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    `;
+    carouselInner.appendChild(ctaCardWrapper);
+
     let currentSlide = 0;
-    const totalSlides = projects.length;
+    const totalSlides = projects.length + 1; // +1 para o card CTA
 
     function updateCarouselWidth() {
         if (!carousel || !carouselInner) return;
