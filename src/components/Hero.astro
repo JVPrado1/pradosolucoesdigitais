@@ -2,14 +2,15 @@
 // Hero moderno com design limpo e compacto
 ---
 
-<section class="relative min-h-[90vh] md:min-h-screen bg-[#121212] flex items-center overflow-hidden pt-[80px] md:pt-[60px] pb-16">
+    
+<section class="mx-auto relative min-h-[90vh] md:min-h-screen bg-[#121212] z-1 flex items-center overflow-visible pt-[80px] md:pt-[60px] pb-16">
   <!-- Background Pattern -->
-  <div class="absolute inset-0 opacity-30">
-    <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0); background-size: 50px 50px;"></div>
-  </div>
+
+ 
+ 
 
   <!-- Tech Background Elements - Oculto em telas muito pequenas -->
-  <div class="absolute inset-0 overflow-hidden select-none pointer-events-none hidden sm:block">
+  <div class="absolute inset-0 overflow-visible select-none pointer-events-none hidden sm:block">
     <!-- Code Snippets -->
     <div class="absolute top-10 left-5 text-[#00B050]/10 text-xs font-mono">
       const init = async () =&gt; &#123;<br/>
@@ -34,7 +35,7 @@
   </div>
 
   <!-- Floating Elements - Reduzidos em mobile -->
-  <div class="absolute inset-0 overflow-hidden">
+  <div class="absolute inset-0 overflow-visible">
     <div class="floating-element absolute top-20 left-10 w-1.5 md:w-2 h-1.5 md:h-2 bg-[#00B050] rounded-full opacity-60"></div>
     <div class="floating-element absolute top-40 right-20 w-0.5 md:w-1 h-0.5 md:h-1 bg-white rounded-full opacity-40"></div>
     <div class="floating-element absolute bottom-40 left-20 w-1 md:w-1.5 h-1 md:h-1.5 bg-[#00B050] rounded-full opacity-50"></div>
