@@ -42,14 +42,14 @@ const t = translations[lang];
   <div class="max-w-6xl mx-auto px-6 lg:px-8">
     <div class="flex items-center justify-between h-[60px]">
       <!-- Logo (lado esquerdo) -->
-      <a href="/" class="flex-shrink-0">
+      <a href="/" id="header-logo-link" class="flex-shrink-0">
         <img id="site-logo" src="/logo-preto.png" alt="Prado Soluções Digitais" class="h-10 w-auto">
       </a>
 
       <!-- Navegação e Theme Toggle (lado direito) -->
-      <div class="flex items-center space-x-4">
+      <div class="flex flex-grow items-center justify-end space-x-4">
         <!-- Links de Navegação Desktop -->
-        <nav class="hidden md:flex items-center">
+        <nav id="desktop-nav" class="hidden md:flex items-center">
           <ul class="flex items-center space-x-6">
             <li>
               <a href="#about" class="text-linkmenu hover:text-[#00B050] transition-colors duration-300">
@@ -86,7 +86,7 @@ const t = translations[lang];
           </svg>
         </button>
      <!-- Language Switcher (Desktop) -->
-     <a href={alternateLink} class="hidden md:flex items-center justify-center w-10 h-7 rounded-md border border-border hover:bg-card-hover transition-all duration-300 overflow-hidden">
+     <a href={alternateLink} id="desktop-lang-switcher" class="hidden md:flex items-center justify-center w-10 h-7 rounded-md border border-border hover:bg-card-hover transition-all duration-300 overflow-hidden">
       {lang === 'pt' ? (
         <img src="/bandeiras/usa.svg" alt="Switch to English" class="w-full h-full object-cover" />
       ) : (
@@ -95,7 +95,7 @@ const t = translations[lang];
     </a>
 
     <!-- Language Switcher (Mobile) -->
-    <a href={alternateLink} class="md:hidden flex items-center justify-center w-10 h-7 rounded-md border border-border hover:bg-card-hover transition-all duration-300 overflow-hidden">
+    <a href={alternateLink} id="mobile-lang-switcher" class="md:hidden flex items-center justify-center w-10 h-7 rounded-md border border-border hover:bg-card-hover transition-all duration-300 overflow-hidden">
       {lang === 'pt' ? (
         <img src="/bandeiras/usa.svg" alt="Switch to English" class="w-full h-full object-cover" />
       ) : (
@@ -117,12 +117,7 @@ const t = translations[lang];
 
 <!-- Menu Mobile Fullscreen -->
 <div id="mobile-menu" class="fixed inset-0 h-screen bg-black/80 backdrop-blur-md z-40 flex flex-col items-center justify-center">
-  <!-- Botão Fechar -->
-  <button id="mobile-menu-close" class="absolute top-4 right-4 text-white hover:text-[#00B050] transition-colors duration-300">
-    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-    </svg>
-  </button>
+  <!-- Botão Fechar foi removido, a funcionalidade agora está no botão hamburger -->
 
   <!-- Navegação -->
   <nav class="flex flex-col items-center space-y-8 text-center  ">
@@ -156,13 +151,19 @@ const t = translations[lang];
 <script is:inline>
   // Elementos do DOM
   const mobileMenuButton = document.getElementById('mobile-menu-button');
-  const mobileMenuClose = document.getElementById('mobile-menu-close');
   const mobileMenu = document.getElementById('mobile-menu');
   const menuIcon = document.querySelector('.menu-icon');
   const closeIcon = document.querySelector('.close-icon');
   const themeToggle = document.getElementById('theme-toggle');
   const sunIcon = document.getElementById('sun-icon');
   const moonIcon = document.getElementById('moon-icon');
+  const headerLogoLink = document.getElementById('header-logo-link');
+  const desktopNav = document.getElementById('desktop-nav');
+  const desktopLangSwitcher = document.getElementById('desktop-lang-switcher');
+  const mobileLangSwitcher = document.getElementById('mobile-lang-switcher');
+
+  // Elementos a serem ocultados quando o menu abrir
+  const elementsToHide = [headerLogoLink, themeToggle, mobileLangSwitcher];
 
   // Toggle do menu mobile
   function closeMobileMenu() {
@@ -170,6 +171,8 @@ const t = translations[lang];
     menuIcon?.classList.remove('hidden');
     closeIcon?.classList.add('hidden');
     document.body.style.overflow = '';
+    // Mostra os elementos do header novamente
+    elementsToHide.forEach(el => el?.classList.remove('hidden'));
   }
 
   mobileMenuButton?.addEventListener('click', () => {
@@ -177,10 +180,12 @@ const t = translations[lang];
     menuIcon?.classList.toggle('hidden');
     closeIcon?.classList.toggle('hidden');
     document.body.style.overflow = isOpen ? 'hidden' : '';
+    
+    // Esconde ou mostra os elementos do header
+    elementsToHide.forEach(el => el?.classList.toggle('hidden'));
   });
   
-  // Fechar menu com o botão X
-  mobileMenuClose?.addEventListener('click', closeMobileMenu);
+  // A função de fechar agora é tratada pelo toggle no mobileMenuButton
 
   // Fecha o menu ao clicar em um link
   const mobileLinks = mobileMenu?.querySelectorAll('a');

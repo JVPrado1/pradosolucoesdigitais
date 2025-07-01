@@ -43,14 +43,14 @@ const t = translations[lang];
 ---
 
     
-<section id="hero" class="mx-auto relative min-h-[90vh] md:min-h-screen bg-background z-1 flex items-center overflow-visible pt-[60px] md:pt-[60px] pb-16 transition-colors duration-300">
+<section id="hero" class="relative flex items-center justify-center w-full h-[calc(100vh-60px)] sm:h-screen bg-background pt-[60px]">
   <!-- Background Pattern -->
 
  
  
 
   <!-- Tech Background Elements - Oculto em telas muito pequenas -->
-  <div class="absolute inset-0 overflow-visible select-none pointer-events-none hidden sm:block">
+  <div class="absolute inset-0 overflow-visible  select-none pointer-events-none hidden sm:block">
     <!-- Code Snippets -->
     <div class="absolute top-10 left-5 text-[#00B050]/10 text-xs font-mono">
       const init = async () =&gt; &#123;<br/>
@@ -79,7 +79,7 @@ const t = translations[lang];
     <div class="floating-element absolute bottom-20 right-40 w-0.5 md:w-1 h-0.5 md:h-1 bg-foreground rounded-full opacity-30"></div>
   </div>
 
-  <div class="relative z-10 max-w-6xl mx-auto px-4 md:px-6 lg:px-8 w-full min-h-[calc(100vh-60px)] flex flex-col justify-center">
+  <div class="relative z-10 max-w-6xl mx-auto px-4 md:px-6 lg:px-8 w-full  flex flex-col justify-center items-center">
   
     <!-- Main Content -->
     <div class="text-center mb-8 ">
@@ -278,5 +278,3 @@ const t = translations[lang];
     transition: opacity 0.3s ease;
   }
 </style>
-
- 
