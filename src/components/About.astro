@@ -114,7 +114,7 @@ const translations = {
 const t = translations[lang];
 ---
 
-<section id="about" class="relative py-16 bg-background z-1 overflow-visible transition-colors duration-300">
+<section id="about" class="relative py-16 bg-background z-1 overflow-visible transition-colors duration-300 aos-init aos-animate animate-zoom-in" data-aos="fade-up" data-aos-duration="1000">
   <!-- Background Pattern -->
   <div class="absolute inset-0 opacity-20">
     <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0); background-size: 50px 50px;"></div>
@@ -130,7 +130,7 @@ const t = translations[lang];
 
   <div class="max-w-6xl mx-auto px-4 md:px-6 lg:px-8 relative z-10">
     <!-- Header da Seção -->
-    <div class="text-center mb-8 md:mb-20">
+    <div class="text-center mb-8 md:mb-20 animate-rotate-left" data-aos="fade-up">
       <h2 class="text-2xl md:text-5xl font-bold mb-3 md:mb-8 leading-tight">
         <span class="text-foreground">
           {t.title}
@@ -146,7 +146,7 @@ const t = translations[lang];
     </div>
 
     <!-- Features Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 mb-10 md:mb-24">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 mb-10 md:mb-24 animate-fade-scale" data-aos="fade-up">
       <!-- Diferencial 1: Inovação -->
       <div class="group flex flex-col">
         <div class="bg-card backdrop-blur-sm rounded-xl md:rounded-2xl border border-border hover:border-[#00B050]/30 transition-all duration-300 hover:bg-card-hover p-4 md:p-8 hover:scale-[1.02] h-full">
@@ -233,7 +233,7 @@ const t = translations[lang];
     </div>
 
     <!-- Nossa Missão -->
-    <div class="text-center mb-10 md:mb-24">
+    <div class="text-center mb-10 md:mb-24 animate-zoom-in" data-aos="fade-up">
       <div class="bg-card backdrop-blur-sm rounded-xl md:rounded-2xl border border-border p-5 md:p-12">
         <div class="flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-3 md:gap-6 max-w-4xl mx-auto">
           <div class="flex-shrink-0">
@@ -254,7 +254,7 @@ const t = translations[lang];
     </div>
 
     <!-- Features Grid -->
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 animate-rotate-left" data-aos="fade-up">
       <!-- Feature 1 -->
       <div class="group flex flex-col">
         <div class="bg-card backdrop-blur-sm rounded-xl md:rounded-2xl border border-border hover:border-[#00B050]/30 transition-all duration-300 hover:bg-card-hover p-3 md:p-6 hover:scale-[1.02] h-full flex flex-col">
@@ -334,5 +334,17 @@ const t = translations[lang];
     50% {
       transform: translateY(-20px);
     }
+  }
+
+  /* Animação de scroll */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .animate-on-scroll.animate-in {
+    opacity: 1;
+    transform: translateY(0);
   }
 </style>

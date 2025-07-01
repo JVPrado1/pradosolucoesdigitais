@@ -18,7 +18,7 @@ const lang = currentPath.startsWith('/en') ? 'en' : 'pt';
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-		
+
 		<!-- Script de inicialização do tema -->
 		<script is:inline>
 			// Theme management - executa imediatamente antes do HTML renderizar
@@ -85,6 +85,9 @@ const lang = currentPath.startsWith('/en') ? 'en' : 'pt';
 		</div>
 
 		<script>
+			import AOS from 'aos';
+			import 'aos/dist/aos.css';
+
 			// Ouve mudanças no sistema
 			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
 				if (!localStorage.getItem('theme')) {
@@ -103,6 +106,14 @@ const lang = currentPath.startsWith('/en') ? 'en' : 'pt';
 
 			// Smooth scrolling and animations
 			document.addEventListener('DOMContentLoaded', function() {
+				// Inicializa AOS
+				AOS.init({
+					duration: 800,
+					easing: 'ease-out-quart',
+					once: true,
+					offset: 120
+				});
+
 				// Intersection Observer for animations
 				const observerOptions = {
 					threshold: 0.1,
@@ -246,4 +257,3 @@ const lang = currentPath.startsWith('/en') ? 'en' : 'pt';
 
 
 </style>
-

@@ -64,7 +64,7 @@ const contactLink = lang === 'pt' ? '/#contact' : '/en/#contact';
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       
       <!-- Coluna 1: Logo e Descrição -->
-      <div class="space-y-4">
+      <div class="space-y-4" data-aos="fade-up">
         <a href={lang === 'pt' ? '/' : '/en'} class="flex-shrink-0">
           <img id="footer-logo" src="/logo-preto.png" alt="Prado Soluções Digitais" class="h-10 w-auto">
         </a>
@@ -85,7 +85,7 @@ const contactLink = lang === 'pt' ? '/#contact' : '/en/#contact';
       </div>
 
       <!-- Coluna 2: Links Úteis -->
-      <div class="space-y-4">
+      <div class="space-y-4" data-aos="fade-up">
         <h3 class="text-lg font-semibold text-foreground">{t.usefulLinks}</h3>
         <ul class="space-y-2 text-sm">
           <li><a href={aboutLink} class="hover:text-foreground transition-colors">{t.nav.about}</a></li>
@@ -98,7 +98,7 @@ const contactLink = lang === 'pt' ? '/#contact' : '/en/#contact';
       </div>
 
       <!-- Coluna 3: Contato -->
-      <div class="space-y-4">
+      <div class="space-y-4" data-aos="fade-up">
         <h3 class="text-lg font-semibold text-foreground">{t.contact}</h3>
         <ul class="space-y-3 text-sm">
           <li class="flex items-center space-x-3">

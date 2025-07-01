@@ -82,7 +82,7 @@ const t = translations[lang];
   <div class="relative z-10 max-w-6xl mx-auto px-4 md:px-6 lg:px-8 w-full  flex flex-col justify-center items-center">
   
     <!-- Main Content -->
-    <div class="text-center mb-8 ">
+    <div class="text-center mb-8" data-aos="fade-up">
       <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight font-manrope">
         <span class="text-foreground">
           {t.title}
@@ -93,13 +93,13 @@ const t = translations[lang];
         </span>
       </h1>
     
-      <p class="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed  md:mb-2 px-2">
+      <p class="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed  md:mb-2 px-2" data-aos="fade-up">
         {t.description}
       </p>
     </div>
 
     <!-- Services Grid (para desktop) / Grid (para mobile) -->
-    <div class="hidden sm:grid sm:grid-cols-2 gap-3 md:gap-4 mb-8 md:mb-12 max-w-3xl mx-auto">
+    <div class="hidden sm:grid sm:grid-cols-2 gap-3 md:gap-4 mb-8 md:mb-12 max-w-3xl mx-auto" data-aos="fade-up">
       
       <!-- Site & E-commerce -->
       <a href="#services" class="group bg-card backdrop-blur-sm rounded-lg md:rounded-xl border border-border p-3 md:p-4 hover:border-[#00B050]/30 transition-all duration-300 hover:scale-[1.02] cursor-pointer">
@@ -160,9 +160,9 @@ const t = translations[lang];
     </div>
 
     <!-- Grid para Mobile (2 colunas) -->
-    <div class="sm:hidden mb-8 grid grid-cols-2 gap-2 w-full max-w-[80%] mx-auto">
+    <div class="sm:hidden mb-8 grid grid-cols-2 gap-2 w-full max-w-[80%] mx-auto" data-aos="fade-up">
       <!-- Site & E-commerce -->
-      <a href="#services" class="group bg-card backdrop-blur-sm rounded-lg border border-border p-2 hover:border-[#00B050]/30 transition-all duration-300 hover:scale-[1.02] cursor-pointer">
+      <a href="#services" class="group bg-card backdrop-blur-sm rounded-lg border border-border p-2 hover:border-[#00B050]/30 transition-all duration-300 hover:scale-[1.02] cursor-pointer mobile-grid-item">
         <div class="flex items-center gap-2">
           <div class="w-8 h-8 bg-[#00B050]/20 rounded-md flex items-center justify-center shrink-0 group-hover:bg-[#00B050]/30 transition-colors duration-300">
             <svg class="w-4 h-4 text-[#00B050]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -174,7 +174,7 @@ const t = translations[lang];
       </a>
 
       <!-- Aplicativos -->
-      <a href="#services" class="group bg-card backdrop-blur-sm rounded-lg border border-border p-2 hover:border-blue-500/30 transition-all duration-300 hover:scale-[1.02] cursor-pointer">
+      <a href="#services" class="group bg-card backdrop-blur-sm rounded-lg border border-border p-2 hover:border-blue-500/30 transition-all duration-300 hover:scale-[1.02] cursor-pointer mobile-grid-item">
         <div class="flex items-center gap-2">
           <div class="w-8 h-8 bg-blue-500/20 rounded-md flex items-center justify-center shrink-0 group-hover:bg-blue-500/30 transition-colors duration-300">
             <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -186,7 +186,7 @@ const t = translations[lang];
       </a>
 
       <!-- Sistemas & Plataformas -->
-      <a href="#services" class="group bg-card backdrop-blur-sm rounded-lg border border-border p-2 hover:border-purple-500/30 transition-all duration-300 hover:scale-[1.02] cursor-pointer">
+      <a href="#services" class="group bg-card backdrop-blur-sm rounded-lg border border-border p-2 hover:border-purple-500/30 transition-all duration-300 hover:scale-[1.02] cursor-pointer mobile-grid-item">
         <div class="flex items-center gap-2">
           <div class="w-8 h-8 bg-purple-500/20 rounded-md flex items-center justify-center shrink-0 group-hover:bg-purple-500/30 transition-colors duration-300">
             <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -198,7 +198,7 @@ const t = translations[lang];
       </a>
 
       <!-- Automação -->
-      <a href="#services" class="group bg-card backdrop-blur-sm rounded-lg border border-border p-2 hover:border-orange-500/30 transition-all duration-300 hover:scale-[1.02] cursor-pointer">
+      <a href="#services" class="group bg-card backdrop-blur-sm rounded-lg border border-border p-2 hover:border-orange-500/30 transition-all duration-300 hover:scale-[1.02] cursor-pointer mobile-grid-item">
         <div class="flex items-center gap-2">
           <div class="w-8 h-8 bg-orange-500/20 rounded-md flex items-center justify-center shrink-0 group-hover:bg-orange-500/30 transition-colors duration-300">
             <svg class="w-4 h-4 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -212,7 +212,7 @@ const t = translations[lang];
     </div>
 
     <!-- CTA Buttons -->
-    <div class="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center max-w-[90%] sm:max-w-full mx-auto">
+    <div class="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center max-w-[90%] sm:max-w-full mx-auto" data-aos="fade-up">
       <a href="#contact" class="w-full sm:w-auto inline-flex items-center justify-center bg-[#00B050] hover:bg-[#00B050]/90 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg md:rounded-xl font-semibold transition-all duration-300 hover:scale-[1.02] shadow-lg hover:shadow-[#00B050]/25" >
         <span>{t.cta.start}</span>
         <svg class="ml-2 w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -231,9 +231,47 @@ const t = translations[lang];
 </section>
 
 <script is:inline>
-  // Código para interações específicas que ainda possam ser necessárias
+  // Código para interações específicas e animações
   document.addEventListener('DOMContentLoaded', () => {
-    // Código para futuras interações
+    // Seleciona o grid mobile para aplicar animação
+    const mobileGrid = document.querySelector('.sm\\:hidden.grid');
+    if (mobileGrid) {
+      // Adiciona classe para animação com atraso
+      setTimeout(() => {
+        mobileGrid.classList.add('animate-in');
+      }, 300);
+      
+      // Adiciona animação aos itens do grid com atraso escalonado
+      const gridItems = mobileGrid.querySelectorAll('.mobile-grid-item');
+      gridItems.forEach((item, index) => {
+        setTimeout(() => {
+          item.classList.add('animate-in');
+          item.style.opacity = '0';
+          item.style.transform = 'translateY(20px)';
+          item.style.transition = 'all 0.5s ease-out';
+          
+          setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+          }, 50);
+        }, 300 + (index * 100));
+      });
+    }
+    
+    // Inicializa animações para outros elementos com data-aos
+    const aosElements = document.querySelectorAll('[data-aos]');
+    aosElements.forEach(element => {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      observer.observe(element);
+    });
   });
 </script>
 
@@ -276,5 +314,40 @@ const t = translations[lang];
   /* Animação suave para os elementos de fundo */
   .absolute {
     transition: opacity 0.3s ease;
+  }
+  
+  /* Animações para elementos com data-aos */
+  [data-aos] {
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  [data-aos].animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Animação específica para o grid mobile */
+  .sm\:hidden.grid {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+  }
+  
+  .sm\:hidden.grid.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Animações para os itens do grid mobile */
+  .mobile-grid-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-out;
+  }
+  
+  .mobile-grid-item.animate-in {
+    opacity: 1;
+    transform: translateY(0);
   }
 </style>
