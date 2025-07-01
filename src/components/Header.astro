@@ -24,14 +24,16 @@ const translations = {
     services: "Serviços",
     portfolio: "Portfólio",
     contact: "Contato",
-    langSwitch: "EN"
+    langSwitch: "EN",
+    home: "Início"
   },
   en: {
     about: "About",
     services: "Services",
     portfolio: "Portfolio",
     contact: "Contact",
-    langSwitch: "PT"
+    langSwitch: "PT",
+    home: "Home"
   }
 };
 
@@ -122,7 +124,7 @@ const t = translations[lang];
   <!-- Navegação -->
   <nav class="flex flex-col items-center space-y-8 text-center  ">
     <ul class="flex flex-col items-center space-y-8 text-center ">
-      <li><a href="#hero" class="bg-red block text-2xl font-bold text-white hover:text-[#00B050] transition-colors duration-300">Início</a></li>
+      <li><a href="#hero" class="bg-red block text-2xl font-bold text-white hover:text-[#00B050] transition-colors duration-300">{t.home}</a></li>
       <li><a href="#about" class="block text-2xl font-bold text-white hover:text-[#00B050] transition-colors duration-300">{t.about}</a></li>
       <li><a href="#services" class="block text-2xl font-bold text-white hover:text-[#00B050] transition-colors duration-300">{t.services}</a></li>
       <li><a href="#portfolio" class="block text-2xl font-bold text-white hover:text-[#00B050] transition-colors duration-300">{t.portfolio}</a></li>
